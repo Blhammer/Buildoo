@@ -1,0 +1,46 @@
+.header-padding {
+    padding-top: 5rem !important;
+    padding-bottom: 28rem !important;
+    padding-left: 0rem !important;
+    padding-right: 0rem !important;
+    text-align: center;
+}
+
+#header {
+    color: white;
+}
+
+.book-style {
+    width: '100%';
+    max-width: '600px';
+}
+
+.btn-primary-book-style {
+    margin-top: 5rem;
+}
+
+.btn-primary-book {
+    position: relative;
+    text-align: center;
+    width: 300px;
+    height: 60px;
+    padding: 5px;
+    border-radius: 30px;
+    color: #fff;
+    background-color: #ff4800;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.btn-primary-book:hover {
+    color: #ff4800;
+    background-color: #1eff00;
+}
+
+.py-5 {
+    padding-bottom: 2rem !important;
+}
+
+.py-5 {
+    padding-top: 2rem !important;
+}

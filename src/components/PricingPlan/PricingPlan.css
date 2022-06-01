@@ -1,0 +1,22 @@
+.price-padding {
+    padding-bottom: 6rem !important;
+    padding-top: 5rem !important;
+}
+
+.price-bg-color {
+    background: #f8ef6f;
+}
+
+.price-of {
+    overflow: hidden;
+}
+
+.money-sign {
+    font-size: 22px;
+    line-height: 45px;
+}
+
+.month-sign {
+    font-size: 16px; 
+    line-height: 40px;
+}

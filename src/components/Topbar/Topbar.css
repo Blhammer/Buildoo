@@ -1,0 +1,12 @@
+.topbar-padding {
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+.text-white-links-f:hover {
+    color: #4292ff;
+}
+
+.text-white-links-y:hover {
+    color: red;
+}

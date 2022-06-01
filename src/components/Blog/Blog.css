@@ -1,0 +1,13 @@
+.blog-padding {
+    flex: auto;
+    padding-bottom: 8rem !important;
+    padding-top: 4rem !important;
+}
+
+.blog-bg-color {
+    background: #f8ef6f;
+}
+
+.blog-of {
+    overflow: hidden;
+}

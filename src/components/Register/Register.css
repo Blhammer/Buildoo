@@ -1,0 +1,56 @@
+.reg-padding {
+    padding-bottom: 2rem !important;
+    padding-top: 1rem !important;
+}
+
+.reg-of {
+    overflow: hidden;
+}
+
+.reg-h {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.btn-ic {
+    padding-bottom: 1rem;
+}
+
+.fa-fw {
+    text-align: center;
+    width: 1rem;
+}
+
+.fa-lg {
+    font-size: 1.25em;
+    line-height: .05em;
+    vertical-align: 36.75em;
+}
+
+.me-3 {
+    margin-right: 1rem!important;
+}
+
+.fw-bold {
+    font-weight: 700 !important;
+    font-size: 2.75rem !important;
+}
+
+.reg-padding-p {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
+.form-check-label-r {
+    padding-left: 2.5rem;
+}
+
+.h-custom {
+    height: calc(100% - 73px);
+}
+
+@media (max-width: 450px) {
+    .h-custom {
+        height: 100%;
+    }
+}
