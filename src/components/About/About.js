@@ -2,12 +2,12 @@ import './About.css';
 
 const About = () => {
     return (
-        <div className="container-fluid about-padding about-bg-color">
-            <div className="container">
-                <div className="row align-items-center row-center pb-lg-5">
+        <div className="container-fluid-about about-padding about-bg-color">
+            <div className="container-about">
+                <div className="row-about align-items-center-about row-center-about pb-lg-5">
                     <div className="col-lg-5 pb-4 pb-lg-0">
                         <div className="bg-primary text-dark">
-                            <img className="text-center p-2 img-fluid w-100" src="/img/about.jpg" alt="img" />
+                            <img className="text-center-about p-2 img-fluid w-100" src="/img/about.jpg" alt="img" />
                         </div>
                     </div>
                     <div className="col-lg-7">
@@ -19,10 +19,10 @@ const About = () => {
                     </div>
                 </div>
                 
-                <div className="row align-items-center flex-row-reverse pb-lg-5">
+                <div className="row-about align-items-center-about flex-row-reverse-about pb-lg-5">
                     <div className="col-lg-5 pb-4 pb-lg-0">
                         <div className="bg-primary text-dark">
-                            <img className="text-center p-2 img-fluid w-100" src="/img/about.jpg" alt="img" />
+                            <img className="text-center-about p-2 img-fluid w-100" src="/img/about.jpg" alt="img" />
                         </div>
                     </div>
                     <div className="col-lg-7">
@@ -34,10 +34,10 @@ const About = () => {
                     </div>
                 </div>
 
-                <div className="row align-items-center row-center pb-lg-0">
+                <div className="row-about align-items-center-about row-center-about pb-lg-0">
                     <div className="col-lg-5 pb-4 pb-lg-0">
                         <div className="bg-primary text-dark">
-                            <img className="text-center p-2 img-fluid w-100" src="/img/about.jpg" alt="img" />
+                            <img className="text-center-about p-2 img-fluid w-100" src="/img/about.jpg" alt="img" />
                         </div>
                     </div>
                     <div className="col-lg-7">

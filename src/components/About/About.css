@@ -6,3 +6,121 @@
 .about-bg-color {
     background: #f8ef6f;
 }
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+.container-about,
+.container-fluid-about {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+@media (min-width: 576px) {
+    .container-about {
+        max-width: 540px;
+    }
+}
+@media (min-width: 768px) {
+    .container-about {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px) {
+    .container-about {
+        max-width: 960px;
+    }
+}
+@media (min-width: 1200px) {
+    .container-about {
+        max-width: 1140px;
+    }
+}
+.row-about {
+    display: flex;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+.row-center-about {
+    justify-content: center;
+    margin-top: 40px;
+}
+.col-lg-5,
+.col-lg-7 {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media (min-width: 992px) {
+    .col-lg-5 {
+        flex: 0 0 41.66667%;
+        max-width: 41.66667%;
+    }
+    .col-lg-7 {
+        flex: 0 0 58.33333%;
+        max-width: 58.33333%;
+    }
+}
+.bg-primary {
+    background-color: #ff4800 !important;
+}
+.flex-row-reverse-about {
+    flex-direction: row-reverse !important;
+}
+.align-items-center-about {
+    align-items: center !important;
+}
+.w-100 {
+    width: 100% !important;
+}
+.w-100 {
+    width: 100% !important;
+}
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+.p-2 {
+    padding: 0.5rem !important;
+}
+.pb-4 {
+    padding-bottom: 1.5rem !important;
+}
+@media (min-width: 992px) {
+    .pb-lg-0 {
+        padding-bottom: 0 !important;
+    }
+    .pb-lg-5 {
+        padding-bottom: 3rem !important;
+    }
+}
+.text-center-about {
+    text-align: center !important;
+}
+.text-uppercase {
+    text-transform: uppercase !important;
+}
+.font-weight-bold {
+    font-weight: 700 !important;
+}
+.text-primary {
+    color: #ff4800 !important;
+}
+.text-dark {
+    color: #1f1f2e !important;
+}
+h1 {
+    font-weight: 800 !important;
+}
+.font-weight-bold {
+    font-weight: 700 !important;
+}
+h6 {
+    font-weight: 500 !important;
+}
+p {
+    font-weight: 400 !important;
+}

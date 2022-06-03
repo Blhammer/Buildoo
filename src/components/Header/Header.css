@@ -6,13 +6,9 @@
     text-align: center;
 }
 
-#header {
-    color: white;
-}
-
 .book-style {
-    width: '100%';
-    max-width: '600px';
+    width: "100%";
+    max-width: "600px";
 }
 
 .btn-primary-book-style {
@@ -39,8 +35,104 @@
 
 .py-5 {
     padding-bottom: 2rem !important;
+    padding-top: 2rem !important;
 }
 
-.py-5 {
-    padding-top: 2rem !important;
+.display-4-header {
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1;
+}
+@media (max-width: 1200px) {
+    .display-4 {
+        font-size: calc(1.475rem + 2.7vw);
+    }
+}
+.container {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.btn-1 {
+    display: inline-block;
+    font-weight: 800;
+    font-size: 2rem;
+    color: #ffffff;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    padding: 0.4rem 0.8rem;
+    line-height: 1;
+}
+.jumbotron {
+    padding: 1rem 1rem;
+    margin-bottom: 0rem;
+    background-color: #e9ecef;
+}
+@media (min-width: 600px) {
+    .jumbotron {
+        padding: 10rem 10rem;
+    }
+}
+.jumbotron-fluid {
+    padding-right: 0;
+    padding-left: 0;
+}
+.mb-3-h {
+    margin-bottom: 2rem !important;
+}
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+.px-3 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+.py-3-h {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+.mx-auto {
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+.text-center-1 {
+    text-align: center !important;
+}
+.text-white {
+    color: white;
+}
+.text-primary {
+    color: #ff4800 !important;
+}
+@media print {
+    *,
+    *::before,
+    *::after {
+        text-shadow: none !important;
+        box-shadow: none !important;
+    }
+    .container {
+        min-width: 992px !important;
+    }
+}
+.jumbotron {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+        url("http://localhost:3000/img/header.jpg");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.text-center-1 {
+    text-align: center !important;
+}
+@media print {
+    *,
+    *::before,
+    *::after {
+        text-shadow: none !important;
+        box-shadow: none !important;
+    }
 }

@@ -2,11 +2,11 @@ import './Features.css';
 
 const Features = () => {
     return (
-        <div className="container-fluid mb-5 features-padding features-bg-color features-of">
-            <div className="container">
-                <div className="row align-items-center row-center">
+        <div className="container-fluid-features mb-5-features features-padding features-bg-color features-of">
+            <div className="container-features">
+                <div className="row-features align-items-center row-center-features">
                     <div className="col-lg-5">
-                        <img className="img-fluid w-100" src="img/feature.jpg" alt="" />
+                        <img className="img-fluid-features w-100" src="img/feature.jpg" alt="" />
                     </div>
                     <div className="col-lg-7 py-5 py-lg-0">
                         <h2 className="text-primary text-uppercase font-weight-bold">Why Choose Us</h2>
@@ -17,7 +17,7 @@ const Features = () => {
                             <li><h2><i className="far fa-dot-circle text-primary mr-3"></i>Emergency Services</h2></li>
                             <li><h2><i className="far fa-dot-circle text-primary mr-3"></i>24/7 Customer Support</h2></li>
                         </ul>
-                        <a href="" className="btn btn-primary mt-3 py-2 px-4">Learn More</a>
+                        <a href="" className="btn-features btn-primary-features mt-3-features py-2-features px-4">Learn More</a>
                     </div>
                 </div>
             </div>

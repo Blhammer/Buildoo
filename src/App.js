@@ -1,3 +1,5 @@
+import './App.css';
+
 import Topbar from './components/Topbar';
 import Navbar from './components/Navbar';
 import Header from './components/Header';
@@ -25,8 +27,8 @@ function App() {
             <PricingPlan />
             <Blog />
             <About />
-            <AdvancedRequest />
             <Features />
+            <AdvancedRequest />
             <Register />
             <Testimonials />
             <Login />

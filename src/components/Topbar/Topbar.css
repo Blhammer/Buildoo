@@ -10,3 +10,132 @@
 .text-white-links-y:hover {
     color: red;
 }
+
+.fa,
+.fab {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+}
+.fa-envelope:before {
+    content: "\f0e0";
+}
+.fa-facebook-f:before {
+    content: "\f39e";
+}
+.fa-phone-alt:before {
+    content: "\f879";
+}
+.fa-youtube:before {
+    content: "\f167";
+}
+.fab {
+    font-family: "Font Awesome 5 Brands";
+}
+.fa {
+    font-family: "Font Awesome 5 Free";
+}
+.fa {
+    font-weight: 900;
+}
+.col-topbar {
+    position: relative;
+    width: 100%;
+}
+a {
+    color: #ff4800;
+    text-decoration: none;
+    background-color: transparent;
+}
+a:hover {
+    color: #fa8b5f;
+}
+small {
+    font-size: 80%;
+    font-weight: 400;
+}
+.container-fluid {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.row {
+    display: flex;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+.bg-dark {
+    background-color: #1f1f2e !important;
+}
+.d-inline-flex {
+    display: inline-flex !important;
+}
+.align-items-center {
+    align-items: center !important;
+}
+.mr-2 {
+    margin-right: 0.5rem !important;
+}
+.mb-2 {
+    margin-bottom: 0.5rem !important;
+}
+.px-0 {
+    padding-right: 0rem !important;
+}
+.px-0 {
+    padding-left: 0rem !important;
+}
+.py-2 {
+    padding-top: 0.5rem !important;
+}
+.py-2 {
+    padding-bottom: 0rem !important;
+}
+.px-3 {
+    padding-right: 1rem !important;
+}
+.px-3 {
+    padding-left: 1rem !important;
+}
+@media (min-width: 992px) {
+    .mb-lg-0 {
+        margin-bottom: 0 !important;
+    }
+    .px-lg-3 {
+        padding-right: 1rem !important;
+    }
+    .px-lg-3 {
+        padding-left: 1rem !important;
+    }
+}
+.text-center-top {
+    text-align: center !important;
+}
+@media (min-width: 992px) {
+    .text-lg-left {
+        text-align: left !important;
+    }
+    .text-lg-right {
+        text-align: right !important;
+    }
+}
+.text-white {
+    color: white;
+}
+@media print {
+    *,
+    *::before,
+    *::after {
+        text-shadow: none !important;
+        box-shadow: none !important;
+    }
+    a:not(.btn) {
+        text-decoration: underline;
+    }
+}
