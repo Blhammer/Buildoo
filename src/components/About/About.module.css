@@ -1,0 +1,132 @@
+.mainContainer {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    flex: auto;
+    padding-top: 4rem !important;
+    padding-bottom: 8rem !important;
+    overflow: hidden;
+    background: #f8ef6f;
+}
+
+.titleTeam {
+    text-align: center !important;
+    padding-bottom: 0.5rem !important;
+}
+
+.titleDesign {
+    color: #ff4800 !important;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+    padding-bottom: 1.5rem !important;
+}
+
+.secondTitle {
+    margin-bottom: 1.5rem !important;
+}
+
+.mainContainerStyle {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+@media (min-width: 576px) {
+    .mainContainerStyle {
+        max-width: 540px;
+    }
+}
+@media (min-width: 768px) {
+    .mainContainerStyle {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px) {
+    .mainContainerStyle {
+        max-width: 960px;
+    }
+}
+@media (min-width: 1200px) {
+    .mainContainerStyle {
+        max-width: 1140px;
+    }
+}
+
+.leftRightRowElement {
+    display: flex;
+    margin-right: 0px;
+    margin-left: 0px;
+    align-items: center !important;
+    justify-content: center;
+    margin-top: 40px;
+}
+@media (min-width: 992px) {
+    .leftRightRowElement {
+        padding-bottom: 3rem !important;
+    }
+}
+
+.middleRowElement {
+    display: flex;
+    margin-right: 0px;
+    margin-left: 0px;
+    align-items: center !important;
+    flex-direction: row-reverse !important;
+}
+@media (min-width: 992px) {
+    .middleRowElement {
+        padding-bottom: 3rem !important;
+    }
+}
+
+.eachElementStyle {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 1.5rem !important;
+}
+@media (min-width: 992px) {
+    .eachElementStyle {
+        flex: 0 0 41.66667%;
+        max-width: 41.66667%;
+    }
+}
+@media (min-width: 992px) {
+    .eachElementStyle {
+        padding-bottom: 0 !important;
+    }
+}
+
+.imageStyle {
+    background-color: #ff4800 !important;
+    color: #1f1f2e !important;
+}
+
+.imageDesign {
+    text-align: center !important;
+    padding: 0.5rem !important;
+    max-width: 100%;
+    height: auto;
+    width: 100% !important;
+}
+
+.textContainer {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media (min-width: 992px) {
+    .textContainer {
+        flex: 0 0 58.33333%;
+        max-width: 58.33333%;
+    }
+}
+
+.textDesign {
+    margin-bottom: 1.5rem !important;
+}

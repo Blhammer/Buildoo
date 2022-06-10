@@ -1,0 +1,217 @@
+.mainContainer {
+    width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 0rem !important;
+    margin-bottom: 0rem !important;
+    padding-bottom: 2rem !important;
+    padding-top: 0rem !important;
+    overflow: hidden;
+    background: #f8ef6f;
+}
+
+.mainContainerDesign {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    background: #f8ef6f;
+}
+@media (min-width: 576px) {
+    .mainContainerDesign {
+        max-width: 540px;
+    }
+}
+@media (min-width: 768px) {
+    .mainContainerDesign {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px) {
+    .mainContainerDesign {
+        max-width: 960px;
+    }
+}
+@media (min-width: 1200px) {
+    .mainContainerDesign {
+        max-width: 1140px;
+    }
+}
+
+.mainRow {
+    margin-bottom: 1.5rem !important;
+    --bs-gutter-x: 2rem;
+    --bs-gutter-y: 0rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.mainRow > * {
+    flex-shrink: 0px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.titleDesign {
+    flex: 0 0 auto;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 50px;
+    color: #009999;
+}
+
+.pageNav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 0;
+    font-size: larger;
+    justify-content: center;
+    list-style: none;
+    border-radius: 0.25rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.pageNavItems:first-child .pageNavLinks {
+    margin-left: 0;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+.pageNavItems:last-child .pageNavLinks {
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+}
+
+.pageNavLinks {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin-left: 1px;
+    line-height: 1;
+    color: #ffffff;
+    background-color: #30bbbb;
+    border: 2px solid #6b6b6b;
+}
+.pageNavLinks:hover {
+    text-decoration: none;
+    background-color: #dfdfdf;
+    border-color: #6b6b6b;
+}
+.pageNavLinks:focus {
+    z-index: 2;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.navButtons {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    border: 0;
+}
+
+.cardsContainer {
+    display: flex;
+    width: 100%;
+    margin-left: 0em;
+    background-color: #f8ef6f;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* padding-left: 10rem;
+    padding-right: 10rem; */
+    /* padding-top: 10px;
+    padding-bottom: 10px; */
+    text-align: left;
+    padding-bottom: 5rem !important;
+    padding-top: 3rem !important;
+}
+
+.eachCardDesign {
+    margin: 10px;
+    margin-left: 2em;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    width: 300px;
+}
+
+.eachCardImage {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.eachCardBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    padding: 15px 15px 15px 15px;
+    height: 130px;
+    max-height: 130px;
+}
+.eachCardBody p {
+    font-size: 13px;
+    margin: 0 0 30px;
+}
+
+.eachCardUser {
+    display:block;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+}
+.eachCardUser img {
+    border-radius: 50%;
+    width: 40px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.userReviews {
+    padding: 0px;
+}
+.userReviews h5 {
+    margin: 0;
+}
+.userReviews small {
+    color: #545d7a;
+}
+
+.actionButtonsCard {
+    padding-left: 30px;
+    float: right;
+}
+
+.actionButtonsLikes {
+    padding-right: 30px;
+    float: left;
+}
+
+.deleteButton {
+    margin-right: 5px;
+    border: none;
+    color: red;
+    font-size: 1.2rem;
+    background-color: #f8ef6f;
+}
+
+.editButton {
+    margin-right: 5px;
+    border: none;
+    color: red;
+    font-size: 1.2rem;
+    background-color: #f8ef6f;
+}

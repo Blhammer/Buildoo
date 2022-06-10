@@ -1,0 +1,131 @@
+.mainContainer {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    margin: 0rem 0rem 0rem 0rem !important;
+    padding: 2rem 0rem 2rem 0rem !important;
+    background: #f8ef6f;
+    overflow: hidden;
+}
+
+.mainContainerDesign {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+@media (min-width: 576px) {
+    .mainContainerDesign {
+        max-width: 540px;
+    }
+}
+@media (min-width: 768px) {
+    .mainContainerDesign {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px) {
+    .mainContainerDesign {
+        max-width: 960px;
+    }
+}
+@media (min-width: 1200px) {
+    .mainContainerDesign {
+        max-width: 1140px;
+    }
+}
+
+.adminContainer {
+    width: 100%;
+    margin: 0 0;
+    padding-bottom: 3rem !important;
+    padding-top: 3rem !important;
+    margin-left: 0rem;
+    margin-right: 0rem;
+}
+
+.title {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center !important;
+}
+
+.titleDesign {
+    position: relative;
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    text-align: center !important;
+    margin-bottom: 3rem !important;
+}
+
+.titleStyle{
+    color: #000;
+}
+
+.rowAdmin {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.rowAdminDesign {
+    position: relative;
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.tableWrapAdmin {
+    overflow-x: scroll;
+}
+
+.tableAdmin {
+    width: 100%;
+    margin-bottom: 0rem;
+    color: #212529;
+}
+.tableAdmin th,
+.tableAdmin td {
+    padding: 2rem 0rem;
+}
+.tableAdmin thead th {
+    align-items: center;
+    justify-content: center;
+    vertical-align: bottom;
+    /* border-bottom: 2px solid #dee2e6; */
+}
+.tableAdmin .thead-dark th {
+    margin: 0 0;
+    color: #fff;
+    background-color: #343a40;
+    border-style: none;
+    border-color: #454d55;
+}
+
+.tableAdminStyle {
+    margin: 0 0;
+    color: #fff;
+    background-color: #343a40;
+    border-color: #454d55;
+    text-align: center !important;
+}
+.tableAdminStyle thead td {
+    border: none;
+    font-size: 20px;
+    color: #fff;
+}
+.tableAdminStyle tbody {
+    margin-bottom: 0px;
+    -webkit-box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29);
+    -moz-box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29);
+    box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29);
+}
+.tableAdminStyle tbody th,
+.tableAdminStyle tbody td {
+    border: none;
+    text-align: center;
+    padding: 20px 20px;
+    font-size: 20px;
+    background: #fff;
+}

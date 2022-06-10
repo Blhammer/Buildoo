@@ -1,74 +1,79 @@
-import './Team.css'
+import styles from './Team.module.css';
+
+import image1 from './images/team-1.jpg';
+import image2 from './images/team-2.png';
+import image3 from './images/team-3.png';
+import image4 from './images/team-4.png';
 
 const Team = () => {
     return (
-        <div className="container-fluid pt-5-team team-padding team-bg-color team-of">
-            <div className="container">
-                <div className="text-center-team pb-2">
-                    <h6 className="text-primary-team text-uppercase font-weight-bold">Delivery Team</h6>
-                    <h1 className="mb-4">Meet Our Delivery Team</h1>
+        <div className={styles.containerStart}>
+            <div className={styles.containerStyle}>
+                <div className={styles.titleTeam}>
+                    <h1 className={styles.titleDesign}>Delivery Team</h1>
+                    <h2 className={styles.secondTitle}>Meet Our Delivery Team</h2>
                 </div>
-                <div className="row-team row-center">
-                    <div className="col-lg-3 col-md-6">
-                        <div className="team card position-relative overflow-hidden border-0 mb-5">
-                            <img className="card-img-top" src="img/team-1.jpg" alt="" />
-                            <div className="card-body text-center-team p-0">
-                                <div className="team-text d-flex flex-column justify-content-center bg-secondary">
-                                    <h5 className="font-weight-bold">Full Name</h5>
+                <div className={styles.imagesRow}>
+                    <div className={styles.eachImage}>
+                        <div className={styles.eachImageDesign}>
+                            <img className={styles.imageTop} src={image1} alt="img" />
+                            <div className={styles.eachImageStyle}>
+                                <div className={styles.textStyle}>
+                                    <h5 className={styles.nameBolder}>Full Name</h5>
                                     <span>Designation</span>
                                 </div>
-                                <div className="team-social d-flex align-items-center justify-content-center link-worker">
-                                    <a className="btn btn-outline-dark btn-social mr-2" href="#"><i className="fab fa-facebook-f iconF"></i></a>
-                                    <a className="btn btn-outline-dark btn-social mr-2" href="#"><i className="fab fa-linkedin-in iconL"></i></a>
-                                    <a className="btn btn-outline-dark btn-social mr-2" href="#"><i className="fab fa-instagram iconI"></i></a>
+                                <div className={styles.iconsContainers}>
+                                    <a className={styles.buttonsLinks} href="#"><i className="fab fa-facebook-f"></i></a>
+                                    <a className={styles.buttonsLinks} href="#"><i className="fab fa-linkedin-in"></i></a>
+                                    <a className={styles.buttonsLinks} href="#"><i className="fab fa-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-3 col-md-6">
-                        <div className="team card position-relative overflow-hidden border-0 mb-5">
-                            <img className="card-img-top" src="img/team-2.png" alt="" />
-                            <div className="card-body text-center-team p-0">
-                                <div className="team-text d-flex flex-column justify-content-center bg-secondary">
-                                    <h5 className="font-weight-bold">Full Name</h5>
+                    <div className={styles.eachImage}>
+                        <div className={styles.eachImageDesign}>
+                            <img className={styles.imageTop} src={image1} alt="img" />
+                            <div className={styles.eachImageStyle}>
+                                <div className={styles.textStyle}>
+                                    <h5 className={styles.nameBolder}>Full Name</h5>
                                     <span>Designation</span>
                                 </div>
-                                <div className="team-social d-flex align-items-center justify-content-center link-worker">
-                                    <a className="btn btn-outline-dark btn-social mr-2" href="#"><i className="fab fa-facebook-f iconF"></i></a>
-                                    <a className="btn btn-outline-dark btn-social mr-2" href="#"><i className="fab fa-linkedin-in iconL"></i></a>
-                                    <a className="btn btn-outline-dark btn-social mr-2" href="#"><i className="fab fa-instagram iconI"></i></a>
+                                <div className={styles.iconsContainers}>
+                                    <a className={styles.buttonsLinks} href="#"><i className="fab fa-facebook-f"></i></a>
+                                    <a className={styles.buttonsLinks} href="#"><i className="fab fa-linkedin-in"></i></a>
+                                    <a className={styles.buttonsLinks} href="#"><i className="fab fa-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-3 col-md-6">
-                        <div className="team card position-relative overflow-hidden border-0 mb-5">
-                            <img className="card-img-top" src="img/team-3.png" alt="" />
-                            <div className="card-body text-center-team p-0">
-                                <div className="team-text d-flex flex-column justify-content-center bg-secondary">
-                                    <h5 className="font-weight-bold">Full Name</h5>
+                    <div className={styles.eachImage}>
+                        <div className={styles.eachImageDesign}>
+                            <img className={styles.imageTop} src={image1} alt="img" />
+                            <div className={styles.eachImageStyle}>
+                                <div className={styles.textStyle}>
+                                    <h5 className={styles.nameBolder}>Full Name</h5>
                                     <span>Designation</span>
                                 </div>
-                                <div className="team-social d-flex align-items-center justify-content-center link-worker">
-                                    <a className="btn btn-outline-dark btn-social mr-2" href="#"><i className="fab fa-facebook-f iconF"></i></a>
-                                    <a className="btn btn-outline-dark btn-social mr-2" href="#"><i className="fab fa-linkedin-in iconL"></i></a>
-                                    <a className="btn btn-outline-dark btn-social mr-2" href="#"><i className="fab fa-instagram iconI"></i></a>
+                                <div className={styles.iconsContainers}>
+                                    <a className={styles.buttonsLinks} href="#"><i className="fab fa-facebook-f"></i></a>
+                                    <a className={styles.buttonsLinks} href="#"><i className="fab fa-linkedin-in"></i></a>
+                                    <a className={styles.buttonsLinks} href="#"><i className="fab fa-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-3 col-md-6">
-                        <div className="team card position-relative overflow-hidden border-0 mb-5">
-                            <img className="card-img-top" src="img/team-4.png" alt="" />
-                            <div className="card-body text-center-team p-0">
-                                <div className="team-text d-flex flex-column justify-content-center bg-secondary">
-                                    <h5 className="font-weight-bold">Full Name</h5>
+                    <div className={styles.eachImage}>
+                        <div className={styles.eachImageDesign}>
+                            <img className={styles.imageTop} src={image1} alt="img" />
+                            <div className={styles.eachImageStyle}>
+                                <div className={styles.textStyle}>
+                                    <h5 className={styles.nameBolder}>Full Name</h5>
                                     <span>Designation</span>
                                 </div>
-                                <div className="team-social d-flex align-items-center justify-content-center link-worker">
-                                    <a className="btn btn-outline-dark btn-social mr-2" href="#"><i className="fab fa-facebook-f iconF"></i></a>
-                                    <a className="btn btn-outline-dark btn-social mr-2" href="#"><i className="fab fa-linkedin-in iconL"></i></a>
-                                    <a className="btn btn-outline-dark btn-social mr-2" href="#"><i className="fab fa-instagram iconI"></i></a>
+                                <div className={styles.iconsContainers}>
+                                    <a className={styles.buttonsLinks} href="#"><i className="fab fa-facebook-f"></i></a>
+                                    <a className={styles.buttonsLinks} href="#"><i className="fab fa-linkedin-in"></i></a>
+                                    <a className={styles.buttonsLinks} href="#"><i className="fab fa-instagram"></i></a>
                                 </div>
                             </div>
                         </div>

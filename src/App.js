@@ -9,15 +9,22 @@ import Services from './components/OurServices';
 import Features from './components/Features';
 import PricingPlan from './components/PricingPlan';
 import Team from './components/Team';
-import Testimonials from './components/Testimonials';
 import Blog from './components/Blog';
 import Footer from './components/Footer';
 import Login from './components/Login';
 import Register from './components/Register';
+import Create from './components/Create';
+import SimpleRequest from './components/SimpleRequest';
+import Catalog from './components/Catalog';
+import MyPosts from './components/MyPosts';
+import AdminPanel from './components/Admin';
+import LikedPosts from './components/LikedPosts';
+import ServiceCard from './components/ServiceCard';
+import ErrorPage from './components/Error';
 
 function App() {
     return (
-        <div className="section">
+        <div className="app">
             <Topbar />
             <Navbar />
 
@@ -29,9 +36,16 @@ function App() {
             <About />
             <Features />
             <AdvancedRequest />
-            <Register />
-            <Testimonials />
+            <SimpleRequest />
+            <Create />
+            <Catalog />
+            <MyPosts />
+            <LikedPosts />
+            <AdminPanel />
+            <ServiceCard/>
             <Login />
+            <Register />
+            <ErrorPage />
 
             <Footer />
         </div >

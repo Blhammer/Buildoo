@@ -1,38 +1,37 @@
-import './Navbar.css';
+import styles from './Navbar.module.css';
 
 const Navbar = () => {
     return (
-        <>
-            <div className="container-fluid p-0 nav-overflow">
-                <nav className="navbar navbar-expand-lg nav-bg navbar-light py-3 py-lg-0 px-lg-2">
-                    <a href="/" className="navbar-brand ml-lg-3">
-                        <h1 className="m-0 display-4 text-uppercase text-primary"><i className="mr-0"></i>Buildoo</h1>
-                    </a>
-                    <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse justify-content-between px-lg-2" id="navbar-collapse">
-                        <div className="navbar-nav m-auto py-0">
-                            <div className="nav-item navbar-nav">
-                                <a href="/" className="nav-link">Home</a>
-                                <a href="/service" className="nav-link">Services</a>
-                                <a href="/team" className="nav-link">Team</a>
-                                <a href="/price" className="nav-link">Price</a>
-                                <a href="/blog" className="nav-link">Blog</a>
-                                <a href="/contacts" className="nav-link">Contacts</a>
-                                <a href="/about" className="nav-link">About Us</a>
-                            </div>
+        <div className={styles.container}>
+            <nav className={styles.navbarStyle}>
+                <a href="/" className={styles.titleContainer}>
+                    <h1 className={styles.titleDesign}><i className={styles.titleMargin}></i>Buildoo</h1>
+                </a>
+                <div className={styles.mainNavbar}>
+                    <div className={styles.mainNavbarDesign}>
+                        <div className={styles.centerNavbarDesign}>
+                            <a href="/" className={styles.centralNavbarButtons}>Home</a>
+                            <a href="/all-services" className={styles.centralNavbarButtons}>Services</a>
+                            <a href="/team" className={styles.centralNavbarButtons}>Team</a>
+                            <a href="/price" className={styles.centralNavbarButtons}>Price</a>
+                            <a href="/blog" className={styles.centralNavbarButtons}>Blog</a>
+                            <a href="/about" className={styles.centralNavbarButtons}>About Us</a>
+                        </div>
 
-                            <div className="nav-item navbar-user">
-                                <a href="/login" className="nav-link user-btn">Login</a>
-                                <a href="/register" className="nav-link user-btn">Register</a>
-                                <a href="/logout" className="nav-link user-btn">Logout</a>
-                            </div>
+                        <div className={styles.navbarUser}>
+                            {/* <a href="/login" className={styles.userButtons}>Login</a>
+                            <a href="/register" className={styles.userButtons}>Register</a> */}
+
+                            <a href="/admin-panel" className={styles.adminButton}>Admin</a>
+
+                            <a href="/liked" className={styles.userButtons}>Liked</a>
+                            <a href="/my-services" className={styles.userButtons}>My Posts</a>
+                            <a href="/logout" className={styles.userButtons}>Logout</a>
                         </div>
                     </div>
-                </nav>
-            </div>
-        </>
+                </div>
+            </nav>
+        </div>
     );
 }
 

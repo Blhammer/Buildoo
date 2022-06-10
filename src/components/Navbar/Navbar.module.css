@@ -1,0 +1,282 @@
+/* container */
+.container {
+    width: 100%;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 0 !important;
+    overflow: hidden;
+}
+
+/* navbar */
+.navbarStyle {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 2rem 2rem 2rem;
+    background-color: #7dcfff !important;
+}
+@media (min-width: 992px) {
+    .navbarStyle {
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+    }
+    .navbarStyle {
+        flex-direction: row;
+    }
+    .navbarStyle {
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+    }
+    .navbarStyle {
+        display: flex !important;
+        flex-basis: auto;
+    }
+    .navbarStyle {
+        display: none;
+    }
+}
+.navbarStyle {
+    padding: 15px 15px;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 0px;
+    color: #1f1f2e;
+    outline: none;
+}
+.navbarStyle {
+    color: #ffffff;
+    background: #ff4800;
+}
+@media (min-width: 992px) {
+    .navbarStyle {
+        padding-top: 0 !important;
+    }
+    .navbarStyle {
+        padding-bottom: 0 !important;
+    }
+    .navbarStyle {
+        padding-right: 0.5rem !important;
+    }
+    .navbarStyle {
+        padding-left: 0.5rem !important;
+    }
+}
+
+/* title  */
+.titleContainer {
+    display: inline-block;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
+@media (min-width: 992px) {
+    .titleContainer {
+        margin-left: 1rem !important;
+    }
+}
+
+/* title letters design */
+.titleDesign {
+    margin: 0 !important;
+    font-size: 3.5rem;
+    line-height: 1.2;
+    text-transform: uppercase !important;
+    color: #ff4800 !important;
+}
+@media (max-width: 1200px) {
+    .titleDesign {
+        font-size: calc(1.475rem + 2.7vw);
+    }
+}
+
+/* main navbar */
+.mainNavbar {
+    flex-basis: 100%;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: space-between !important;
+}
+@media (min-width: 992px) {
+    .mainNavbar {
+        display: flex !important;
+        flex-basis: auto;
+    }
+}
+@media (min-width: 992px) {
+    .mainNavbar {
+        padding-right: 0.5rem !important;
+        padding-left: 0.5rem !important;
+    }
+}
+/* navbar toggler */
+@media (min-width: 992px) {
+    .mainNavbar {
+        display: none;
+    }
+}
+
+/* main navbar design */
+.mainNavbarDesign {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    flex: 1;
+    margin: auto !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding: 15px 0px 15px 0px;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 0px;
+    color: #1f1f2e;
+    outline: none;
+}
+@media (min-width: 992px) {
+    .mainNavbarDesign {
+        flex-direction: row;
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+    }
+}
+
+/* center nav */
+.centerNavbarDesign {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: auto;
+    list-style: none;
+    flex: 1;
+}
+@media (min-width: 992px) {
+    .centerNavbarDesign {
+        flex-direction: row;
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+    }
+}
+.centerNavbarDesign {
+    color: rgba(0, 0, 0, 0.5);
+}
+.centerNavbarDesign {
+    padding: 15px 15px;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 0px;
+    outline: none;
+}
+
+/* every navbar button */
+.centralNavbarButtons {
+    display: flex;
+    justify-content: center;
+    padding: 15px 10px 15px 10px;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 0px;
+    color: #1f1f2e;
+    outline: none;
+}
+.centralNavbarButtons:hover,
+.centralNavbarButtons:focus {
+    text-decoration: none;
+}
+@media (min-width: 992px) {
+    .centralNavbarButtons {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+}
+.centralNavbarButtons {
+    color: black;
+}
+.centralNavbarButtons:hover {
+    color: #ffffff;
+    background: #ff4800;
+}
+
+/* navbar user */
+.navbarUser {
+    display: flex;
+    padding: 15px 0px 15px 0px;
+    flex-direction: column;
+    justify-content: center;
+    float: none;
+}
+@media (min-width: 992px) {
+    .navbarUser {
+        flex-direction: row;
+    }
+}
+@media (max-width: 1250px) and (min-width: 1020px) {
+    .navbarUser:not(.show) {
+        display: none;
+    }
+}
+
+/* user buttons */
+.userButtons {
+    display: flex;
+    justify-content: center;
+    padding: 15px 0px 15px 0px;
+    font-size: 20px;
+    letter-spacing: 0px;
+    font-weight: 600;
+    outline: none;
+    color: #1f1f2e;
+    background: rgb(255, 102, 0);
+}
+.userButtons:hover,
+.userButtons:focus {
+    text-decoration: none;
+}
+@media (min-width: 992px) {
+    .userButtons {
+        padding-right: 0.8rem;
+        padding-left: 0.8rem;
+    }
+}
+.userButtons {
+    color: black;
+}
+.userButtons:hover {
+    color: #ffffff;
+    background: #ff4800;
+}
+
+/* admin button */
+.adminButton {
+    display: flex;
+    outline: none;
+    justify-content: center;
+    padding: 15px 0px 15px 0px;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 0px;
+    color: #1f1f2e;
+    background: rgb(255, 102, 0);
+}
+.adminButton:hover,
+.adminButton:focus {
+    text-decoration: none;
+}
+@media (min-width: 992px) {
+    .adminButton {
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+    }
+}
+.adminButton:hover {
+    color: #ffffff;
+    background: #ff4800;
+}
+.adminButton {
+    color: black;
+    background-color: green;
+}

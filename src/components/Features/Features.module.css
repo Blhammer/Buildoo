@@ -1,0 +1,112 @@
+.mainContainer {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 5rem !important;
+    padding-bottom: 10rem !important;
+    background: #f8ef6f;
+    overflow: hidden;
+}
+
+.mainContainerStyle {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 0rem !important;
+}
+@media (min-width: 576px) {
+    .mainContainerStyle {
+        max-width: 540px;
+    }
+}
+@media (min-width: 768px) {
+    .mainContainerStyle {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px) {
+    .mainContainerStyle {
+        max-width: 960px;
+    }
+}
+@media (min-width: 1200px) {
+    .mainContainerStyle {
+        max-width: 1140px;
+    }
+}
+
+.rowStyle {
+    display: flex;
+    margin-right: 0px;
+    margin-left: 0px;
+    align-items: center !important;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.imageDesign {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media (min-width: 992px) {
+    .imageDesign {
+        flex: 0 0 41.66667%;
+        max-width: 41.66667%;
+    }
+}
+
+.imageStyle {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10%;
+    width: 100% !important;
+}
+
+.textContainer {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+}
+@media (min-width: 992px) {
+    .textContainer {
+        flex: 0 0 58.33333%;
+        max-width: 58.33333%;
+    }
+}
+@media (min-width: 992px) {
+    .textContainer {
+        padding-top: 0 !important;
+    }
+    .textContainer {
+        padding-bottom: 0 !important;
+    }
+}
+
+.firstTitle {
+    color: #ff4800 !important;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+}
+
+.secondTitle {
+    margin-bottom: 1.5rem !important;
+}
+
+.skillsContainer {
+    padding-left: 0;
+    list-style: none;
+}
+
+.eachSkillLi {
+    margin-right: 1rem !important;
+    color: #ff4800 !important;
+}

@@ -1,0 +1,215 @@
+.containerStart {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 5rem !important;
+    padding-bottom: 10rem !important;
+    background: #f8ef6f;
+    overflow: hidden;
+}
+
+.containerStyle {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+@media (min-width: 576px) {
+    .containerStyle {
+        max-width: 540px;
+    }
+}
+@media (min-width: 768px) {
+    .containerStyle {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px) {
+    .containerStyle {
+        max-width: 960px;
+    }
+}
+@media (min-width: 1200px) {
+    .containerStyle {
+        max-width: 1140px;
+    }
+}
+
+.titleTeam {
+    text-align: center !important;
+    padding-bottom: 0.5rem !important;
+}
+
+.titleDesign {
+    color: #ff4800 !important;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+    padding-bottom: 1.5rem !important;
+}
+
+.secondTitle {
+    margin-bottom: 1.5rem !important;
+}
+
+.imagesRow {
+    display: flex;
+    margin-right: 0px;
+    margin-left: 0px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.eachImage {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media (min-width: 768px) {
+    .eachImage {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+@media (min-width: 992px) {
+    .eachImage {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+}
+
+.eachImageDesign img {
+    position: relative;
+    z-index: 1;
+}
+.eachImageDesign .textStyle {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    bottom: 0px;
+    left: 0;
+    border-bottom: 5px solid #ff4800;
+    transition: 0.5s;
+}
+.eachImageDesign:hover .textStyle {
+    bottom: 100px;
+}
+.eachImageDesign .iconsContainers {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    bottom: -100px;
+    left: 0;
+    transition: 0.5s;
+}
+.eachImageDesign:hover .iconsContainers {
+    bottom: 0;
+}
+.eachImageDesign {
+    position: relative !important;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    border: 0 !important;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    margin-bottom: 0rem !important;
+    background: #f8ef6f;
+    overflow: hidden;
+}
+
+.imageTop {
+    flex-shrink: 0;
+    width: 100%;
+}
+
+.eachImageStyle {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    text-align: center !important;
+    justify-content: center !important;
+    background-color: #f2f2f4 !important;
+}
+
+.eachImageDesign .textStyle {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    background-color: #f2f2f4 !important;
+    position: relative;
+    width: 100%;
+    height: 100px;
+    bottom: 0px;
+    left: 0;
+    border-bottom: 5px solid #ff4800;
+    transition: 0.5s;
+}
+.eachImageDesign:hover .textStyle {
+    bottom: 100px;
+}
+
+.nameBolder {
+    font-weight: 700 !important;
+}
+
+.eachImageDesign .iconsContainers {
+    position: absolute;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100%;
+    height: 100px;
+    bottom: -100px;
+    left: 0;
+    margin: 0;
+    transition: 0.5s;
+    background-color: #ff4800 !important;
+}
+.eachImageDesign:hover .iconsContainers {
+    bottom: 0;
+}
+
+.buttonsLinks {
+    display: inline-block;
+    font-weight: 400;
+    color: #757575;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    width: 36px;
+    height: 36px;
+    padding-left: 0;
+    padding-right: 0;
+    border-radius: 30px;
+    margin-right: 0.5rem !important;
+}
+.buttonsLinks {
+    color: #1f1f2e;
+    border-color: #1f1f2e;
+}
+.buttonsLinks:hover {
+    color: #fff;
+    background-color: #1f1f2e;
+    border-color: #1f1f2e;
+}
+.buttonsLinks:focus {
+    box-shadow: 0 0 0 0.2rem rgba(31, 31, 46, 0.5);
+}
+.buttonsLinks:disabled {
+    color: #1f1f2e;
+    background-color: transparent;
+}

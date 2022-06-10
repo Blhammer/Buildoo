@@ -1,23 +1,23 @@
-import './Features.css';
+import styles from './Features.module.css';
+
+import image1 from './feature.jpg';
 
 const Features = () => {
     return (
-        <div className="container-fluid-features mb-5-features features-padding features-bg-color features-of">
-            <div className="container-features">
-                <div className="row-features align-items-center row-center-features">
-                    <div className="col-lg-5">
-                        <img className="img-fluid-features w-100" src="img/feature.jpg" alt="" />
+        <div className={styles.mainContainer}>
+            <div className={styles.mainContainerStyle}>
+                <div className={styles.rowStyle}>
+                    <div className={styles.imageDesign}>
+                        <img className={styles.imageStyle} src={image1} alt="img" />
                     </div>
-                    <div className="col-lg-7 py-5 py-lg-0">
-                        <h2 className="text-primary text-uppercase font-weight-bold">Why Choose Us</h2>
-                        <h1 className="mb-4">Faster, Safe and Trusted Logistics Services</h1>
-                        <p className="mb-4">Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et erat sed diam duo</p>
-                        <ul className="list-inline">
-                            <h2><i className="far fa-dot-circle text-primary mr-3"></i>Best In Industry</h2>
-                            <li><h2><i className="far fa-dot-circle text-primary mr-3"></i>Emergency Services</h2></li>
-                            <li><h2><i className="far fa-dot-circle text-primary mr-3"></i>24/7 Customer Support</h2></li>
+                    <div className={styles.textContainer}>
+                        <h1 className={styles.firstTitle}>Why Choose Us</h1>
+                        <h1 className={styles.secondTitle}>Faster, Safe and Trusted Construction Services</h1>
+                        <ul className={styles.skillsContainer}>
+                            <h2><li><span className={styles.eachSkillLi}><i className="far fa-dot-circle"></i></span>Best In Industry</li></h2>
+                            <h2><li><span className={styles.eachSkillLi}><i className="far fa-dot-circle"></i></span>Emergency Services</li></h2>
+                            <h2><li><span className={styles.eachSkillLi}><i className="far fa-dot-circle"></i></span>24/7 Customer Support</li></h2>
                         </ul>
-                        <a href="" className="btn-features btn-primary-features mt-3-features py-2-features px-4">Learn More</a>
                     </div>
                 </div>
             </div>

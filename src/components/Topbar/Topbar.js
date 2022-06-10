@@ -1,24 +1,35 @@
-import './Topbar.css';
+import styles from './Topbar.module.css';
 
 const Topbar = () => {
     return (
-        <div className="container-fluid bg-dark topbar-padding">
-            <div className="row py-2 px-lg-3">
-                <div className="col-topbar text-center-top text-lg-left mb-2 mb-lg-0">
-                    <div className="d-inline-flex align-items-center text-white">
-                        <a href="/contacts"><small><i className="text-white fa fa-phone-alt mr-2"></i>Contact us: +359 813 17 3631</small></a>
-                        <small className="px-3">|</small>
-                        <a href="/contacts"><small><i className="text-white fa fa-envelope mr-2"></i>buildoo@gmail.com</small></a>
+        <div className={styles.container}>
+            <div className={styles.row}>
+                <div className={styles.rowDesign}>
+                    <div className={styles.leftPart}>
+                        <a href="/contacts"><small><span className={styles.contacts}><i className="fa fa-phone-alt"></i></span>Contact us: +359 813 17 3631</small></a>
+                        <small className={styles.whiteLine}>|</small>
+                        <a href="/contacts"><small><span className={styles.mail}><i className="fa fa-envelope"></i></span>buildoo@gmail.com</small></a>
                     </div>
                 </div>
 
-                <div className="col-topbar text-center text-lg-right">
-                    <div className="d-inline-flex align-items-center text-white">
-                        <a className="text-white text-white-links-f px-0" href="https://www.facebook.com/">
+                <div className={styles.textLine}>
+                    <div className={styles.textLineDesign}>
+                        <div className={styles.textLineAnimation}>
+                            <div className={styles.items}>Warning! Lowest Prices in the Market!</div>
+                            <div className={styles.items}>Best In Industry</div>
+                            <div className={styles.items}>Emergency Services</div>
+                            <div className={styles.items}>24/7 Customer Support</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className={styles.rightPart}>
+                    <div className={styles.rightPartDesign}>
+                        <a className={styles.facebook} href="https://www.facebook.com/">
                             <i className="fab fa-facebook-f"></i>
                         </a>
-                        <small className="px-3">|</small>
-                        <a className="text-white text-white-links-y px-0" href="https://www.youtube.com/">
+                        <small className={styles.whiteLine}>|</small>
+                        <a className={styles.youTube} href="https://www.youtube.com/">
                             <i className="fab fa-youtube"></i>
                         </a>
                     </div>

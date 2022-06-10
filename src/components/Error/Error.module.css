@@ -1,0 +1,39 @@
+.mainContainer {
+    padding-bottom: 5rem !important;
+    padding-top: 0rem !important;
+    background: #ff634b;
+}
+
+.title {
+    text-align: center;
+    padding-top: 4rem;
+    font-size: 2.5rem;
+}
+
+.animation {
+    position: relative;
+    top: 85px;
+    background: url("./Panda.png");
+    width: 250px;
+    height: 330px;
+    animation: walking_animation 1s steps(12) infinite,
+        move_forward 5s linear infinite;
+}
+
+@keyframes walking_animation {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: 3000px;
+    }
+}
+
+@keyframes move_forward {
+    0% {
+        transform: translateX(100px);
+    }
+    100% {
+        transform: translateX(1200px);
+    }
+}

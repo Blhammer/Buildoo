@@ -1,0 +1,219 @@
+.mainContainer {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 5rem !important;
+    padding-top: 5rem !important;
+}
+@media (max-width: 450px) {
+    .mainContainer {
+        height: 100%;
+    }
+}
+
+.mainContainerDesign {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    height: 100% !important;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.imageDesign {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media (min-width: 768px) {
+    .imageDesign {
+        flex: 0 0 66%;
+        max-width: 66%;
+    }
+}
+@media (min-width: 992px) {
+    .imageDesign {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+@media (min-width: 1200px) {
+    .imageDesign {
+        flex: 0 0 41%;
+        max-width: 41%;
+    }
+}
+
+.imageStyle {
+    max-width: 100%;
+    height: auto;
+}
+
+.formContainer {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media (min-width: 768px) {
+    .formContainer {
+        flex: 0 0 66.66667%;
+        max-width: 66.66667%;
+    }
+}
+@media (min-width: 992px) {
+    .formContainer {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+@media (min-width: 1200px) {
+    .formContainer {
+        flex: 0 0 33.33333%;
+        max-width: 33.33333%;
+    }
+}
+@media (min-width: 1200px) {
+    .formContainer {
+        margin-left: 8.33333%;
+    }
+}
+
+.loginText {
+    text-align: center !important;
+}
+.loginText {
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    color: #1f1f2e;
+    font-weight: 700 !important;
+    font-size: 2.75rem !important;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+.loginText {
+    font-size: 1.75rem;
+}
+@media (max-width: 1200px) {
+    .loginText {
+        font-size: calc(1.3rem + 0.6vw);
+    }
+}
+
+.inputsStyle {
+    display: block;
+    width: 100%;
+    padding: 1.4rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0;
+}
+.inputsStyle:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #ffa480;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(255, 72, 0, 0.25);
+}
+.inputsStyle::placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+.inputsStyle:disabled {
+    background-color: #e9ecef;
+    opacity: 1;
+}
+.inputsStyle {
+    height: calc(1.5em + 1rem + 2px);
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+.emailDesign {
+    margin-bottom: 1.5rem !important;
+}
+
+.passwordDesign {
+    margin-bottom: 1rem !important;
+}
+
+.rememberMeDesign {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+.rememberMeStyle {
+    position: relative;
+    display: block;
+    padding-left: 1rem;
+    margin-bottom: 0 !important;
+}
+
+.checkBox {
+    position: absolute;
+    margin-top: 0.3rem;
+    margin-left: -1rem;
+}
+
+.rememberMeBox {
+    padding-left: 0.8rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0rem;
+}
+
+.forgotPass {
+    color: #757575 !important;
+}
+
+.loginButton {
+    text-align: center !important;
+    margin-top: 1.5rem !important;
+    padding-top: 0.5rem !important;
+}
+
+.loginButtonDesign {
+    color: rgb(255, 255, 255);
+    background-color: #ff4800;
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    border-radius: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+    .loginButtonDesign {
+        transition: none;
+    }
+}
+.loginButtonDesign:hover {
+    color: #9bff94;
+    text-decoration: none;
+}
+.loginButtonDesign:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(255, 72, 0, 0.25);
+}
+.loginButtonDesign:disabled {
+    opacity: 0.65;
+}
+
+.register {
+    margin-top: 0.5rem !important;
+    padding-top: 0.25rem !important;
+    margin-bottom: 0 !important;
+}

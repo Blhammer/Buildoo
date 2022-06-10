@@ -1,0 +1,163 @@
+/* container */
+.container {
+    width: 100%;
+    padding: 0px 1px 0px 1px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #1f1f2e !important;
+}
+
+/* row */
+.row {
+    display: flex;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+}
+@media (min-width: 500px) {
+    .row {
+        padding-right: 1.5rem !important;
+        padding-left: 1.5rem !important;
+    }
+}
+
+/* row-design */
+.rowDesign {
+    position: relative;
+    width: 100%;
+    -ms-text-justify: distribute-all-lines;
+    text-justify: distribute-all-lines;
+    display: block;
+    text-align: center !important;
+    margin-bottom: 1rem !important;
+}
+@media (min-width: 500px) {
+    .rowDesign {
+        text-align: left !important;
+    }
+}
+@media (min-width: 1500px) {
+    .rowDesign {
+        margin-bottom: 0 !important;
+    }
+}
+
+/* left part contacts */
+.leftPart {
+    display: inline-flex !important;
+    align-items: center !important;
+    color: white;
+}
+
+/* contacts style */
+.contacts {
+    color: white;
+    margin-right: 1rem !important;
+}
+
+/* mail style */
+.mail {
+    color: white;
+    margin-right: 1rem !important;
+}
+
+/* white line */
+.whiteLine {
+    padding-right: 1rem !important;
+    padding-left: 1rem !important;
+}
+
+/* text line */
+.textLine {
+    position: relative;
+    width: 100%;
+    -ms-text-justify: distribute-all-lines;
+    text-justify: distribute-all-lines;
+    display: block;
+    text-align: center !important;
+    overflow: hidden;
+    justify-content: center;
+    margin-bottom: 1rem !important;
+}
+@media (min-width: 1500px) {
+    .textLine {
+        margin-bottom: 0 !important;
+    }
+}
+
+/* text line design */
+.textLineDesign {
+    font-size: 15px;
+    overflow: hidden;
+    background-color: #1f1f2e;
+    color: white;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding: 1px 1px;
+    margin: auto;
+    list-style: none;
+}
+
+/* text line animation */
+.textLineAnimation {
+    display: flex;
+    animation: textLineDesign linear 15s infinite;
+}
+@keyframes textLineDesign {
+    0% {
+        transform: translate3d(100%, 0, 0);
+    }
+    100% {
+        transform: translate3d(-400%, 0, 0);
+    }
+}
+
+/* text line item */
+.items {
+    flex-shrink: 0;
+    box-sizing: border-box;
+    padding: 0px 20px;
+    text-align: center;
+}
+
+/* right part */
+.rightPart {
+    position: relative;
+    width: 100%;
+    -ms-text-justify: distribute-all-lines;
+    text-justify: distribute-all-lines;
+    display: block;
+    text-align: center !important;
+}
+@media (min-width: 500px) {
+    .rightPart {
+        text-align: right !important;
+    }
+}
+
+/* right part design */
+.rightPartDesign {
+    display: inline-flex !important;
+    align-items: center !important;
+    color: white;
+}
+
+/* facebook icon */
+.facebook {
+    color: white;
+    padding-right: 0rem !important;
+    padding-left: 0rem !important;
+}
+.facebook:hover {
+    color: #4292ff;
+}
+
+/* youtube icon */
+.youTube {
+    color: white;
+    padding-right: 0rem !important;
+    padding-left: 0rem !important;
+}
+.youTube:hover {
+    color: red;
+}

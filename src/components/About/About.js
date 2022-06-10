@@ -1,51 +1,56 @@
-import './About.css';
+import styles from './About.module.css';
+
+import image1 from './images/about.jpg';
+// import image1 from './images/about.jpg';
+// import image1 from './images/about.jpg';
 
 const About = () => {
     return (
-        <div className="container-fluid-about about-padding about-bg-color">
-            <div className="container-about">
-                <div className="row-about align-items-center-about row-center-about pb-lg-5">
-                    <div className="col-lg-5 pb-4 pb-lg-0">
-                        <div className="bg-primary text-dark">
-                            <img className="text-center-about p-2 img-fluid w-100" src="/img/about.jpg" alt="img" />
-                        </div>
-                    </div>
-                    <div className="col-lg-7">
-                        <h6 className="text-primary text-uppercase font-weight-bold">About Us</h6>
-                        <h1 className="mb-4">Perfect & Fast Building Services Provider</h1>
-                        <p className="mb-4">- Buildoo is a Bulgaria-based, international construction services company and is a leader in the sector.</p>
-                        <p className="mb-4">- The company has earned recognition for complex projects and helping their clients, employees and community for a better life.</p>
-                        <p className="mb-4">- With a staff of 750 employees, the company completes $5 million of construction on 1700 projects each year.</p>
-                    </div>
+        <div className={styles.mainContainer}>
+            <div className={styles.mainContainerStyle}>
+                <div className={styles.titleTeam}>
+                    <h1 className={styles.titleDesign}>About Us</h1>
+                    <h2 className={styles.secondTitle}>Perfect &amp; Fast Building Services Provider</h2>
                 </div>
-                
-                <div className="row-about align-items-center-about flex-row-reverse-about pb-lg-5">
-                    <div className="col-lg-5 pb-4 pb-lg-0">
-                        <div className="bg-primary text-dark">
-                            <img className="text-center-about p-2 img-fluid w-100" src="/img/about.jpg" alt="img" />
+                <div className={styles.leftRightRowElement}>
+                    <div className={styles.eachElementStyle}>
+                        <div className={styles.imageStyle}>
+                            <img className={styles.imageDesign} src={image1} alt="img" />
                         </div>
                     </div>
-                    <div className="col-lg-7">
-                        <h6 className="text-primary text-uppercase font-weight-bold">About Us</h6>
-                        <h1 className="mb-4">Perfect & Fast Building Services Provider</h1>
-                        <p className="mb-4">- Buildoo is a Bulgaria-based, international construction services company and is a leader in the sector.</p>
-                        <p className="mb-4">- The company has earned recognition for complex projects and helping their clients, employees and community for a better life.</p>
-                        <p className="mb-4">- With a staff of 750 employees, the company completes $5 million of construction on 1700 projects each year.</p>
+                    <div className={styles.textContainer}>
+                        <h1 className={styles.textDesign}>Perfect &amp; Fast Building Services Provider</h1>
+                        <p className={styles.textDesign}>- Buildoo is a Bulgaria-based, international construction services company and is a leader in the sector.</p>
+                        <p className={styles.textDesign}>- The company has earned recognition for complex projects and helping their clients, employees and community for a better life.</p>
+                        <p className={styles.textDesign}>- With a staff of 750 employees, the company completes $5 million of construction on 1700 projects each year.</p>
                     </div>
                 </div>
 
-                <div className="row-about align-items-center-about row-center-about pb-lg-0">
-                    <div className="col-lg-5 pb-4 pb-lg-0">
-                        <div className="bg-primary text-dark">
-                            <img className="text-center-about p-2 img-fluid w-100" src="/img/about.jpg" alt="img" />
+                <div className={styles.middleRowElement}>
+                    <div className={styles.eachElementStyle}>
+                        <div className={styles.imageStyle}>
+                            <img className={styles.imageDesign} src={image1} alt="img" />
                         </div>
                     </div>
-                    <div className="col-lg-7">
-                        <h6 className="text-primary text-uppercase font-weight-bold">About Us</h6>
-                        <h1 className="mb-4">Perfect & Fast Building Services Provider</h1>
-                        <p className="mb-4">- Buildoo is a Bulgaria-based, international construction services company and is a leader in the sector.</p>
-                        <p className="mb-4">- The company has earned recognition for complex projects and helping their clients, employees and community for a better life.</p>
-                        <p className="mb-4">- With a staff of 750 employees, the company completes $5 million of construction on 1700 projects each year.</p>
+                    <div className={styles.textContainer}>
+                        <h1 className={styles.textDesign}>Perfect &amp; Fast Building Services Provider</h1>
+                        <p className={styles.textDesign}>- Buildoo is a Bulgaria-based, international construction services company and is a leader in the sector.</p>
+                        <p className={styles.textDesign}>- The company has earned recognition for complex projects and helping their clients, employees and community for a better life.</p>
+                        <p className={styles.textDesign}>- With a staff of 750 employees, the company completes $5 million of construction on 1700 projects each year.</p>
+                    </div>
+                </div>
+
+                <div className={styles.leftRightRowElement}>
+                    <div className={styles.eachElementStyle}>
+                        <div className={styles.imageStyle}>
+                            <img className={styles.imageDesign} src={image1} alt="img" />
+                        </div>
+                    </div>
+                    <div className={styles.textContainer}>
+                        <h1 className={styles.textDesign}>Perfect &amp; Fast Building Services Provider</h1>
+                        <p className={styles.textDesign}>- Buildoo is a Bulgaria-based, international construction services company and is a leader in the sector.</p>
+                        <p className={styles.textDesign}>- The company has earned recognition for complex projects and helping their clients, employees and community for a better life.</p>
+                        <p className={styles.textDesign}>- With a staff of 750 employees, the company completes $5 million of construction on 1700 projects each year.</p>
                     </div>
                 </div>
             </div>

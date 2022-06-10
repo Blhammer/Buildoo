@@ -1,71 +1,71 @@
-import './PricingPlan.css';
+import styles from './PricingPlan.module.css';
 
 const PricingPlan = () => {
     return (
-        <div className="container-fluid pt-5-plan price-padding price-bg-color price-of">
-            <div className="container">
-                <div className="text-center-price pb-2-plan">
-                    <h6 className="text-primary text-uppercase font-weight-bold">Pricing Plan</h6>
-                    <h1 className="mb-4">Affordable Pricing Packages</h1>
+        <div className={styles.containerPlan}>
+            <div className={styles.containerDesign}>
+                <div className={styles.title}>
+                    <h1 className={styles.titleDesign}>Pricing Plan</h1>
+                    <h2 className={styles.secondTitle}>Affordable Pricing Packages</h2>
                 </div>
-                <div className="row-plan text-center-price row-center">
-                    <div className="col-md-4 mb-5-plan">
-                        <div className="bg-secondary-plan">
-                            <div className="text-center-price p-4-plan">
-                                <h1 className="display-4-plan mb-0-plan">
-                                    <small className="align-top text-muted font-weight-medium money-sign">$</small>
-                                    12<small className="align-bottom text-muted font-weight-medium month-sign">/Mo</small>
+                <div className={styles.priceContainer}>
+                    <div className={styles.eachContainer}>
+                        <div className={styles.eachContainerDesign}>
+                            <div className={styles.priceDesign}>
+                                <h1 className={styles.hPriceDesign}>
+                                    <small className={styles.signMoney}>$</small>
+                                    12<small className={styles.monthMoney}>/Mo</small>
                                 </h1>
                             </div>
-                            <div className="bg-primary-plan text-center-price p-4-plan">
-                                <h3 className="m-0">lorem 1</h3>
+                            <div className={styles.titlePricingPlan}>
+                                <h3 className={styles.titlePricingPlanMargin}>lorem 1</h3>
                             </div>
-                            <div className="d-flex flex-column align-items-center py-4-plan">
+                            <div className={styles.package}>
                                 <p>lorem 1</p>
                                 <p>lorem 1</p>
                                 <p>lorem 1</p>
                                 <p>lorem 1</p>
-                                <a href="" className="btn-plan btn-primary-price py-2-plan px-4-plan my-2-plan">Order Now</a>
+                                <a href="" className={styles.buttonStyle}>Order Now</a>
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-4 mb-5-plan">
-                        <div className="bg-secondary-plan">
-                            <div className="text-center-price p-4-plan">
-                                <h1 className="display-4-plan mb-0-plan">
-                                    <small className="align-top text-muted font-weight-medium money-sign">$</small>
-                                    52<small className="align-bottom text-muted font-weight-medium month-sign">/Mo</small>
+                    <div className={styles.eachContainer}>
+                        <div className={styles.eachContainerDesign}>
+                            <div className={styles.priceDesign}>
+                                <h1 className={styles.hPriceDesign}>
+                                    <small className={styles.signMoney}>$</small>
+                                    52<small className={styles.monthMoney}>/Mo</small>
                                 </h1>
                             </div>
-                            <div className="bg-primary-plan text-center-price p-4-plan">
-                                <h3 className="m-0-plan">lorem 1</h3>
+                            <div className={styles.titlePricingPlan}>
+                                <h3 className={styles.titlePricingPlanMargin}>lorem 1</h3>
                             </div>
-                            <div className="d-flex flex-column align-items-center py-4-plan">
+                            <div className={styles.package}>
                                 <p>lorem 1</p>
                                 <p>lorem 1</p>
                                 <p>lorem 1</p>
                                 <p>lorem 1</p>
-                                <a href="" className="btn-plan btn-primary-price py-2-plan px-4-plan my-2-plan">Order Now</a>
+                                <a href="" className={styles.buttonStyle}>Order Now</a>
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-4 mb-5-plan">
-                        <div className="bg-secondary-plan">
-                            <div className="text-center-price p-4-plan">
-                                <h1 className="display-4-plan mb-0-plan">
-                                    <small className="align-top text-muted font-weight-medium money-sign">$</small>
-                                    1765<small className="align-bottom text-muted font-weight-medium month-sign">/Mo</small>
+                    <div className={styles.eachContainer}>
+                        <div className={styles.eachContainerDesign}>
+                            <div className={styles.priceDesign}>
+                                <h1 className={styles.hPriceDesign}>
+                                    <small className={styles.signMoney}>$</small>
+                                    1765<small className={styles.monthMoney}>/Mo</small>
                                 </h1>
                             </div>
-                            <div className="bg-primary-plan text-center-price p-4-plan">
-                                <h3 className="m-0">lorem 1</h3>
+                            <div className={styles.titlePricingPlan}>
+                                <h3 className={styles.titlePricingPlanMargin}>lorem 1</h3>
                             </div>
-                            <div className="d-flex flex-column align-items-center py-4-plan">
+                            <div className={styles.package}>
                                 <p>lorem 1</p>
                                 <p>lorem 1</p>
                                 <p>lorem 1</p>
                                 <p>lorem 1</p>
-                                <a href="" className="btn-plan btn-primary-price py-2-plan px-4-plan my-2-plan">Order Now</a>
+                                <a href="" className={styles.buttonStyle}>Order Now</a>
                             </div>
                         </div>
                     </div>

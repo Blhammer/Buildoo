@@ -1,37 +1,38 @@
-import './Footer.css';
+import styles from './Footer.module.css';
+import image_1 from "./logo.png";
 
 const Footer = () => {
     return (
         <>
-            <div className="container-fluid-footer bg-dark text-white mt-5 px-sm-5-footer footer-overflow footer-padding">
-                <div className="row-f pt-5">
-                    <div className="row-f col-lg-7-footer col-md-6-footer">
-                        <div className="col-md-6-footer mb-5-footer">
-                            <h3 className="text-primary mb-4">About Buildoo</h3>
-                            <p><i className="fa fa-map-marker-alt mr-2"></i>Sofia, Bulgaria</p>
-                            <p><i className="fa fa-phone-alt mr-2"></i>+359 813 17 3631</p>
-                            <p><i className="fa fa-envelope mr-2"></i>buildoo@gmail.com</p>
-                            <div className="d-flex justify-content-start mt-4">
-                                <a className="btn-footer btn-outline-light btn-social-footer mr-2" href="https://www.facebook.com/"><i className="fab fa-facebook-f"></i></a>
-                                <a className="btn-footer btn-outline-light btn-social-footer mr-2" href="https://www.youtube.com/"><i className="fab fa-youtube"></i></a>
+            <div className={styles.containerAbove}>
+                <div className={styles.containerAboveDirection}>
+                    <div className={styles.containerAboveDirectionStyle}>
+                        <div className={styles.eachContainer}>
+                            <h3 className={styles.titleContainer}>About Buildoo</h3>
+                            <p><span className={styles.marginContainers}><i className="fa fa-map-marker-alt"></i></span>Sofia, Bulgaria</p>
+                            <p><span className={styles.marginContainers}><i className="fa fa-phone-alt"></i></span>+359 813 17 3631</p>
+                            <p><span className={styles.marginContainers}><i className="fa fa-envelope"></i></span>buildoo@gmail.com</p>
+                            <div className={styles.buttonsDiv}>
+                                <span className={styles.marginContainers}><a className={styles.buttonsDesign} href="https://www.facebook.com/"><i className="fab fa-facebook-f"></i></a></span>
+                                <span className={styles.marginContainers}><a className={styles.buttonsDesign} href="https://www.youtube.com/"><i className="fab fa-youtube"></i></a></span>
                             </div>
                         </div>
-                        <div className="col-md-6-footer mb-5-footer">
-                            <h3 className="text-primary mb-4">Site Links</h3>
-                            <div className="d-flex flex-column justify-content-start">
-                                <a className="text-white mb-2" href="/"><i className="fa fa-angle-right mr-2"></i>Home</a>
-                                <a className="text-white mb-2" href="/services"><i className="fa fa-angle-right mr-2"></i>Our Services</a>
-                                <a className="text-white mb-2" href="/blog"><i className="fa fa-angle-right mr-2"></i>Our Blog</a>
-                                <a className="text-white mb-2" href="/price"><i className="fa fa-angle-right mr-2"></i>Pricing Plan</a>
-                                <a className="text-white mb-2" href="/contacts"><i className="fa fa-angle-right mr-2"></i>Contact Us</a>
-                                <a className="text-white mb-2" href="/about"><i className="fa fa-angle-right mr-2"></i>About Us</a>
+                        <div className={styles.eachContainer}>
+                            <h3 className={styles.titleContainer}>Site Links</h3>
+                            <div className={styles.siteLinks}>
+                                <span className={styles.marginContainers}><i className="fa fa-angle-right"><a className={styles.linksStyle} href="/">Home</a></i></span>
+                                <span className={styles.marginContainers}><i className="fa fa-angle-right"><a className={styles.linksStyle} href="/services">Our Services</a></i></span>
+                                <span className={styles.marginContainers}><i className="fa fa-angle-right"><a className={styles.linksStyle} href="/blog">Our Blog</a></i></span>
+                                <span className={styles.marginContainers}><i className="fa fa-angle-right"><a className={styles.linksStyle} href="/price">Pricing Plan</a></i></span>
+                                <span className={styles.marginContainers}><i className="fa fa-angle-right"><a className={styles.linksStyle} href="/contacts">Contact Us</a></i></span>
+                                <span className={styles.marginContainers}><i className="fa fa-angle-right"><a className={styles.linksStyle} href="/about">About Us</a></i></span>
                             </div>
                         </div>
-                        <div className="col-md-6-footer mb-5-footer">
-                            <h3 className="text-primary mb-4">Site Links</h3>
-                            <div className="d-flex mr-2 flex-column justify-content-start mt-4">
+                        <div className={styles.eachContainer}>
+                            <h3 className={styles.titleContainer}>Map</h3>
+                            <div className={styles.mapContainer}>
                                 <div id="map">
-                                    <img src="img/logo.png"></img>
+                                    <img src={image_1} alt="img"></img>
                                 </div>
                             </div>
                         </div>
@@ -39,25 +40,25 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5-footer">
-                <div className="row-f">
-                    <div className="col-lg-6 text-center-footer text-md-left mb-3 mb-md-0">
-                        <p className="m-0 text-white">&copy; 2022 <a href="/">Buildoo</a> All Rights Reserved.</p>
+            <div className={styles.bottomFooterContainer}>
+                <div className={styles.bottomFooterRow}>
+                    <div className={styles.leftPartBottom}>
+                        <p className={styles.bottomFooterP}>&copy; 2022 <a href="/">Buildoo</a> All Rights Reserved.</p>
                     </div>
 
-                    <div className="col-lg-6 text-center-footer text-md-right privacy-padding">
-                        <ul className="nav d-inline-flex">
-                            <li className="nav-item">
-                                <a className="nav-link text-white py-0" href="/privacy">Privacy</a>
+                    <div className={styles.bottomRightContainer}>
+                        <ul className={styles.ulContainer}>
+                            <li className={styles.item}>
+                                <a className={styles.eachItemDesign} href="/privacy">Privacy</a>
                             </li>
-                            <li className="nav-item">
-                                <a className="nav-link text-white py-0" href="/terms">Terms</a>
+                            <li className={styles.item}>
+                                <a className={styles.eachItemDesign} href="/terms">Terms</a>
                             </li>
-                            <li className="nav-item">
-                                <a className="nav-link text-white py-0" href="/faqs">FAQs</a>
+                            <li className={styles.item}>
+                                <a className={styles.eachItemDesign} href="/faqs">FAQs</a>
                             </li>
-                            <li className="nav-item">
-                                <a className="nav-link text-white py-0" href="/help">Help</a>
+                            <li className={styles.item}>
+                                <a className={styles.eachItemDesign} href="/help">Help</a>
                             </li>
                         </ul>
                     </div>

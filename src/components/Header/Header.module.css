@@ -1,0 +1,86 @@
+.container {
+    padding: 1rem 1rem;
+    margin-bottom: 0rem;
+    background-color: #e9ecef;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+        url("./header.jpg");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 5rem !important;
+    padding-bottom: 28rem !important;
+    padding-left: 0rem !important;
+    padding-right: 0rem !important;
+    max-height: fit-content;
+}
+@media (min-width: 600px) {
+    .container {
+        padding: 10rem 10rem;
+    }
+}
+
+.containerStyle {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center !important;
+    padding-top: 2.5vw !important;
+    padding-bottom: 2.5vw !important;
+}
+
+.textStyleFirst {
+    color: #ff4800 !important;
+    margin-bottom: 2rem !important;
+}
+
+.textStyleSecond {
+    color: white;
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: 1.5rem !important;
+}
+@media (max-width: 1200px) {
+    .textStyleSecond {
+        font-size: calc(1.475rem + 2.7vw);
+    }
+}
+
+.buttonBookHere {
+    margin-right: auto !important;
+    margin-left: auto !important;
+    width: 100%;
+    max-width: 300px;
+    margin-top: 3rem;
+}
+
+.buttonBookHereStyle {
+    display: inline-block;
+    position: relative;
+    outline: none;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    padding: 0px 0px 0px 0px;
+    font-weight: 800;
+    width: 300px;
+    height: 50px;
+    font-size: 30px;
+    border: 0;
+    border-radius: 30px;
+    overflow: hidden;
+    color: #ffffff;
+    background-color: #ff4800;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+}
+@media (max-width: 800px) {
+    .buttonBookHereStyle {
+        padding-right: 50px;
+    }
+}
+.buttonBookHereStyle:hover {
+    color: #ff4800;
+    background-color: #1eff00;
+}
