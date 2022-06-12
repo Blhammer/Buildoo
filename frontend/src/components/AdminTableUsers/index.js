@@ -1,1 +1,1 @@
-export {default} from './AdminTableUsers';
+export { default } from './AdminTableUsers';

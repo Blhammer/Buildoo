@@ -56,7 +56,7 @@ const Catalog = () => {
                                         className={styles.figcaptionDesign}
                                     >
                                         <h2>Details</h2>
-                                        <a href="photo-detail.html">View more</a>
+                                        <a href="/all-services/:id">View more</a>
                                     </figcaption>
                                 </figure>
                                 <div className={styles.reviewsContainer}>
@@ -75,7 +75,7 @@ const Catalog = () => {
                                         className={styles.figcaptionDesign}
                                     >
                                         <h2>Details</h2>
-                                        <a href="photo-detail.html">View more</a>
+                                        <a href="/all-services/:id">View more</a>
                                     </figcaption>
                                 </figure>
                                 <div className={styles.reviewsContainer}>
@@ -94,7 +94,7 @@ const Catalog = () => {
                                         className={styles.figcaptionDesign}
                                     >
                                         <h2>Details</h2>
-                                        <a href="photo-detail.html">View more</a>
+                                        <a href="/all-services/:id">View more</a>
                                     </figcaption>
                                 </figure>
                                 <div className={styles.reviewsContainer}>
@@ -113,7 +113,7 @@ const Catalog = () => {
                                         className={styles.figcaptionDesign}
                                     >
                                         <h2>Details</h2>
-                                        <a href="photo-detail.html">View more</a>
+                                        <a href="/all-services/:id">View more</a>
                                     </figcaption>
                                 </figure>
                                 <div className={styles.reviewsContainer}>
@@ -133,7 +133,7 @@ const Catalog = () => {
                                         className={styles.figcaptionDesign}
                                     >
                                         <h2>Details</h2>
-                                        <a href="photo-detail.html">View more</a>
+                                        <a href="/all-services/:id">View more</a>
                                     </figcaption>
                                 </figure>
                                 <div className={styles.reviewsContainer}>
@@ -152,7 +152,7 @@ const Catalog = () => {
                                         className={styles.figcaptionDesign}
                                     >
                                         <h2>Details</h2>
-                                        <a href="photo-detail.html">View more</a>
+                                        <a href="/all-services/:id">View more</a>
                                     </figcaption>
                                 </figure>
                                 <div className={styles.reviewsContainer}>
@@ -171,7 +171,7 @@ const Catalog = () => {
                                         className={styles.figcaptionDesign}
                                     >
                                         <h2>Details</h2>
-                                        <a href="photo-detail.html">View more</a>
+                                        <a href="/all-services/:id">View more</a>
                                     </figcaption>
                                 </figure>
                                 <div className={styles.reviewsContainer}>
@@ -190,7 +190,7 @@ const Catalog = () => {
                                         className={styles.figcaptionDesign}
                                     >
                                         <h2>Details</h2>
-                                        <a href="photo-detail.html">View more</a>
+                                        <a href="/all-services/:id">View more</a>
                                     </figcaption>
                                 </figure>
                                 <div className={styles.reviewsContainer}>
@@ -209,7 +209,7 @@ const Catalog = () => {
                                         className={styles.figcaptionDesign}
                                     >
                                         <h2>Details</h2>
-                                        <a href="photo-detail.html">View more</a>
+                                        <a href="/all-services/:id">View more</a>
                                     </figcaption>
                                 </figure>
                                 <div className={styles.reviewsContainer}>

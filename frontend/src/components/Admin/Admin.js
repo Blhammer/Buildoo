@@ -5,6 +5,7 @@ import AdminTableUsers from '../AdminTableUsers/AdminTableUsers.js';
 const AdminPanel = () => {
     return (
         <div className={styles.mainContainer}>
+            <a href='/' className={styles.homeStyle}><i class="fas fa-arrow-left"></i> Home </a>
             <div className={styles.mainContainerDesign}>
                 <div className={styles.adminContainer}>
                     <div className={styles.title}>

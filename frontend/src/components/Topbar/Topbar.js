@@ -6,9 +6,9 @@ const Topbar = () => {
             <div className={styles.row}>
                 <div className={styles.rowDesign}>
                     <div className={styles.leftPart}>
-                        <a href="/contacts"><small><span className={styles.contacts}><i className="fa fa-phone-alt"></i></span>Contact us: +359 813 17 3631</small></a>
+                        <a href="/about"><small><span className={styles.contacts}><i className="fa fa-phone-alt"></i></span>Contact us: +359 813 17 3631</small></a>
                         <small className={styles.whiteLine}>|</small>
-                        <a href="/contacts"><small><span className={styles.mail}><i className="fa fa-envelope"></i></span>buildoo@gmail.com</small></a>
+                        <a href="/about"><small><span className={styles.mail}><i className="fa fa-envelope"></i></span>buildoo@gmail.com</small></a>
                     </div>
                 </div>
 
@@ -25,11 +25,11 @@ const Topbar = () => {
 
                 <div className={styles.rightPart}>
                     <div className={styles.rightPartDesign}>
-                        <a className={styles.facebook} href="https://www.facebook.com/">
+                        <a className={styles.facebook} href="/">
                             <i className="fab fa-facebook-f"></i>
                         </a>
                         <small className={styles.whiteLine}>|</small>
-                        <a className={styles.youTube} href="https://www.youtube.com/">
+                        <a className={styles.youTube} href="/">
                             <i className="fab fa-youtube"></i>
                         </a>
                     </div>

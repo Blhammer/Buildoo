@@ -42,9 +42,9 @@
 }
 
 .mainRow {
-    margin-bottom: 1.5rem !important;
-    --bs-gutter-x: 2rem;
-    --bs-gutter-y: 0rem;
+    /* margin-bottom: 1.5rem !important; */
+    /* --bs-gutter-x: 2rem;
+    --bs-gutter-y: 0rem; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -59,22 +59,39 @@
     flex: 0 0 auto;
     width: 100%;
     text-align: center;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
     padding-top: 50px;
     color: #009999;
 }
 
+.createDesign {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 50%;
+    font-size: 2rem;
+    font-weight: 700;
+    border-radius: 5px;
+    padding: 10px 10px 10px 10px;
+    color: #000000;
+    background-color: #30bbbb;
+}
+.createDesign:hover {
+    color: rgb(126, 255, 134);
+}
+
 .pageNav {
-    display: -webkit-box;
-    display: -ms-flexbox;
+    /* display: -webkit-box;
+    display: -ms-flexbox; */
     display: flex;
     padding-left: 0;
     font-size: larger;
     justify-content: center;
     list-style: none;
     border-radius: 0.25rem;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
 }
 
 .pageNavItems:first-child .pageNavLinks {
@@ -116,7 +133,6 @@
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
-    -webkit-clip-path: inset(50%);
     clip-path: inset(50%);
     border: 0;
 }
@@ -128,13 +144,8 @@
     background-color: #f8ef6f;
     justify-content: center;
     flex-wrap: wrap;
-    /* padding-left: 10rem;
-    padding-right: 10rem; */
-    /* padding-top: 10px;
-    padding-bottom: 10px; */
+    padding: 15px 5px 15px 5px;
     text-align: left;
-    padding-bottom: 5rem !important;
-    padding-top: 3rem !important;
 }
 
 .eachCardDesign {
@@ -168,7 +179,7 @@
 }
 
 .eachCardUser {
-    display:block;
+    display: block;
     justify-content: center;
     align-items: center;
     margin-top: auto;
@@ -200,18 +211,31 @@
     float: left;
 }
 
-.deleteButton {
+.viewButton {
+    padding: 0px;
     margin-right: 5px;
-    border: none;
-    color: red;
+    font-weight: 500;
+    border: 50px;
     font-size: 1.2rem;
-    background-color: #f8ef6f;
+    color: rgb(0, 0, 0);
+    background-color: #dfffb1;
+}
+
+.deleteButton {
+    padding: 4px 0px 4px 0px;
+    font-weight: 500;
+    border: 50px;
+    font-size: 1.2rem;
+    color: rgb(0, 0, 0);
+    background-color: #ffc7c7;
 }
 
 .editButton {
+    padding: 0px;
     margin-right: 5px;
-    border: none;
-    color: red;
+    font-weight: 500;
+    border: 50px;
     font-size: 1.2rem;
-    background-color: #f8ef6f;
+    color: rgb(0, 0, 0);
+    background-color:#f8ef6f;
 }

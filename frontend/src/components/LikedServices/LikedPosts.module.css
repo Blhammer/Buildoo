@@ -42,8 +42,8 @@
 }
 
 .pageNav {
-    display: -webkit-box;
-    display: -ms-flexbox;
+    /* display: -webkit-box;
+    display: -ms-flexbox; */
     display: flex;
     padding-left: 0;
     font-size: larger;

@@ -1,53 +1,57 @@
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+
 import './App.css';
 
-import Topbar from './components/Topbar';
-import Navbar from './components/Navbar';
-import Header from './components/Header';
-import About from './components/About';
-import AdvancedRequest from './components/AdvancedRequest';
-import Services from './components/OurServices';
-import Features from './components/Features';
-import PricingPlan from './components/PricingPlan';
-import Team from './components/Team';
-import Blog from './components/Blog';
-import Footer from './components/Footer';
-import Login from './components/Login';
-import Register from './components/Register';
-import Create from './components/Create';
-import SimpleRequest from './components/SimpleRequest';
-import Catalog from './components/Catalog';
-import MyPosts from './components/MyPosts';
-import AdminPanel from './components/Admin';
-import LikedPosts from './components/LikedPosts';
-import ServiceCard from './components/ServiceCard';
-import ErrorPage from './components/Error';
+import HomePage from './pages/home/Home';
+import ServicesPage from './pages/catalog/Services';
+import AdminPage from './pages/admin/Admin';
+import TeamPage from './pages/team/Team';
+import PricePage from './pages/price/Price';
+import BlogPage from './pages/blog/Blog';
+import AboutPage from './pages/about/About';
+import FeaturesPage from './pages/features/Features';
+import LoginPage from './pages/login/Login';
+import RegisterPage from './pages/register/Register';
+import MyServicesPage from './pages/myServices/MyServices';
+import MyLikedServicesPage from './pages/liked/Liked';
+import ServiceCardPage from './pages/cardDetails/CardDetails';
+import CreatePage from './pages/create/Create';
+import EditPage from './pages/edit/Edit';
+import RequestPage from './pages/request/Request';
+import ErrorPage from './pages/error/Error';
 
 function App() {
     return (
         <div className="app">
-            <Topbar />
-            <Navbar />
+            <Routes>
+                <Route exact path='/' element={<HomePage />}></Route>
 
-            <Header />
-            <Services />
-            <Team />
-            <PricingPlan />
-            <Blog />
-            <About />
-            <Features />
-            <AdvancedRequest />
-            <SimpleRequest />
-            <Create />
-            <Catalog />
-            <MyPosts />
-            <LikedPosts />
-            <AdminPanel />
-            <ServiceCard/>
-            <Login />
-            <Register />
-            <ErrorPage />
+                <Route exact path='/all-services' element={<ServicesPage />}></Route>
+                <Route exact path='/all-services/:id' element={<ServiceCardPage />}></Route>
 
-            <Footer />
+                <Route exact path='/liked' element={<MyLikedServicesPage />}></Route>
+                <Route exact path='/liked/:id' element={<ServiceCardPage />}></Route>
+
+                <Route exact path='/my-services' element={<MyServicesPage />}></Route>
+                <Route exact path='/my-services/:id' element={<ServiceCardPage />}></Route>
+                <Route exact path='/my-services/create' element={<CreatePage />}></Route>
+                <Route exact path='/my-services/edit/:id' element={<EditPage />}></Route>
+
+                <Route exact path='/team' element={<TeamPage />}></Route>
+                <Route exact path='/price' element={<PricePage />}></Route>
+                <Route exact path='/blog' element={<BlogPage />}></Route>
+                <Route exact path='/about' element={<AboutPage />}></Route>
+                <Route exact path='/features' element={<FeaturesPage />}></Route>
+
+                <Route exact path='/login' element={<LoginPage />}></Route>
+                <Route exact path='/register' element={<RegisterPage />}></Route>
+                <Route exact path='/admin-panel' element={<AdminPage />}></Route>
+
+                <Route exact path='/book' element={<RequestPage />}></Route>
+
+                <Route path='*' element={<ErrorPage />}></Route>
+            </Routes>
         </div >
     );
 }

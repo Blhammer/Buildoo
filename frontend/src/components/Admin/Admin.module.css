@@ -60,8 +60,16 @@
     margin-bottom: 3rem !important;
 }
 
-.titleStyle{
+.titleStyle {
     color: #000;
+}
+
+.homeStyle {
+    padding-top: 10rem;
+    padding-left: 2rem;
+    color: red;
+    font-weight: 700;
+    font-size: 2rem;
 }
 
 .rowAdmin {

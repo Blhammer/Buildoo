@@ -41,7 +41,7 @@ const MyPosts = () => {
                             <h5>
                                 Title: Images for demo
                             </h5>
-                            <a className={styles.detailsCard} href='/catalog/:id'>Details</a>
+                            <a className={styles.detailsCard} href='/liked/:id'>Details</a>
                             <div className={styles.userDesign}>
                                 <div className={styles.userInfo}>
                                     <h5>Name: Gogo Gogev</h5>
@@ -62,7 +62,7 @@ const MyPosts = () => {
                             <h5>
                                 Title: Images for demo
                             </h5>
-                            <a className={styles.detailsCard} href='/catalog/:id'>Details</a>
+                            <a className={styles.detailsCard} href='/liked/:id'>Details</a>
                             <div className={styles.userDesign}>
                                 <div className={styles.userInfo}>
                                     <h5>Name: Gogo Gogev</h5>
@@ -83,7 +83,7 @@ const MyPosts = () => {
                             <h5>
                                 Title: Images for demo
                             </h5>
-                            <a className={styles.detailsCard} href='/catalog/:id'>Details</a>
+                            <a className={styles.detailsCard} href='/liked/:id'>Details</a>
                             <div className={styles.userDesign}>
                                 <div className={styles.userInfo}>
                                     <h5>Name: Gogo Gogev</h5>
@@ -104,7 +104,7 @@ const MyPosts = () => {
                             <h5>
                                 Title: Images for demo
                             </h5>
-                            <a className={styles.detailsCard} href='/catalog/:id'>Details</a>
+                            <a className={styles.detailsCard} href='/liked/:id'>Details</a>
                             <div className={styles.userDesign}>
                                 <div className={styles.userInfo}>
                                     <h5>Name: Gogo Gogev</h5>
@@ -125,7 +125,7 @@ const MyPosts = () => {
                             <h5>
                                 Title: Images for demo
                             </h5>
-                            <a className={styles.detailsCard} href='/catalog/:id'>Details</a>
+                            <a className={styles.detailsCard} href='/liked/:id'>Details</a>
                             <div className={styles.userDesign}>
                                 <div className={styles.userInfo}>
                                     <h5>Name: Gogo Gogev</h5>
@@ -146,7 +146,7 @@ const MyPosts = () => {
                             <h5>
                                 Title: Images for demo
                             </h5>
-                            <a className={styles.detailsCard} href='/catalog/:id'>Details</a>
+                            <a className={styles.detailsCard} href='/liked/:id'>Details</a>
                             <div className={styles.userDesign}>
                                 <div className={styles.userInfo}>
                                     <h5>Name: Gogo Gogev</h5>
@@ -167,7 +167,7 @@ const MyPosts = () => {
                             <h5>
                                 Title: Images for demo
                             </h5>
-                            <a className={styles.detailsCard} href='/catalog/:id'>Details</a>
+                            <a className={styles.detailsCard} href='/liked/:id'>Details</a>
                             <div className={styles.userDesign}>
                                 <div className={styles.userInfo}>
                                     <h5>Name: Gogo Gogev</h5>
@@ -188,7 +188,7 @@ const MyPosts = () => {
                             <h5>
                                 Title: Images for demo
                             </h5>
-                            <a className={styles.detailsCard} href='/catalog/:id'>Details</a>
+                            <a className={styles.detailsCard} href='/liked/:id'>Details</a>
                             <div className={styles.userDesign}>
                                 <div className={styles.userInfo}>
                                     <h5>Name: Gogo Gogev</h5>
@@ -209,7 +209,7 @@ const MyPosts = () => {
                             <h5>
                                 Title: Images for demo
                             </h5>
-                            <a className={styles.detailsCard} href='/catalog/:id'>Details</a>
+                            <a className={styles.detailsCard} href='/liked/:id'>Details</a>
                             <div className={styles.userDesign}>
                                 <div className={styles.userInfo}>
                                     <h5>Name: Gogo Gogev</h5>

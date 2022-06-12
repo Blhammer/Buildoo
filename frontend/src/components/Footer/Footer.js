@@ -13,18 +13,19 @@ const Footer = () => {
                             <p><span className={styles.marginContainers}><i className="fa fa-phone-alt"></i></span>+359 813 17 3631</p>
                             <p><span className={styles.marginContainers}><i className="fa fa-envelope"></i></span>buildoo@gmail.com</p>
                             <div className={styles.buttonsDiv}>
-                                <span className={styles.marginContainers}><a className={styles.buttonsDesign} href="https://www.facebook.com/"><i className="fab fa-facebook-f"></i></a></span>
-                                <span className={styles.marginContainers}><a className={styles.buttonsDesign} href="https://www.youtube.com/"><i className="fab fa-youtube"></i></a></span>
+                                <span className={styles.marginContainers}><a className={styles.buttonsDesign} href="/"><i className="fab fa-facebook-f"></i></a></span>
+                                <span className={styles.marginContainers}><a className={styles.buttonsDesign} href="/"><i className="fab fa-youtube"></i></a></span>
                             </div>
                         </div>
                         <div className={styles.eachContainer}>
                             <h3 className={styles.titleContainer}>Site Links</h3>
                             <div className={styles.siteLinks}>
                                 <span className={styles.marginContainers}><i className="fa fa-angle-right"><a className={styles.linksStyle} href="/">Home</a></i></span>
-                                <span className={styles.marginContainers}><i className="fa fa-angle-right"><a className={styles.linksStyle} href="/services">Our Services</a></i></span>
-                                <span className={styles.marginContainers}><i className="fa fa-angle-right"><a className={styles.linksStyle} href="/blog">Our Blog</a></i></span>
+                                <span className={styles.marginContainers}><i className="fa fa-angle-right"><a className={styles.linksStyle} href="/all-services">Services</a></i></span>
+                                <span className={styles.marginContainers}><i className="fa fa-angle-right"><a className={styles.linksStyle} href="/team">Team</a></i></span>
+                                <span className={styles.marginContainers}><i className="fa fa-angle-right"><a className={styles.linksStyle} href="/features">Features</a></i></span>
                                 <span className={styles.marginContainers}><i className="fa fa-angle-right"><a className={styles.linksStyle} href="/price">Pricing Plan</a></i></span>
-                                <span className={styles.marginContainers}><i className="fa fa-angle-right"><a className={styles.linksStyle} href="/contacts">Contact Us</a></i></span>
+                                <span className={styles.marginContainers}><i className="fa fa-angle-right"><a className={styles.linksStyle} href="/blog">Blog</a></i></span>
                                 <span className={styles.marginContainers}><i className="fa fa-angle-right"><a className={styles.linksStyle} href="/about">About Us</a></i></span>
                             </div>
                         </div>

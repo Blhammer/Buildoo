@@ -25,7 +25,7 @@ const Navbar = () => {
                             <a href="/admin-panel" className={styles.adminButton}>Admin</a>
 
                             <a href="/liked" className={styles.userButtons}>Liked</a>
-                            <a href="/my-services" className={styles.userButtons}>My Posts</a>
+                            <a href="/my-services" className={styles.userButtons}>My Services</a>
                             <a href="/logout" className={styles.userButtons}>Logout</a>
                         </div>
                     </div>

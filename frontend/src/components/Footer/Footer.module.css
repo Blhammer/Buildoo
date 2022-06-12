@@ -1,13 +1,7 @@
-/* container */
 .containerAbove {
     width: 100%;
-    margin-right: 0px;
-    margin-left: 0px;
-    margin-top: 0rem !important;
-    padding-top: 3rem !important;
-    padding-bottom: 3rem !important;
-    padding-left: 0rem !important;
-    padding-right: 0rem !important;
+    margin: 0;
+    padding: 3rem 0rem 3rem 0rem !important;
     color: white;
     background-color: #1f1f2e !important;
     overflow: hidden;
@@ -19,17 +13,12 @@
     }
 }
 
-/* container above direction */
 .containerAboveDirection {
     display: flex;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    padding-top: 0rem !important;
+    margin: 0;
+    padding: 0rem;
 }
 
-/* container above direction */
 .containerAboveDirectionStyle {
     display: flex;
     margin-top: 0px;
@@ -42,7 +31,6 @@
     padding-left: 0px;
 }
 
-/* three containers - container */
 .eachContainer {
     position: relative;
     width: 100%;
@@ -52,31 +40,27 @@
 }
 @media (min-width: 768px) {
     .eachContainer {
-        flex: 0 0 35%;
-        max-width: 50%;
+        flex: 0 0 34%;
+        max-width: 100%;
     }
 }
 
-/* three containers - title */
 .titleContainer {
     margin-bottom: 1.5rem !important;
     color: #ff4800 !important;
 }
 
-/* margin containers */
 .marginContainers {
     margin-right: 5px !important;
     padding-bottom: 10px !important;
 }
 
-/* buttons container design */
 .buttonsDiv {
     display: flex !important;
     justify-content: flex-start !important;
     margin-top: 1.5rem !important;
 }
 
-/* youtube button design */
 .buttonsDesign {
     display: inline-block;
     font-weight: 400;
@@ -114,32 +98,29 @@
     background-color: transparent;
 }
 
-/* site links container design */
 .siteLinks {
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-start !important;
 }
 
-/* site links style */
 .linksStyle {
-    font-family:'Lucida Sans';
+    font-family: "Lucida Sans";
     color: #ffffff;
     padding-left: 5px;
 }
 
-/* map container */
 .mapContainer {
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-start !important;
-    margin-right: 0.5rem !important;
-    margin-top: 1.5rem !important;
+    /* margin-right: 0rem !important; */
+    /* margin-top: 1.5rem !important; */
 }
 
-/* bottom footer */
 .bottomFooterContainer {
     display: block;
+    margin: 0;
     padding: 2rem 0rem 2rem 0rem;
     width: 100%;
     color: #ffffff;
@@ -159,7 +140,6 @@
     }
 }
 
-/* bottom footer row */
 .bottomFooterRow {
     display: flex;
     margin-top: 0px;
@@ -168,7 +148,6 @@
     margin-right: 0px;
 }
 
-/* left part rights design */
 .leftPartBottom {
     position: relative;
     width: 100%;
@@ -194,13 +173,11 @@
     }
 }
 
-/* text bottom footer */
 .bottomFooterP {
     margin: 0px !important;
     color: #ffffff;
 }
 
-/* right part bottom */
 .bottomRightContainer {
     position: relative;
     width: 100%;
@@ -220,9 +197,7 @@
     }
 }
 
-/* unordered list container */
 .ulContainer {
-    /* display: flex; */
     flex-wrap: wrap;
     padding-left: 0;
     margin-bottom: 0;
@@ -230,13 +205,11 @@
     display: inline-flex !important;
 }
 
-/* every item */
 .item {
     flex-grow: 1;
     text-align: center;
 }
 
-/* every item design */
 .eachItemDesign {
     color: #ffffff;
     padding-top: 0 !important;

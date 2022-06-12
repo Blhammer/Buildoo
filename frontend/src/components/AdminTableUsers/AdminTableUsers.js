@@ -10,12 +10,12 @@ const AdminTableUsers = () => {
                 <td>markotto@email.com</td>
                 <td>
                     <a href="/delete/:id" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true"><i className={styles.faAdminClose} onClick={() => {console.log('Delete')}}></i></span>
+                        <span aria-hidden="true"><i className={styles.faAdminClose} onClick={() => { console.log('Delete') }}></i></span>
                     </a>
                 </td>
                 <td>
                     <span>
-                        <input type="checkbox" onClick={() => {console.log('Checked')}} id='3f4s-34sd-ggd4-se9f' name="users" value="users" />
+                        <input type="checkbox" onClick={() => { console.log('Checked') }} id='3f4s-34sd-ggd4-se9f' name="users" value="users" />
                     </span>
                 </td>
             </tr>
