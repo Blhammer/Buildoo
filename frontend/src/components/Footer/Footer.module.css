@@ -107,7 +107,8 @@
 .linksStyle {
     font-family: "Lucida Sans";
     color: #ffffff;
-    padding-left: 5px;
+    padding: 0px 0px 5px 5px;
+    font-size: 1.4rem;
 }
 
 .mapContainer {

@@ -1,33 +1,53 @@
+import React, { useContext } from 'react';
+import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
+
+import UserContext from '../../contexts/Context';
+
 import styles from './Navbar.module.css';
 
 const Navbar = () => {
+    const context = useContext(UserContext);
+    const navigate = useNavigate();
+
+    const { isLoggedIn } = context;
+    
+    const onLogout = () => {
+        context.logout();
+        navigate('/');
+    }
+
     return (
         <div className={styles.container}>
             <nav className={styles.navbarStyle}>
-                <a href="/" className={styles.titleContainer}>
+                <Link className={styles.titleContainer} to="/">
                     <h1 className={styles.titleDesign}><i className={styles.titleMargin}></i>Buildoo</h1>
-                </a>
+                </Link>
                 <div className={styles.mainNavbar}>
                     <div className={styles.mainNavbarDesign}>
                         <div className={styles.centerNavbarDesign}>
-                            <a href="/" className={styles.centralNavbarButtons}>Home</a>
-                            <a href="/all-services" className={styles.centralNavbarButtons}>Services</a>
-                            <a href="/team" className={styles.centralNavbarButtons}>Team</a>
-                            <a href="/price" className={styles.centralNavbarButtons}>Price</a>
-                            <a href="/blog" className={styles.centralNavbarButtons}>Blog</a>
-                            <a href="/about" className={styles.centralNavbarButtons}>About Us</a>
+                            <Link className={styles.centralNavbarButtons} to='/'>Home</Link>
+                            <Link className={styles.centralNavbarButtons} to='/all-services'>Services</Link>
+                            <Link className={styles.centralNavbarButtons} to='/team'>Team</Link>
+                            <Link className={styles.centralNavbarButtons} to='/price'>Price</Link>
+                            <Link className={styles.centralNavbarButtons} to='/blog'>Blog</Link>
+                            <Link className={styles.centralNavbarButtons} to='/about'>About Us</Link>
                         </div>
 
-                        <div className={styles.navbarUser}>
-                            {/* <a href="/login" className={styles.userButtons}>Login</a>
-                            <a href="/register" className={styles.userButtons}>Register</a> */}
+                        {isLoggedIn ?
+                            <div className={styles.navbarUser}>
+                                {/* <Link className={styles.adminButton} to='admin-panel'>Admin</Link> */}
 
-                            <a href="/admin-panel" className={styles.adminButton}>Admin</a>
-
-                            <a href="/liked" className={styles.userButtons}>Liked</a>
-                            <a href="/my-services" className={styles.userButtons}>My Services</a>
-                            <a href="/logout" className={styles.userButtons}>Logout</a>
-                        </div>
+                                <Link className={styles.userButtons} to='/liked'>Liked</Link>
+                                <Link className={styles.userButtons} to='/my-services'>My Services</Link>
+                                <Link className={styles.userButtons} to='/' onClick={onLogout}>Logout</Link>
+                            </div>
+                            :
+                            <div className={styles.navbarUser}>
+                                <Link className={styles.userButtons} to='/login'>Login</Link>
+                                <Link className={styles.userButtons} to='/register'>Register</Link>
+                            </div>
+                        }
                     </div>
                 </div>
             </nav>
