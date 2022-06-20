@@ -11,6 +11,17 @@ function setToken(user) {
     return token;
 }
 
+async function verifyToken(token) {
+    try {
+        return await jwt.verify(token, configFile.tokenKey);
+    }
+    catch (err) {
+        console.error(err);
+        return undefined;
+    }
+}
+
 module.exports = {
-    setToken
+    setToken,
+    verifyToken
 };

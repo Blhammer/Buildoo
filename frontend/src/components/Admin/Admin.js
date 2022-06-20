@@ -1,11 +1,17 @@
+import { useContext } from 'react';
+
 import styles from './Admin.module.css';
 
+import UserContext from '../../contexts/Context';
 import AdminTableUsers from '../AdminTableUsers/AdminTableUsers.js';
 
 const AdminPanel = () => {
+    const context = useContext(UserContext);
+
     return (
         <div className={styles.mainContainer}>
-            <a href='/' className={styles.homeStyle}><i class="fas fa-arrow-left"></i> Home </a>
+            <a href='/' className={styles.homeStyle}><i className="fas fa-arrow-left"></i> Home </a>
+            <p className={styles.adminNameStyle}>Admin: {context.userEmail}</p>
             <div className={styles.mainContainerDesign}>
                 <div className={styles.adminContainer}>
                     <div className={styles.title}>

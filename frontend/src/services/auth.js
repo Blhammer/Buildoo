@@ -22,5 +22,6 @@ function clearUserData() {
 module.exports = {
     getUserData,
     setUserData,
-    clearUserData,isAuthenticated
+    clearUserData,
+    isAuthenticated
 };

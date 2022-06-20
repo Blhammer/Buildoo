@@ -12,6 +12,10 @@
 
 .animation {
     position: relative;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    overflow: hidden;
     top: 85px;
     background: url("./Panda.png");
     width: 250px;
@@ -34,6 +38,6 @@
         transform: translateX(100px);
     }
     100% {
-        transform: translateX(1200px);
+        transform: translateX(1000px);
     }
 }

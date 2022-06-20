@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 
 import UserContext from '../../contexts/Context';
 
@@ -10,8 +10,8 @@ const Navbar = () => {
     const context = useContext(UserContext);
     const navigate = useNavigate();
 
-    const { isLoggedIn } = context;
-    
+    const { isLoggedIn, isContextAdmin } = context;
+
     const onLogout = () => {
         context.logout();
         navigate('/');
@@ -36,7 +36,9 @@ const Navbar = () => {
 
                         {isLoggedIn ?
                             <div className={styles.navbarUser}>
-                                {/* <Link className={styles.adminButton} to='admin-panel'>Admin</Link> */}
+                                {isContextAdmin
+                                    ? <Link className={styles.adminButton} to='/admin-panel'>Admin</Link>
+                                    : null}
 
                                 <Link className={styles.userButtons} to='/liked'>Liked</Link>
                                 <Link className={styles.userButtons} to='/my-services'>My Services</Link>

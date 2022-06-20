@@ -5,7 +5,6 @@ import styles from './Register.module.css';
 import image1 from './default.png';
 
 // import * as authService from '../../services/auth';
-// import { useAuthContext } from '../../contexts/Auth';
 import UserContext from '../../contexts/Context';
 import { userRegister } from '../../services/requester';
 
@@ -28,8 +27,6 @@ const Register = () => {
         }
 
         const user = await userRegister(body);
-        console.log(user);
-
         if (user) {
             context.login(user);
             navigate('/');
@@ -54,7 +51,7 @@ const Register = () => {
                                 <p className={styles.title}>Sign up</p>
                                 <div className={styles.signUpContainer}>
 
-                                    <form onSubmit={registerSubmitHandler}>
+                                    <form method='POST' onSubmit={registerSubmitHandler}>
                                         <div className={styles.eachFormInput}>
                                             <span className={styles.inputsStyle}><i className="fas fa-user"></i></span>
                                             <div className={styles.inputsDesign}>

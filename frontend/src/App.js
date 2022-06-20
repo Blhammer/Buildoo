@@ -3,6 +3,8 @@ import { Route, Routes } from 'react-router-dom';
 
 import './App.css';
 
+import { AuthProcess } from './contexts/Auth';
+
 import HomePage from './pages/home/Home';
 import ServicesPage from './pages/catalog/Services';
 import AdminPage from './pages/admin/Admin';
@@ -21,38 +23,49 @@ import EditPage from './pages/edit/Edit';
 import RequestPage from './pages/request/Request';
 import ErrorPage from './pages/error/Error';
 
+import GuardedRouteAdmin from './components/Common/GuardedRouteAdmin';
+import GuardedRouteUser from './components/Common/GuardedRouteUser';
+
 function App() {
     return (
-        <div className="app">
-            <Routes>
-                <Route exact path='/' element={<HomePage />}></Route>
+        <AuthProcess>
+            <div className="app">
+                <Routes>
+                    <Route exact path='/' element={<HomePage />}></Route>
 
-                <Route exact path='/all-services' element={<ServicesPage />}></Route>
-                <Route exact path='/all-services/:id' element={<ServiceCardPage />}></Route>
+                    <Route exact path='/all-services' element={<ServicesPage />}></Route>
+                    <Route exact path='/all-services/:id' element={<ServiceCardPage />}></Route>
 
-                <Route exact path='/liked' element={<MyLikedServicesPage />}></Route>
-                <Route exact path='/liked/:id' element={<ServiceCardPage />}></Route>
+                    <Route element={<GuardedRouteUser />}>
+                        <Route exact path='/liked' element={<MyLikedServicesPage />}></Route>
+                        <Route exact path='/liked/:id' element={<ServiceCardPage />}></Route>
+                        <Route exact path='/my-services' element={<MyServicesPage />}></Route>
+                        <Route exact path='/my-services/:id' element={<ServiceCardPage />}></Route>
+                        <Route exact path='/my-services/create' element={<CreatePage />}></Route>
+                        <Route exact path='/my-services/edit/:id' element={<EditPage />}></Route>
+                    </Route>
 
-                <Route exact path='/my-services' element={<MyServicesPage />}></Route>
-                <Route exact path='/my-services/:id' element={<ServiceCardPage />}></Route>
-                <Route exact path='/my-services/create' element={<CreatePage />}></Route>
-                <Route exact path='/my-services/edit/:id' element={<EditPage />}></Route>
+                    <Route exact path='/team' element={<TeamPage />}></Route>
+                    <Route exact path='/price' element={<PricePage />}></Route>
+                    <Route exact path='/blog' element={<BlogPage />}></Route>
+                    <Route exact path='/about' element={<AboutPage />}></Route>
+                    <Route exact path='/features' element={<FeaturesPage />}></Route>
 
-                <Route exact path='/team' element={<TeamPage />}></Route>
-                <Route exact path='/price' element={<PricePage />}></Route>
-                <Route exact path='/blog' element={<BlogPage />}></Route>
-                <Route exact path='/about' element={<AboutPage />}></Route>
-                <Route exact path='/features' element={<FeaturesPage />}></Route>
+                    <Route element={<GuardedRouteAdmin />}>
+                        <Route exact path='/admin-panel' element={<AdminPage />}></Route>
+                    </Route>
 
-                <Route exact path='/login' element={<LoginPage />}></Route>
-                <Route exact path='/register' element={<RegisterPage />}></Route>
-                <Route exact path='/admin-panel' element={<AdminPage />}></Route>
+                    {/* <Route element={<GuardedRouteUser />}> */}
+                        <Route exact path='/login' element={<LoginPage />}></Route>
+                        <Route exact path='/register' element={<RegisterPage />}></Route>
+                    {/* </Route> */}
 
-                <Route exact path='/book' element={<RequestPage />}></Route>
+                    <Route exact path='/book' element={<RequestPage />}></Route>
 
-                <Route path='*' element={<ErrorPage />}></Route>
-            </Routes>
-        </div >
+                    <Route path='*' element={<ErrorPage />}></Route>
+                </Routes>
+            </div >
+        </AuthProcess>
     );
 }
 

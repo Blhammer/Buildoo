@@ -4,6 +4,8 @@ import React, { useState, useContext } from 'react';
 import styles from './Login.module.css';
 import image1 from './default.png';
 
+import Input from '../Input/Input';
+
 import UserContext from '../../contexts/Context';
 import { userLogin } from '../../services/requester';
 
@@ -16,12 +18,12 @@ const Login = () => {
 
     const loginSubmitHandler = async (e) => {
         e.preventDefault();
-        
+
         if (email === '' || password === '') {
             console.error('Invalid email or password!');
             return;
         }
-        const user = await userLogin({email, password});
+        const user = await userLogin({ email, password });
         if (user) {
             context.login(user);
             navigate('/');
@@ -44,20 +46,30 @@ const Login = () => {
                     <form id="login-form" method="POST" onSubmit={loginSubmitHandler}>
                         <p className={styles.loginText}>Login</p>
 
-                        <div className={styles.emailDesign}>
-                            <input type="email" id="email" className={styles.inputsStyle}
-                                placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                        <div className={styles.formDesign}>
+                            <Input
+                                name="email"
+                                type="email"
+                                placeholder="Enter email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
                             <label htmlFor="email"></label>
                         </div>
 
-                        <div className={styles.passwordDesign}>
-                            <input type="password" id="password" className={styles.inputsStyle}
-                                placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                        <div className={styles.formDesign}>
+                            <Input
+                                name="password"
+                                type="password"
+                                placeholder="Enter password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
                             <label htmlFor="password"></label>
                         </div>
 
                         <div className={styles.rememberMeDesign}>
-                            <div className={styles.rememberMeStyle}>
+                            <div className={styles.rememberDiv}>
                                 <input className={styles.checkBox} type="checkbox" value="" id="checkbox" />
                                 <label className={styles.rememberMeBox} htmlFor="checkbox">
                                     Remember me

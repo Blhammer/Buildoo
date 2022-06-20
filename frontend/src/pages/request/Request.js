@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+import UserContext from '../../contexts/Context';
 
 import Topbar from '../../components/Topbar';
 import Navbar from '../../components/Navbar';
@@ -8,17 +10,24 @@ import AdvancedRequest from '../../components/AdvancedRequest';
 import SimpleRequest from '../../components/SimpleRequest';
 
 const AdvancedRequestPage = () => {
+    const context = useContext(UserContext);
+    const { isLoggedIn } = context;
+
     return (
         <>
-            <Topbar/>
-            <Navbar/>
+            <Topbar />
+            <Navbar />
 
-            <SimpleRequest/>
-            <AdvancedRequest/>
-            
-            <Footer/>
+            {isLoggedIn
+                ?
+                <SimpleRequest />
+                :
+                <AdvancedRequest />
+            }
+
+            <Footer />
         </>
     );
-} 
+}
 
 export default AdvancedRequestPage;
