@@ -4,7 +4,6 @@ import React, { useState, useContext } from 'react';
 import styles from './Register.module.css';
 import image1 from './default.png';
 
-// import * as authService from '../../services/auth';
 import UserContext from '../../contexts/Context';
 import { userRegister } from '../../services/requester';
 
@@ -19,6 +18,8 @@ const Register = () => {
     const context = useContext(UserContext);
 
     const onRegisterHandler = async () => {
+        //TODO: Add password validation!!!
+
         const body = {
             firstName,
             lastName,
@@ -30,7 +31,7 @@ const Register = () => {
         if (user) {
             context.login(user);
             navigate('/');
-        } 
+        }
         else {
             console.error("Invalid email or password!");
         }
@@ -92,15 +93,6 @@ const Register = () => {
                                             </div>
                                         </div>
 
-                                        <div className={styles.termsPosition}>
-                                            <span className={styles.inputsStyle}><input className={styles.formCheck} type="checkbox" value="" id="Terms" /></span>
-                                            <div className={styles.textStyle}>
-                                                <label htmlFor="Terms">
-                                                    I agree all statements in <a href="#!">Terms of service</a>
-                                                </label>
-                                            </div>
-                                        </div>
-
                                         <div className={styles.registerButton}>
                                             <button type="submit" className={styles.registerButtonStyle}>Register</button>
                                         </div>
@@ -115,7 +107,8 @@ const Register = () => {
 
                             <div className={styles.image}>
                                 <img src={image1}
-                                    className={styles.imageStyle} alt="Sample image"
+                                    className={styles.imageStyle} 
+                                    alt="Sample image"
                                 />
                             </div>
                         </div>

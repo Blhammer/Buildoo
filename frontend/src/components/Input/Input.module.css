@@ -5,10 +5,9 @@
 .inputsStyle {
     display: block;
     width: 100%;
-    padding: 1.4rem 1.2rem;
     font-size: 1rem;
     font-weight: 500;
-    line-height: 1.5;
+    line-height: 1;
     color: #495057;
     background-color: #fff;
     background-clip: padding-box;
@@ -20,7 +19,6 @@
     background-color: #fff;
     border-color: #ffa480;
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(255, 72, 0, 0.25);
 }
 .inputsStyle::placeholder {
     color: #6c757d;
@@ -31,7 +29,6 @@
     opacity: 1;
 }
 .inputsStyle {
-    height: calc(1.5em + 1rem + 2px);
     padding: 0.5rem 1rem;
     font-size: 1.25rem;
     line-height: 1.5;

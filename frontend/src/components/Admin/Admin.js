@@ -30,6 +30,7 @@ const AdminPanel = () => {
                                             <th>Last Name</th>
                                             <th>Email</th>
                                             <th>Remove</th>
+                                            <th>Change</th>
                                             <th>Admin</th>
                                         </tr>
                                     </thead>

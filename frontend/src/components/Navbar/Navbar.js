@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import UserContext from '../../contexts/Context';
 
@@ -38,7 +38,8 @@ const Navbar = () => {
                             <div className={styles.navbarUser}>
                                 {isContextAdmin
                                     ? <Link className={styles.adminButton} to='/admin-panel'>Admin</Link>
-                                    : null}
+                                    : null
+                                }
 
                                 <Link className={styles.userButtons} to='/liked'>Liked</Link>
                                 <Link className={styles.userButtons} to='/my-services'>My Services</Link>

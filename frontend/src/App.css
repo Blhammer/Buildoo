@@ -26,7 +26,8 @@ html {
     --light: #ffffff;
     --dark: #1f1f2e;
     --font-family-sans-serif: "Poppins", sans-serif;
-    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
 }
 
 * {
@@ -119,7 +120,7 @@ body {
     line-height: 1;
     color: #000000;
     text-align: left;
-    background-color: #1F1F2E;
+    background-color: #1f1f2e;
 }
 
 hr {
@@ -198,17 +199,5 @@ ul ol {
 
 @font-face {
     font-family: "FontAwesome";
-    src: url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.eot?v=4.7.0");
-    src: url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.eot#iefix&v=4.7.0")
-            format("embedded-opentype"),
-        url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0")
-            format("woff2"),
-        url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff?v=4.7.0")
-            format("woff"),
-        url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf?v=4.7.0")
-            format("truetype"),
-        url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular")
-            format("svg");
-    font-weight: normal;
-    font-style: normal;
+    src: url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0");
 }

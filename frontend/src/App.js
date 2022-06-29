@@ -20,11 +20,12 @@ import MyLikedServicesPage from './pages/liked/Liked';
 import ServiceCardPage from './pages/cardDetails/CardDetails';
 import CreatePage from './pages/create/Create';
 import EditPage from './pages/edit/Edit';
-import RequestPage from './pages/request/Request';
 import ErrorPage from './pages/error/Error';
 
 import GuardedRouteAdmin from './components/Common/GuardedRouteAdmin';
 import GuardedRouteUser from './components/Common/GuardedRouteUser';
+import GuardedCreate from './components/Common/GuardedCreate';
+import GuardRoutesAuth from './components/Common/GuardedRouteAuth';
 
 function App() {
     return (
@@ -55,12 +56,14 @@ function App() {
                         <Route exact path='/admin-panel' element={<AdminPage />}></Route>
                     </Route>
 
-                    {/* <Route element={<GuardedRouteUser />}> */}
+                    <Route element={<GuardRoutesAuth />}>
                         <Route exact path='/login' element={<LoginPage />}></Route>
                         <Route exact path='/register' element={<RegisterPage />}></Route>
-                    {/* </Route> */}
+                    </Route>
 
-                    <Route exact path='/book' element={<RequestPage />}></Route>
+                    <Route element={<GuardedCreate />}>
+                        <Route exact path='/create' element={<CreatePage />}></Route>
+                    </Route>
 
                     <Route path='*' element={<ErrorPage />}></Route>
                 </Routes>

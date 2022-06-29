@@ -1,6 +1,50 @@
+import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router';
+
 import styles from './Create.module.css';
 
+import Input from '../Input/Input';
+import UserContext from '../../contexts/Context';
+import { createCard } from '../../services/requester';
+
 const Create = () => {
+    const [title, setTitle] = useState('');
+    const [town, setTown] = useState('');
+    const [street, setStreet] = useState('');
+    const [filename, setImage] = useState('');
+    const [payments, setPayments] = useState('');
+    const [service, setService] = useState('');
+    const [description, setDescription] = useState('');
+
+    const navigate = useNavigate();
+    const context = useContext(UserContext);
+
+    const createSubmitHandler = async (e) => {
+        e.preventDefault();
+
+        if (title === '' || town === '' || street === '' || filename === '' || payments === '' || service === '' || description === '') {
+            console.error('Invalid data!');
+            return;
+        }
+
+        const body = {
+            title,
+            town,
+            street,
+            filename,
+            payments,
+            service,
+            description
+        };
+
+        const user = await createCard(body);
+        if (user) {
+            navigate('/my-services');
+        } else {
+            console.error('Invalid data!');
+        }
+    }
+
     return (
         <div className={styles.mainContainer}>
             <div className={styles.mainContainerStyle}>
@@ -25,54 +69,99 @@ const Create = () => {
                     </div>
                     <div className={styles.fillContainer}>
                         <div className={styles.fillContainerDesign}>
-                            <form className={styles.formDesign}>
-                                <fieldset>
-                                    <div className={styles.eachGapDesign}>
-                                        <input type="text" className={styles.formStyle} placeholder="Title" required="required" />
+                            <form className={styles.formDesign} onSubmit={createSubmitHandler}>
+                                <div className={styles.eachGapDesign}>
+                                    <Input
+                                        type="text"
+                                        name="title"
+                                        className={styles.formStyle}
+                                        placeholder="Title"
+                                        required="required"
+                                        value={title}
+                                        onChange={(e) => setTitle(e.target.value)}
+                                    />
+                                </div>
+                                <div className={styles.eachGapDesign}>
+                                    <Input
+                                        type="tel"
+                                        name="town"
+                                        className={styles.formStyle}
+                                        placeholder="Town/City"
+                                        required="required"
+                                        value={town}
+                                        onChange={(e) => setTown(e.target.value)}
+                                    />
+                                </div>
+                                <div className={styles.eachGapDesign}>
+                                    <Input
+                                        type="text"
+                                        name="street"
+                                        className={styles.formStyle}
+                                        placeholder="Street"
+                                        required="required"
+                                        value={street}
+                                        onChange={(e) => setStreet(e.target.value)}
+                                    />
+                                </div>
+                                <div className={styles.eachGapDesign}>
+                                    <div className={styles.uploadStyle}>
+                                        <input
+                                            type="file"
+                                            id="myFile"
+                                            name="filename"
+                                            value={filename}
+                                            onChange={(e) => setImage(e.target.value)}
+                                        />
                                     </div>
-                                    <div className={styles.eachGapDesign}>
-                                        <input type="email" className={styles.formStyle} placeholder="Your Email" required="required" />
-                                    </div>
-                                    <div className={styles.eachGapDesign}>
-                                        <input type="tel" className={styles.formStyle} placeholder="Town/City" required="required" />
-                                    </div>
-                                    <div className={styles.eachGapDesign}>
-                                        <input type="text" className={styles.formStyle} placeholder="Street" required="required" />
-                                    </div>
-                                    <div className={styles.eachGapDesign}>
-                                        <div className={styles.uploadStyle}>
-                                            <input type="file" id="myFile" name="filename"></input>
-                                        </div>
-                                    </div>
-                                    <div className={styles.eachGapDesign}>
-                                        <select className={styles.selectOptionsDesign}>
-                                            <option value="false">Receive Your Payments via</option>
-                                            <option value="1">Pay Pal</option>
-                                            <option value="2">Visa/Debit Card</option>
-                                            <option value="3">Cash</option>
-                                        </select>
-                                    </div>
+                                </div>
+                                <div className={styles.eachGapDesign}>
+                                    <select
+                                        className={styles.selectOptionsDesign}
+                                        value={payments}
+                                        onChange={(e) => setPayments(e.target.value)}
+                                    >
+                                        <option value="false">Receive Your Payments via</option>
+                                        <option value="Pay Pal">Pay Pal</option>
+                                        <option value="Visa/Debit Card">Visa/Debit Card</option>
+                                        <option value="Cash">Cash</option>
+                                    </select>
+                                </div>
 
-                                    <div className={styles.eachGapDesign}>
-                                        <select className={styles.selectOptionsDesign}>
-                                            <option value="false">Choose Your Service</option>
-                                            <option value="1">Building</option>
-                                            <option value="2">Repair</option>
-                                            <option value="3">Plumbing</option>
-                                            <option value="4">Garden</option>
-                                            <option value="5">Demolition</option>
-                                            <option value="6">Cleaning</option>
-                                        </select>
-                                    </div>
+                                <div className={styles.eachGapDesign}>
+                                    <select
+                                        className={styles.selectOptionsDesign}
+                                        value={service}
+                                        onChange={(e) => setService(e.target.value)}
+                                    >
+                                        <option value="false">Choose Your Service</option>
+                                        <option value="Building">Building</option>
+                                        <option value="Repair">Repair</option>
+                                        <option value="Plumbing">Plumbing</option>
+                                        <option value="Garden">Garden</option>
+                                        <option value="Demolition">Demolition</option>
+                                        <option value="Cleaning">Cleaning</option>
+                                    </select>
+                                </div>
 
-                                    <div className={styles.eachGapDesign}>
-                                        <textarea type="description" className={styles.descriptionDesign} placeholder="Tell something about yourself/company" />
-                                    </div>
+                                <div className={styles.eachGapDesign}>
+                                    <textarea
+                                        type="description"
+                                        name="description"
+                                        className={styles.descriptionDesign}
+                                        value={description}
+                                        onChange={(e) => setDescription(e.target.value)}
+                                        placeholder="Tell something about yourself/company"
+                                    />
+                                </div>
 
-                                    <div>
-                                        <button className={styles.buttonDesign} type="submit">Create Service</button>
-                                    </div>
-                                </fieldset>
+                                <div>
+                                    <button
+                                        className={styles.buttonDesign}
+                                        type="submit"
+                                    >
+                                        Create Service
+                                    </button>
+                                </div>
                             </form>
                         </div>
                     </div>

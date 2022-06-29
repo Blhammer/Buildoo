@@ -102,12 +102,13 @@
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-start !important;
+    max-width: 10rem;
 }
 
 .linksStyle {
     font-family: "Lucida Sans";
     color: #ffffff;
-    padding: 0px 0px 5px 5px;
+    padding: 3px;
     font-size: 1.4rem;
 }
 

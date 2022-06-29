@@ -1,4 +1,4 @@
-const { findUserById, findUserByEmail, findAllUsers } = require('../../database/user');
+const { findUserById, findUserByEmail, findAllUsers } = require('../../database/services/user');
 const { verifyToken } = require('../util');
 
 async function userAuthorization(req, res) {
@@ -24,7 +24,7 @@ async function userAuthorization(req, res) {
 
 async function getAllUsers(req, res) {
     try {
-        const users = await findAllUsers();
+        const users = await findAllUsers({});
         return res.status(200).send(users);
     }
     catch (err) {

@@ -11,9 +11,9 @@ function setToken(user) {
     return token;
 }
 
-async function verifyToken(token) {
+function verifyToken(token) {
     try {
-        return await jwt.verify(token, configFile.tokenKey);
+        return jwt.verify(token, configFile.tokenKey);
     }
     catch (err) {
         console.error(err);
@@ -21,7 +21,22 @@ async function verifyToken(token) {
     }
 }
 
+function filterUsersByDeletedOne(users, id) {
+    if (!users || !id) {
+        return;
+    }
+
+    const match = (user) => user._id == id;
+    if (users.some(match)) {
+        const index = users.findIndex(match);
+        users.splice(index, 1);
+    }
+
+    return users;
+}
+
 module.exports = {
     setToken,
-    verifyToken
+    verifyToken,
+    filterUsersByDeletedOne
 };

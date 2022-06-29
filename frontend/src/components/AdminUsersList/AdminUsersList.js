@@ -1,11 +1,11 @@
 import AdminUserRow from "../AdminUserRow";
 
-function AdminUsersList({ users }) {
+const AdminUsersList = ({ users, button }) => {
     return (
         <tbody>
             {
                 users.map((user) => {
-                    return <AdminUserRow key={user._id} data={user}/>
+                    return <AdminUserRow key={user._id} data={user} button={button} />
                 })
             }
         </tbody>

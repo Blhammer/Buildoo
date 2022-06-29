@@ -1,5 +1,6 @@
-import { useNavigate } from 'react-router';
 import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
 
 import styles from './Login.module.css';
 import image1 from './default.png';
@@ -36,54 +37,61 @@ const Login = () => {
     return (
         <div className={styles.mainContainer}>
             <div className={styles.mainContainerDesign}>
-                <div className={styles.imageDesign}>
-                    <img src={image1}
-                        className={styles.imageStyle} alt="image"
-                    />
-                </div>
+                <div className={styles.mainContainerStyle}>
+                    <div className={styles.cardBody}>
+                        <div className={styles.rowElements}>
 
-                <div className={styles.formContainer}>
-                    <form id="login-form" method="POST" onSubmit={loginSubmitHandler}>
-                        <p className={styles.loginText}>Login</p>
 
-                        <div className={styles.formDesign}>
-                            <Input
-                                name="email"
-                                type="email"
-                                placeholder="Enter email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
-                            <label htmlFor="email"></label>
-                        </div>
-
-                        <div className={styles.formDesign}>
-                            <Input
-                                name="password"
-                                type="password"
-                                placeholder="Enter password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                            />
-                            <label htmlFor="password"></label>
-                        </div>
-
-                        <div className={styles.rememberMeDesign}>
-                            <div className={styles.rememberDiv}>
-                                <input className={styles.checkBox} type="checkbox" value="" id="checkbox" />
-                                <label className={styles.rememberMeBox} htmlFor="checkbox">
-                                    Remember me
-                                </label>
+                            <div className={styles.imageDesign}>
+                                <img src={image1}
+                                    className={styles.imageStyle}
+                                    alt="image"
+                                />
                             </div>
-                            <a href="#" className={styles.forgotPass}>Forgot password?</a>
-                        </div>
 
-                        <div className={styles.loginButton}>
-                            <button type="submit" className={styles.loginButtonDesign}>Login</button>
-                            <p className={styles.register}>Don't have an account?
-                                <a href="/register"> Register </a></p>
+                            <div className={styles.formContainer}>
+                                <form id="login-form" method="POST" onSubmit={loginSubmitHandler}>
+                                    <p className={styles.loginText}>Login</p>
+
+                                    <div className={styles.formDesign}>
+                                        <Input
+                                            name="email"
+                                            type="email"
+                                            placeholder="Enter email"
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                        />
+                                        <label htmlFor="email"></label>
+                                    </div>
+
+                                    <div className={styles.formDesign}>
+                                        <Input
+                                            name="password"
+                                            type="password"
+                                            placeholder="Enter password"
+                                            value={password}
+                                            onChange={(e) => setPassword(e.target.value)}
+                                        />
+                                        <label htmlFor="password"></label>
+                                    </div>
+
+                                    <div className={styles.rememberMeDesign}>
+                                        <Link className={styles.forgotPass} to="/">Forgot password?</Link>
+                                    </div>
+
+                                    <div className={styles.loginButton}>
+                                        <button type="submit" className={styles.loginButtonDesign}>Login</button>
+                                        <p className={styles.register}>
+                                            Don't have an account?
+                                            <Link to="/register">
+                                                Register
+                                            </Link>
+                                        </p>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

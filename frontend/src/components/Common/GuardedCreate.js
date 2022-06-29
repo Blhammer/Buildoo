@@ -7,7 +7,7 @@ const GuardRoutes = () => {
 
     return context.isLoggedIn
         ? <Outlet />
-        : <Navigate to='/'/>
+        : <Navigate to='/login'/>
 }
 
 export default GuardRoutes;

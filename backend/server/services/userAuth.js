@@ -1,4 +1,4 @@
-const { createUser, findUser } = require('../../database/user');
+const { createUser, findUser } = require('../../database/services/user');
 const { setToken } = require('../util');
 const { checkPassword } = require('../../database/util');
 
@@ -12,7 +12,7 @@ async function userRegister(req, res) {
 
         const foundUser = await findUser({ email: user.email });
         if (foundUser) {
-            return res.status(401).send('The user exists already.').end();
+            return res.status(401).send('The user already exists.').end();
         }
 
         const createdUser = await createUser(user);

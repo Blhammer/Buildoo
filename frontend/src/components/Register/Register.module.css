@@ -171,24 +171,6 @@
     margin-bottom: 0 !important;
 }
 
-.termsPosition {
-    position: relative;
-    display: flex !important;
-    justify-content: left !important;
-    margin-bottom: 0rem !important;
-    padding-left: 1.5rem;
-}
-
-.formCheck {
-    position: absolute;
-    margin-top: 0.1rem;
-}
-
-.textStyle {
-    display: flex !important;
-    padding-left: 0.5rem;
-}
-
 .registerButton {
     display: flex !important;
     justify-content: center !important;

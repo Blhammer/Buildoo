@@ -9,7 +9,7 @@ const Header = () => {
                 <h1 className={styles.textStyleFirst}>Perfect and Fast</h1>
                 <h1 className={styles.textStyleSecond}>Building Services</h1>
                 <div className={styles.buttonBookHere}>
-                    <Link className={styles.buttonBookHereStyle} to='/book'>Book Here</Link>
+                    <Link className={styles.buttonBookHereStyle} to='/create'>Create Here</Link>
                 </div>
             </div>
         </div>

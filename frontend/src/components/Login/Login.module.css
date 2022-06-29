@@ -4,8 +4,8 @@
     padding-left: 0px;
     margin-right: auto;
     margin-left: auto;
-    padding-bottom: 5rem !important;
-    padding-top: 5rem !important;
+    padding-bottom: 2rem !important;
+    padding-top: 2rem !important;
     background-color: #fff;
 }
 @media (max-width: 450px) {
@@ -23,8 +23,36 @@
     margin-left: 0px;
 }
 
+.mainContainerStyle {
+    position: relative;
+    width: 100%;
+    height: 100% !important;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+@media (min-width: 768px) {
+    .mainContainerStyle {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+@media (min-width: 992px) {
+    .mainContainerStyle {
+        flex: 0 0 60%;
+        max-width: 60%;
+    }
+}
+@media (min-width: 1200px) {
+    .mainContainerStyle {
+        flex: 0 0 70%;
+        max-width: 70%;
+    }
+}
+
 .imageDesign {
     position: relative;
+    display: flex;
+    align-items: center;
     max-width: 100%;
     padding-right: 15px;
     padding-left: 15px;
@@ -45,6 +73,50 @@
     .imageDesign {
         flex: 0 0 41%;
         max-width: 41%;
+    }
+}
+
+.cardBody {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+}
+@media (min-width: 768px) {
+    .cardBody {
+        padding: 3rem !important;
+    }
+}
+
+.rowElements {
+    display: flex;
+    margin-right: 0px;
+    margin-left: 0px;
+    justify-content: center !important;
+}
+
+.rowElementsDesign {
+    position: relative;
+    width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+    order: 2;
+}
+@media (min-width: 768px) {
+    .rowElementsDesign {
+        flex: 0 0 83%;
+        max-width: 83%;
+    }
+}
+@media (min-width: 992px) {
+    .rowElementsDesign {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+@media (min-width: 1200px) {
+    .rowElementsDesign {
+        flex: 0 0 60%;
+        max-width: 60%;
     }
 }
 
@@ -104,33 +176,9 @@
     }
 }
 
-.rememberMeDesign {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    position: relative;
-    padding-left: 1rem;
-    margin-bottom: 0 !important;
-}
-
-.checkBox {
-    position: absolute;
-    margin-top: 0rem;
-    margin-left: -1rem;
-}
-
-.rememberDiv{
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-}
-
-.rememberMeBox {
-    padding: 10px 10px 10px 10px;
-}
-
 .forgotPass {
-    color: #757575 !important;
+    display: flex;
+    justify-content: center;
 }
 
 .loginButton {

@@ -1,13 +1,18 @@
 import styles from './MyPosts.module.css';
 import image1 from './team-1.jpg';
 
+import { Link } from 'react-router-dom';
+
 const MyServices = () => {
     return (
         <div className={styles.mainContainer}>
             <div className={styles.mainContainerDesign}>
                 <div className={styles.mainRow}>
+
                     <h2 className={styles.titleDesign}>My Uploaded Services</h2>
-                    <a href='/create' className={styles.createDesign}>Create Service</a>
+
+                    <Link className={styles.createDesign} to='/my-services/create'>Create Service</Link>
+
                     <nav aria-label="Page navigation example">
                         <ul className={styles.pageNav}>
                             <li className={styles.pageNavItems}>

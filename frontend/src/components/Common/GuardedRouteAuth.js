@@ -2,12 +2,12 @@ import React, { useContext } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import UserContext from '../../contexts/Context';
 
-const GuardRoutes = () => {
+const GuardedRoutesAuth = () => {
     const context = useContext(UserContext);
 
     return context.isLoggedIn
-        ? <Outlet />
-        : <Navigate to='/'/>
+        ? <Navigate to='/' />
+        : <Outlet />
 }
 
-export default GuardRoutes;
+export default GuardedRoutesAuth;

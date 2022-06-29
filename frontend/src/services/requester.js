@@ -3,12 +3,14 @@ const URL = 'http://localhost:3003';
 async function fetchRequest(method, body, url) {
     const res = await fetch(URL + url, {
         method: method,
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+            'Content-Type': 'application/json'
+        },
         mode: 'cors',
         credentials: 'same-origin',
         body: JSON.stringify(body)
     });
-    
+
     const jsonResult = await res.json();
 
     if (res.ok) {
@@ -22,52 +24,60 @@ async function fetchRequest(method, body, url) {
 
 function tokenHandler(res) {
     const token = res.headers.get('Authorization');
-
     if (token) {
         localStorage.setItem('token', token);
     }
 }
 
-async function userAuth(token) {
+export async function userAuth(token) {
     if (!token) return;
     return await fetchRequest('GET', undefined, `/verify?token=${token}`);
 }
 
-async function findUserByEmail(email) {
+export async function findUserByEmail(email) {
     if (!email) return;
     return await fetchRequest('GET', undefined, `/usersEmail?email=${email}`);
 }
 
-async function findUserById(id) {
+export async function findUserById(id) {
     if (!id) return;
     return await fetchRequest('GET', undefined, `/usersId?id=${id}`);
 }
 
-async function findAllUsers() {
-    return await fetchRequest('GET', undefined, `/users`);
+export async function findAllUsers() {
+    return await fetchRequest('GET', undefined, '/users');
 }
 
-async function userRegister(body) {
+export async function findAllCards() {
+    return await fetchRequest('GET', undefined, '/cards');
+}
+
+export async function userRegister(body) {
     if (!body) return;
-    return await fetchRequest('POST', body, `/user/register`);
+    return await fetchRequest('POST', body, '/user/register');
 }
 
-async function userLogin(body) {
+export async function userLogin(body) {
     if (!body) return;
-    return await fetchRequest('POST', body, `/user/login`);
+    return await fetchRequest('POST', body, '/user/login');
 }
 
-async function updateAdmin(body) {
+export async function createCard(body) {
     if (!body) return;
-    return await fetchRequest('POST', body, `/admin/update`);
+    return await fetchRequest('POST', body, '/card/create');
 }
 
-module.exports = {
-    userAuth,
-    findUserByEmail,
-    findUserById,
-    findAllUsers,
-    userRegister,
-    userLogin,
-    updateAdmin
-};
+export async function updateAdmin(body) {
+    if (!body) return;
+    return await fetchRequest('POST', body, '/admin/update');
+}
+
+export async function deleteUser(body) {
+    if (!body) return;
+    return await fetchRequest('POST', body, '/admin/delete');
+}
+
+export async function deleteCard(body) {
+    if (!body) return;
+    return await fetchRequest('POST', body, '/card/delete');
+}

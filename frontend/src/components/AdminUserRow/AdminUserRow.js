@@ -2,59 +2,59 @@ import React, { useContext, useState } from 'react';
 
 import styles from './AdminUserRow.module.css';
 
-import { updateAdmin } from '../../services/requester';
 import UserContext from '../../contexts/Context';
+import { updateAdmin } from '../../services/requester';
 
-function AdminUserRow({ data }) {
+const AdminUserRow = ({ data, button }) => {
     const context = useContext(UserContext);
-    const [admin, setAdmin] = useState(data.isAdmin);
-    const showButton = context.userEmail === data.email;
+    const changeButton = context.userEmail === data.email;
 
-    const onAdminHandler = async (e) => {
+    const [admin, setAdmin] = useState(data.isAdmin);
+
+    const changeAdminHandler = async (e) => {
         e.preventDefault();
 
-        const user = await updateAdmin(data);
-        setAdmin(user);
+        const { isAdmin } = await updateAdmin(data);
 
-        window.location.reload(false);
+        setAdmin(isAdmin);
     }
 
     return (
         <tr className={styles.alertTr} role="alert">
-            <th scope={styles.rowAdmin}>1</th>
+            <th scope={styles.rowAdmin}>{data._id}</th>
             <td>{data.firstName}</td>
             <td>{data.lastName}</td>
             <td>{data.email}</td>
             <td>
-                <a href="#" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">
-                        <i className={styles.faAdminClose}
-                            onClick={() => { console.log('Delete') }}>
-                        </i>
-                    </span>
-                </a>
-            </td>
-            <td>
-                {showButton
-                    ? <></>
+                {admin
+                    ? null
                     : <button
-                        className={styles.changeButton}
-                        type="button"
-                        value={data._id}
-                        onClick={onAdminHandler}
-                    >
-                        Change
+                        type='button'
+                        onClick={button.remove}
+                        className={styles.faAdminClose}
+                        value={data._id}>
                     </button>
                 }
-                <div>
-                    {admin
-                        ? <span className={styles.adminColor}>Yes</span>
-                        : <span className={styles.userColor}>No</span>
-                    }
-                </div>
+            </td>
+            <td>
+                {changeButton
+                    ? null
+                    : <button
+                        type='button'
+                        onClick={changeAdminHandler}
+                        className={styles.changeButton}
+                        value={data._id}>
+                    </button>
+                }
+            </td>
+            <td>
+                {admin
+                    ? <i className={styles.adminColor}>Yes</i>
+                    : <i className={styles.userColor}>No</i>
+                }
             </td>
         </tr>
-    )
+    );
 }
 
 export default AdminUserRow;

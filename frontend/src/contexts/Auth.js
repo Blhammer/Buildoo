@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import UserContext from './Context';
 import { userAuth } from '../services/requester';
 
@@ -8,7 +8,7 @@ function getCookie(name) {
 }
 
 export const AuthProcess = ({ children }) => {
-    const [user, setUser] = useState(false);
+    const [user, setUser] = useState(null);
     const [userEmail, setUserEmail] = useState({});
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isContextAdmin, setContextIsAdmin] = useState(false);
@@ -23,9 +23,7 @@ export const AuthProcess = ({ children }) => {
 
     const sendRequest = async (token) => {
         const user = await userAuth(token);
-        user
-            ? login(user)
-            : logout();
+        user ? login(user) : logout();
     }
 
     const updateUser = (user) => {
@@ -34,11 +32,12 @@ export const AuthProcess = ({ children }) => {
         }
         setUser(user);
     }
-
+    
     const login = (user) => {
         if (user.isAdmin) {
             setContextIsAdmin(true);
         }
+
         setUserEmail(user.email);
         setUser(user);
         setIsLoggedIn(true);
@@ -65,7 +64,7 @@ export const AuthProcess = ({ children }) => {
     )
 }
 
-export const useAuthContext = () => {
-    const authState = useContext(AuthProcess);
-    return authState;
-};
+// export const useAuthContext = () => {
+//     const authState = useContext(AuthProcess);
+//     return authState;
+// };

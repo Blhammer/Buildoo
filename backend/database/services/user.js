@@ -1,8 +1,8 @@
-const User = require('./models/Users');
-const { hashPassword } = require('./util');
+const User = require('../models/Users');
+const { hashPassword } = require('../util');
 
-const invalidSelector = (selector) => {
-    return !selector || typeof selector !== 'object';
+const invalidData = (data) => {
+    return !data || typeof data !== 'object';
 }
 
 async function createUser(user) {
@@ -12,7 +12,6 @@ async function createUser(user) {
 
     try {
         user.password = hashPassword(user.password);
-
         const userModel = new User(user);
         const savedUser = await userModel.save();
         return savedUser;
@@ -22,14 +21,14 @@ async function createUser(user) {
     }
 }
 
-async function findUser(selector) {
-    if (invalidSelector(selector)) {
+async function findUser(data) {
+    if (invalidData(data)) {
         return undefined;
     }
 
     try {
         return await User
-            .findOne(selector)
+            .findOne(data)
             .populate('isAdmin');
     }
     catch (err) {
@@ -53,11 +52,14 @@ async function findUserById(id) {
     }
 }
 
-async function findUserByEmail(selector) {
-    if (invalidSelector(selector)) return undefined;
+async function findUserByEmail(data) {
+    if (!data) {
+        return undefined;
+    }
+
     try {
         return await User
-            .find(selector)
+            .find(data)
             .populate('isAdmin');
     } catch (err) {
         console.error(err);
@@ -68,7 +70,7 @@ async function findUserByEmail(selector) {
 async function findAllUsers() {
     try {
         return await User
-            .find({})
+            .find()
             .populate('isAdmin');
     } catch (err) {
         console.error(err);
@@ -76,14 +78,29 @@ async function findAllUsers() {
     }
 }
 
-async function updateAdmin(body) {
-    if (!body) {
+async function updateAdmin(user) {
+    if (invalidData(user)) {
         return undefined;
     }
 
     try {
         return await User
-            .findOneAndUpdate({ _id: body._id }, body, { new: true })
+            .findOneAndUpdate({ _id: user._id }, user, { new: true })
+            .populate('isAdmin')
+    } catch (err) {
+        console.error(err);
+        return undefined;
+    }
+}
+
+async function deleteUser(id) {
+    if (!id) {
+        return undefined;
+    }
+    
+    try {
+        return await User
+            .findByIdAndDelete(id)
             .populate('isAdmin')
     } catch (err) {
         console.error(err);
@@ -97,5 +114,6 @@ module.exports = {
     findUserByEmail,
     findUserById,
     findAllUsers,
-    updateAdmin
+    updateAdmin,
+    deleteUser
 };
