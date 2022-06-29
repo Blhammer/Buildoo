@@ -9,7 +9,6 @@ function expressRouter(router) {
     router.get('/usersEmail', getUserByEmail);
     router.get('/usersId', getUserById);
     router.get('/users', getAllUsers);
-
     router.get('/cards', getAllCards);
 
     router.post('/user/login', userLogin);
