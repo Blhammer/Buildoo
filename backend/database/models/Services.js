@@ -5,13 +5,14 @@ const ServiceSchema = new Schema({
     title: { type: String, required: true, minlength: 5 },
     town: { type: String, required: true },
     street: { type: String, required: true },
-    filename: { type: String, required: true },
+    imageUrl: { type: String, required: true, default: 'noImage.jpg' },
     payments: { type: String, required: true },
     service: { type: String, required: true },
-    description: { type: String, required: true, minlength: 30 },
+    description: { type: String, required: true, minlength: 5 },
+    currentDate: { type: String }
 });
 
-// ServiceSchema.plugin(uniqueValidator);
+ServiceSchema.plugin(uniqueValidator);
 const Service = model('Service', ServiceSchema);
 
 module.exports = Service;

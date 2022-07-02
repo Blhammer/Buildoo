@@ -1,5 +1,5 @@
-const express = require('express');
-const cors = require('cors');
+const express = require('express'); // build the REST APIs
+const cors = require('cors'); 
 
 const expressRouter = require('../server/router');
 

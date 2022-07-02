@@ -1,43 +1,63 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
+import { FilePond } from 'react-filepond';
+import 'filepond/dist/filepond.min.css';
 
 import styles from './Create.module.css';
 
 import Input from '../Input/Input';
-import UserContext from '../../contexts/Context';
-import { createCard } from '../../services/requester';
+// import UserContext from '../../contexts/Context';
+import { createCard, uploadImage } from '../../services/requester';
 
 const Create = () => {
     const [title, setTitle] = useState('');
     const [town, setTown] = useState('');
     const [street, setStreet] = useState('');
-    const [filename, setImage] = useState('');
+    const [imageUrl, setImageUrl] = useState('');
     const [payments, setPayments] = useState('');
     const [service, setService] = useState('');
     const [description, setDescription] = useState('');
+    
+    const [uploadedImage, setUploadedImage] = useState([]);
 
     const navigate = useNavigate();
-    const context = useContext(UserContext);
+    // const context = useContext(UserContext);
+
+    const imageHandler = (files) => {
+        const item = files.map((fileItem) => fileItem.file);
+        setUploadedImage(item);
+        setImageUrl(item[0]);
+    }
 
     const createSubmitHandler = async (e) => {
         e.preventDefault();
 
-        if (title === '' || town === '' || street === '' || filename === '' || payments === '' || service === '' || description === '') {
+        const date = new Date();
+        const currentDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+
+        if (title === '' || town === '' || street === '' || payments === '' || service === '' || description === '') {
             console.error('Invalid data!');
             return;
         }
+
+        const formData = new FormData();
+        formData.append('file', uploadedImage[0]); 
+        await uploadImage(formData);
 
         const body = {
             title,
             town,
             street,
-            filename,
+            imageUrl: imageUrl.name,
             payments,
             service,
-            description
+            description,
+            currentDate
         };
 
         const user = await createCard(body);
+        console.log(user);
+
         if (user) {
             navigate('/my-services');
         } else {
@@ -105,12 +125,12 @@ const Create = () => {
                                 </div>
                                 <div className={styles.eachGapDesign}>
                                     <div className={styles.uploadStyle}>
-                                        <input
-                                            type="file"
-                                            id="myFile"
-                                            name="filename"
-                                            value={filename}
-                                            onChange={(e) => setImage(e.target.value)}
+                                        <FilePond
+                                            name='image'
+                                            instantUpload={false}
+                                            allowMultiple={false}
+                                            files={uploadedImage}
+                                            onupdatefiles={(fileItems) => imageHandler(fileItems)}
                                         />
                                     </div>
                                 </div>

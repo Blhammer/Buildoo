@@ -1,8 +1,14 @@
 import styles from './Catalog.module.css';
 
 import CatalogAllCards from '../CatalogAllCards';
+import { useEffect } from 'react';
 
 const Catalog = () => {
+
+    // useEffect(() => {
+        
+    // });
+
     return (
         <>
             <div className={styles.searchContainer} >

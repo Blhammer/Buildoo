@@ -3,6 +3,7 @@ const { userRegister, userLogin } = require('./services/userAuth');
 const { userAuthorization, getUserByEmail, getUserById, getAllUsers } = require('./services/userGet');
 const { cardCreate } = require('./services/servicePost');
 const { getAllCards } = require('./services/serviceGet');
+const { getListFiles, upload } = require('./controller/file');
 
 function expressRouter(router) {
     router.get('/verify', userAuthorization);
@@ -11,6 +12,8 @@ function expressRouter(router) {
     router.get('/users', getAllUsers);
     router.get('/cards', getAllCards);
 
+    router.get('/files', getListFiles);
+
     router.post('/user/login', userLogin);
     router.post('/user/register', userRegister);
     router.post('/admin/update', adminUpdate);
@@ -18,6 +21,8 @@ function expressRouter(router) {
 
     router.post('/card/create', cardCreate);
     // router.post('/card/delete', cardDelete);
+
+    router.post('/user/upload', upload);
 
     router.use('*', (req, res) => {
         res.status(404).json({ error: 'Not found!' });

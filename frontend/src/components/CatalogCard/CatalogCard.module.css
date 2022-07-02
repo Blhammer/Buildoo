@@ -5,9 +5,11 @@
     flex: 0 0 auto;
     justify-content: center;
     align-items: center;
-    width: 30%;
+    width: 25%;
     border-style: solid;
-    color: rgb(0, 183, 255);
+    color: rgb(120, 120, 120);
+    background-color: #fff;
+    border-radius: 10px;
 }
 
 figure.eachImageDesign {

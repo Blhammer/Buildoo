@@ -180,8 +180,7 @@ textarea.formStyle {
 .uploadStyle {
     display: block;
     width: 100%;
-    height: calc(1.5em + 0.75rem + 2px);
-    padding: 0.5rem;
+    /* padding-bottom: 0rem; */
     font-size: 1rem;
     color: #ffffff;
     background-color: #ff4800;

@@ -3,9 +3,7 @@ const URL = 'http://localhost:3003';
 async function fetchRequest(method, body, url) {
     const res = await fetch(URL + url, {
         method: method,
-        headers: {
-            'Content-Type': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         mode: 'cors',
         credentials: 'same-origin',
         body: JSON.stringify(body)
@@ -52,6 +50,10 @@ export async function findAllCards() {
     return await fetchRequest('GET', undefined, '/cards');
 }
 
+export async function findAllImages() {
+    return await fetchRequest('GET', undefined, '/files');
+}
+
 export async function userRegister(body) {
     if (!body) return;
     return await fetchRequest('POST', body, '/user/register');
@@ -65,6 +67,30 @@ export async function userLogin(body) {
 export async function createCard(body) {
     if (!body) return;
     return await fetchRequest('POST', body, '/card/create');
+}
+
+export async function uploadImage(body) {
+    if (!body) return;
+    console.log(body);
+
+    const res = await fetch(`${URL}/user/upload`, {
+        method: 'POST',
+        body: body
+    });
+
+    console.log("res:");
+    console.log(res);
+
+    const jsonResult = await res.json();
+    console.log("jsonResult:");
+    console.log(jsonResult);
+
+    if (res.ok) {
+        console.log("here");
+        return jsonResult;
+    } else {
+        console.error(res.message);
+    }
 }
 
 export async function updateAdmin(body) {
