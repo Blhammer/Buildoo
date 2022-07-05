@@ -1,4 +1,4 @@
-const Service = require('../models/Services');
+const Service = require('../models/Service');
 
 const invalidData = (data) => {
     return !data || typeof data !== 'object';
@@ -19,6 +19,18 @@ async function createService(data) {
     }
 }
 
+async function updateService(body) {
+    try {
+        return await Service
+            .findOneAndUpdate({ _id: body.userId }, body, { new: true })
+            .populate('currentDate')
+            .populate('owner')
+    } catch (err) {
+        console.error(err);
+        return undefined;
+    }
+}
+
 async function findAllCards() {
     try {
         return await Service
@@ -31,5 +43,6 @@ async function findAllCards() {
 
 module.exports = {
     createService,
+    updateService,
     findAllCards
 };

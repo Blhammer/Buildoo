@@ -125,6 +125,8 @@
 
 .paddingContainer {
     display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     padding-right: 0px;
     padding-left: 0px;
@@ -145,22 +147,7 @@
 }
 @media (min-width: 992px) {
     .paddingContainer {
-        max-width: 960px;
-    }
-}
-@media (min-width: 1200px) {
-    .paddingContainer {
-        max-width: 1140px;
-    }
-}
-@media (max-width: 991px) {
-    .paddingContainer {
-        max-width: 870px;
-    }
-}
-@media (max-width: 575px) {
-    .paddingContainer {
-        max-width: 420px;
+        max-width: 1060px;
     }
 }
 

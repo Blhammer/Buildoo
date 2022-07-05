@@ -14,23 +14,34 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const [errorEmail, setErrorEmail] = useState(null);
+
     const context = useContext(UserContext);
     const navigate = useNavigate();
+
+    //TODO: set to 8:
+    const disableButton = !email || password.length < 6;
+
+    const loginValidator = () => {
+
+    };
 
     const loginSubmitHandler = async (e) => {
         e.preventDefault();
 
         if (email === '' || password === '') {
-            console.error('Invalid email or password!');
+            setErrorEmail('Invalid email or password!');
             return;
         }
+
         const user = await userLogin({ email, password });
         if (user) {
             context.login(user);
             navigate('/');
         }
         else {
-            console.error('Invalid email or password!');
+            setErrorEmail('Invalid email or password!');
+            return;
         }
     }
 
@@ -41,11 +52,10 @@ const Login = () => {
                     <div className={styles.cardBody}>
                         <div className={styles.rowElements}>
 
-
                             <div className={styles.imageDesign}>
                                 <img src={image1}
                                     className={styles.imageStyle}
-                                    alt="image"
+                                    alt="img"
                                 />
                             </div>
 
@@ -53,37 +63,40 @@ const Login = () => {
                                 <form id="login-form" method="POST" onSubmit={loginSubmitHandler}>
                                     <p className={styles.loginText}>Login</p>
 
-                                    <div className={styles.formDesign}>
-                                        <Input
-                                            name="email"
-                                            type="email"
-                                            placeholder="Enter email"
-                                            value={email}
-                                            onChange={(e) => setEmail(e.target.value)}
-                                        />
-                                        <label htmlFor="email"></label>
-                                    </div>
+                                    <Input
+                                        errorInput={errorEmail}
+                                        name="email"
+                                        type="email"
+                                        placeholder="Enter email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                    />
 
-                                    <div className={styles.formDesign}>
-                                        <Input
-                                            name="password"
-                                            type="password"
-                                            placeholder="Enter password"
-                                            value={password}
-                                            onChange={(e) => setPassword(e.target.value)}
-                                        />
-                                        <label htmlFor="password"></label>
-                                    </div>
+                                    <Input
+                                        errorInput={errorEmail}
+                                        name="password"
+                                        type="password"
+                                        placeholder="Enter password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                    />
 
                                     <div className={styles.rememberMeDesign}>
                                         <Link className={styles.forgotPass} to="/">Forgot password?</Link>
                                     </div>
 
                                     <div className={styles.loginButton}>
-                                        <button type="submit" className={styles.loginButtonDesign}>Login</button>
+                                        <button
+                                            type="submit"
+                                            className={styles.loginButtonDesign}
+                                            disabled={disableButton}
+                                        >
+                                            Login
+                                        </button>
+
                                         <p className={styles.register}>
                                             Don't have an account?
-                                            <Link to="/register">
+                                            <Link to="/register" className={styles.registerStyle}>
                                                 Register
                                             </Link>
                                         </p>

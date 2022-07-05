@@ -20,6 +20,21 @@ async function fetchRequest(method, body, url) {
     }
 }
 
+async function fetchFileRequest(method, body, url) {
+    const res = await fetch(URL + url, {
+        method: method,
+        body: body
+    });
+
+    const jsonResult = await res.json();
+
+    if (res.ok) {
+        return jsonResult;
+    } else {
+        console.error(res.message);
+    }
+}
+
 function tokenHandler(res) {
     const token = res.headers.get('Authorization');
     if (token) {
@@ -71,31 +86,17 @@ export async function createCard(body) {
 
 export async function uploadImage(body) {
     if (!body) return;
-    console.log(body);
-
-    const res = await fetch(`${URL}/user/upload`, {
-        method: 'POST',
-        body: body
-    });
-
-    console.log("res:");
-    console.log(res);
-
-    const jsonResult = await res.json();
-    console.log("jsonResult:");
-    console.log(jsonResult);
-
-    if (res.ok) {
-        console.log("here");
-        return jsonResult;
-    } else {
-        console.error(res.message);
-    }
+    return await fetchFileRequest('POST', body, '/user/upload');
 }
 
 export async function updateAdmin(body) {
     if (!body) return;
     return await fetchRequest('POST', body, '/admin/update');
+}
+
+export async function updateService(body) {
+    if (!body) return;
+    return await fetchRequest('POST', body, '/edit/service');
 }
 
 export async function deleteUser(body) {

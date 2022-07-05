@@ -1,6 +1,6 @@
 .mainContainer {
     width: 100%;
-    padding: 0rem 0rem 5rem 0rem; 
+    padding: 0rem 0rem 5rem 0rem;
     margin: 0rem auto 0rem auto;
     overflow: hidden;
     background: #f8ef6f;
@@ -91,7 +91,7 @@
 }
 
 .fillContainerDesign {
-    background-color: #ff4800 !important;
+    background-color: #f9c8a7 !important;
     padding-top: 0rem !important;
     padding-bottom: 0rem !important;
     padding-right: 0 !important;
@@ -146,59 +146,6 @@ textarea.formStyle {
     height: auto;
 }
 
-.uploadStyle {
-    display: block;
-    width: 100%;
-    height: calc(1.5em + 0.75rem + 2px);
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1.5;
-    border: 0 !important;
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border-radius: 0;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-@media (prefers-reduced-motion: reduce) {
-    .uploadStyle {
-        transition: none;
-    }
-}
-.uploadStyle::-ms-expand {
-    background-color: transparent;
-    border: 0;
-}
-.uploadStyle:-moz-focusring {
-    color: transparent;
-    text-shadow: 0 0 0 #495057;
-}
-.uploadStyle:focus {
-    color: #495057;
-    background-color: #fff;
-    /* border-color: #ffa480; */
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(255, 72, 0, 0.25);
-}
-.uploadStyle::placeholder {
-    color: #6c757d;
-    opacity: 1;
-}
-.uploadStyle:disabled {
-    background-color: #e9ecef;
-    opacity: 1;
-}
-input[type="date"].uploadStyle,
-input[type="time"].uploadStyle {
-    appearance: none;
-}
-textarea.uploadStyle {
-    height: auto;
-}
-
 .selectOptionsDesign {
     display: inline-block;
     width: 100%;
@@ -229,6 +176,21 @@ textarea.uploadStyle {
 }
 .selectOptionsDesign::-ms-expand {
     display: none;
+}
+
+.descriptionDesign {
+    border: 0 !important;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+    display: block;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    resize: none;
+    width: 100%;
+    max-width: 100%;
+    line-height: 3;
+    color: #495057;
+    background-color: #fff;
 }
 
 .descriptionDesign {

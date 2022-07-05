@@ -1,30 +1,35 @@
 import React, { useContext, useState } from 'react';
-import image1 from './team-1.jpg';
+import { Link } from 'react-router-dom';
 
 import styles from './CatalogCard.module.css';
 
-const CatalogCard = ({ data, button }) => {
+const CatalogCard = ({ data }) => {
     return (
         <div className={styles.eachImageContainer}>
             <figure className={styles.eachImageDesign}>
                 <img
-                    src={image1}
-                    alt="Image"
+                    src={data.imageUrl}
+                    alt="img"
                     className={styles.eachImageStyle}
                 />
                 <figcaption
                     className={styles.figcaptionDesign}
                 >
                     <h2>Details</h2>
-                    <a href="/all-services/:id">View more</a>
+                    <Link
+                        to={`/all-services/${data._id}`}
+                        state={{ data: data }}
+                    >
+                        View more
+                    </Link>
                 </figcaption>
             </figure>
             <div className={styles.reviewsContainer}>
                 <span className={styles.imageReview}>{data.currentDate}</span>
-                <span className={styles.imageReview}>9,906 views</span>
+                <span className={styles.imageReview}>Likes: 15{data.likes}</span>
             </div>
         </div>
-    )
+    );
 };
 
 export default CatalogCard;

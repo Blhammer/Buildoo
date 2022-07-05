@@ -1,7 +1,9 @@
-import styles from './LikedPosts.module.css';
-import image1 from './team-1.jpg';
+import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 
-const MyPosts = () => {
+import styles from './LikedPosts.module.css';
+
+const MyPosts = ({ data, button }) => {
     return (
         <div className={styles.mainContainer}>
             <div className={styles.mainContainerDesign}>
@@ -33,7 +35,7 @@ const MyPosts = () => {
                     <div className={styles.myCardDesign}>
                         <div className={styles.cardImage}>
                             <img
-                                src={image1}
+                                src={'image1'}
                                 alt="img"
                             />
                         </div>
@@ -41,7 +43,13 @@ const MyPosts = () => {
                             <h5>
                                 Title: Images for demo
                             </h5>
-                            <a className={styles.detailsCard} href='/liked/:id'>Details</a>
+                            <Link
+                                to={`/liked/:id`}
+                                // to={`/liked/"${data._id}"`}
+                                className={styles.detailsCard}
+                                state={{ data: data }}>
+                                Details
+                            </Link>
                             <div className={styles.userDesign}>
                                 <div className={styles.userInfo}>
                                     <h5>Name: Gogo Gogev</h5>
@@ -51,174 +59,6 @@ const MyPosts = () => {
                         </div>
                     </div>
 
-                    <div className={styles.myCardDesign}>
-                        <div className={styles.cardImage}>
-                            <img
-                                src={image1}
-                                alt="img"
-                            />
-                        </div>
-                        <div className={styles.cardBody}>
-                            <h5>
-                                Title: Images for demo
-                            </h5>
-                            <a className={styles.detailsCard} href='/liked/:id'>Details</a>
-                            <div className={styles.userDesign}>
-                                <div className={styles.userInfo}>
-                                    <h5>Name: Gogo Gogev</h5>
-                                    <span>Likes: 23</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className={styles.myCardDesign}>
-                        <div className={styles.cardImage}>
-                            <img
-                                src={image1}
-                                alt="img"
-                            />
-                        </div>
-                        <div className={styles.cardBody}>
-                            <h5>
-                                Title: Images for demo
-                            </h5>
-                            <a className={styles.detailsCard} href='/liked/:id'>Details</a>
-                            <div className={styles.userDesign}>
-                                <div className={styles.userInfo}>
-                                    <h5>Name: Gogo Gogev</h5>
-                                    <span>Likes: 23</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className={styles.myCardDesign}>
-                        <div className={styles.cardImage}>
-                            <img
-                                src={image1}
-                                alt="img"
-                            />
-                        </div>
-                        <div className={styles.cardBody}>
-                            <h5>
-                                Title: Images for demo
-                            </h5>
-                            <a className={styles.detailsCard} href='/liked/:id'>Details</a>
-                            <div className={styles.userDesign}>
-                                <div className={styles.userInfo}>
-                                    <h5>Name: Gogo Gogev</h5>
-                                    <span>Likes: 23</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className={styles.myCardDesign}>
-                        <div className={styles.cardImage}>
-                            <img
-                                src={image1}
-                                alt="img"
-                            />
-                        </div>
-                        <div className={styles.cardBody}>
-                            <h5>
-                                Title: Images for demo
-                            </h5>
-                            <a className={styles.detailsCard} href='/liked/:id'>Details</a>
-                            <div className={styles.userDesign}>
-                                <div className={styles.userInfo}>
-                                    <h5>Name: Gogo Gogev</h5>
-                                    <span>Likes: 23</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className={styles.myCardDesign}>
-                        <div className={styles.cardImage}>
-                            <img
-                                src={image1}
-                                alt="img"
-                            />
-                        </div>
-                        <div className={styles.cardBody}>
-                            <h5>
-                                Title: Images for demo
-                            </h5>
-                            <a className={styles.detailsCard} href='/liked/:id'>Details</a>
-                            <div className={styles.userDesign}>
-                                <div className={styles.userInfo}>
-                                    <h5>Name: Gogo Gogev</h5>
-                                    <span>Likes: 23</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className={styles.myCardDesign}>
-                        <div className={styles.cardImage}>
-                            <img
-                                src={image1}
-                                alt="img"
-                            />
-                        </div>
-                        <div className={styles.cardBody}>
-                            <h5>
-                                Title: Images for demo
-                            </h5>
-                            <a className={styles.detailsCard} href='/liked/:id'>Details</a>
-                            <div className={styles.userDesign}>
-                                <div className={styles.userInfo}>
-                                    <h5>Name: Gogo Gogev</h5>
-                                    <span>Likes: 23</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className={styles.myCardDesign}>
-                        <div className={styles.cardImage}>
-                            <img
-                                src={image1}
-                                alt="img"
-                            />
-                        </div>
-                        <div className={styles.cardBody}>
-                            <h5>
-                                Title: Images for demo
-                            </h5>
-                            <a className={styles.detailsCard} href='/liked/:id'>Details</a>
-                            <div className={styles.userDesign}>
-                                <div className={styles.userInfo}>
-                                    <h5>Name: Gogo Gogev</h5>
-                                    <span>Likes: 23</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className={styles.myCardDesign}>
-                        <div className={styles.cardImage}>
-                            <img
-                                src={image1}
-                                alt="img"
-                            />
-                        </div>
-                        <div className={styles.cardBody}>
-                            <h5>
-                                Title: Images for demo
-                            </h5>
-                            <a className={styles.detailsCard} href='/liked/:id'>Details</a>
-                            <div className={styles.userDesign}>
-                                <div className={styles.userInfo}>
-                                    <h5>Name: Gogo Gogev</h5>
-                                    <span>Likes: 23</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
                 </div>
             </div>
         </div>

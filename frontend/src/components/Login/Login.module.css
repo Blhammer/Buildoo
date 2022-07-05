@@ -179,6 +179,7 @@
 .forgotPass {
     display: flex;
     justify-content: center;
+    padding-top: 30px;
 }
 
 .loginButton {
@@ -196,30 +197,19 @@
     display: inline-block;
     font-weight: 400;
     text-align: center;
-    vertical-align: middle;
-    user-select: none;
-    border: 1px solid transparent;
-    border-radius: 0;
-}
-@media (prefers-reduced-motion: reduce) {
-    .loginButtonDesign {
-        transition: none;
-    }
+    border: none;
 }
 .loginButtonDesign:hover {
     color: #9bff94;
     text-decoration: none;
-}
-.loginButtonDesign:focus {
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(255, 72, 0, 0.25);
-}
-.loginButtonDesign:disabled {
-    opacity: 0.65;
 }
 
 .register {
     margin-top: 0.5rem !important;
     padding-top: 0.25rem !important;
     margin-bottom: 0 !important;
+}
+
+.registerStyle {
+    padding-left: 5px;
 }

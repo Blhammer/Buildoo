@@ -1,18 +1,16 @@
-import styles from './MyPosts.module.css';
-import image1 from './team-1.jpg';
-
 import { Link } from 'react-router-dom';
+
+import AllServices from '../MyAllServices';
+
+import styles from './MyPosts.module.css';
 
 const MyServices = () => {
     return (
         <div className={styles.mainContainer}>
             <div className={styles.mainContainerDesign}>
                 <div className={styles.mainRow}>
-
                     <h2 className={styles.titleDesign}>My Uploaded Services</h2>
-
                     <Link className={styles.createDesign} to='/my-services/create'>Create Service</Link>
-
                     <nav aria-label="Page navigation example">
                         <ul className={styles.pageNav}>
                             <li className={styles.pageNavItems}>
@@ -35,223 +33,7 @@ const MyServices = () => {
                 </div>
 
                 <div className={styles.cardsContainer}>
-
-                    <div className={styles.eachCardDesign}>
-                        <div className={styles.eachCardImage}>
-                            <img
-                                src={image1}
-                                alt="img"
-                            />
-                        </div>
-                        <div className={styles.eachCardBody}>
-                            <h5>
-                                Images for demo
-                            </h5>
-                            <h5>Todor Georgiev Balabashev</h5>
-                            <div className={styles.userReviews}>
-                                <div className={styles.actionButtonsLikes}>
-                                    <small>Likes: 23</small>
-                                </div>
-                                <div className={styles.actionButtonsCard}>
-                                    <a href="/my-services/:id" className={styles.viewButton}>Open</a>
-                                    <a href="/my-services/edit/:id" className={styles.editButton}>Edit</a>
-                                    <button onClick={() => { console.log('Delete') }} className={styles.deleteButton}>Delete</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={styles.eachCardDesign}>
-                        <div className={styles.eachCardImage}>
-                            <img
-                                src={image1}
-                                alt="img"
-                            />
-                        </div>
-                        <div className={styles.eachCardBody}>
-                            <h5>
-                                Images for demo
-                            </h5>
-                            <h5>Todor Georgiev Balabashev</h5>
-                            <div className={styles.userReviews}>
-                                <div className={styles.actionButtonsLikes}>
-                                    <small>Likes: 23</small>
-                                </div>
-                                <div className={styles.actionButtonsCard}>
-                                    <a href="/my-services/:id" className={styles.viewButton}>View</a>
-                                    <button onClick={() => { console.log('Delete') }} href="/delete/:id" className={styles.deleteButton}>Delete</button>
-                                    <button onClick={() => { console.log('Edit') }} href="/edit/:id" className={styles.editButton}>Edit</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={styles.eachCardDesign}>
-                        <div className={styles.eachCardImage}>
-                            <img
-                                src={image1}
-                                alt="img"
-                            />
-                        </div>
-                        <div className={styles.eachCardBody}>
-                            <h5>
-                                Images for demo
-                            </h5>
-                            <h5>Todor Georgiev Balabashev</h5>
-                            <div className={styles.userReviews}>
-                                <div className={styles.actionButtonsLikes}>
-                                    <small>Likes: 23</small>
-                                </div>
-                                <div className={styles.actionButtonsCard}>
-                                    <a href="/my-services/:id" className={styles.viewButton}>View</a>
-                                    <button onClick={() => { console.log('Delete') }} href="/delete/:id" className={styles.deleteButton}>Delete</button>
-                                    <button onClick={() => { console.log('Edit') }} href="/edit/:id" className={styles.editButton}>Edit</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={styles.eachCardDesign}>
-                        <div className={styles.eachCardImage}>
-                            <img
-                                src={image1}
-                                alt="img"
-                            />
-                        </div>
-                        <div className={styles.eachCardBody}>
-                            <h5>
-                                Images for demo
-                            </h5>
-                            <h5>Todor Georgiev Balabashev</h5>
-                            <div className={styles.userReviews}>
-                                <div className={styles.actionButtonsLikes}>
-                                    <small>Likes: 23</small>
-                                </div>
-                                <div className={styles.actionButtonsCard}>
-                                    <a href="/my-services/:id" className={styles.viewButton}>View</a>
-                                    <button onClick={() => { console.log('Delete') }} href="/delete/:id" className={styles.deleteButton}>Delete</button>
-                                    <button onClick={() => { console.log('Edit') }} href="/edit/:id" className={styles.editButton}>Edit</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={styles.eachCardDesign}>
-                        <div className={styles.eachCardImage}>
-                            <img
-                                src={image1}
-                                alt="img"
-                            />
-                        </div>
-                        <div className={styles.eachCardBody}>
-                            <h5>
-                                Images for demo
-                            </h5>
-                            <h5>Todor Georgiev Balabashev</h5>
-                            <div className={styles.userReviews}>
-                                <div className={styles.actionButtonsLikes}>
-                                    <small>Likes: 23</small>
-                                </div>
-                                <div className={styles.actionButtonsCard}>
-                                    <a href="/my-services/:id" className={styles.viewButton}>View</a>
-                                    <button onClick={() => { console.log('Delete') }} href="/delete/:id" className={styles.deleteButton}>Delete</button>
-                                    <button onClick={() => { console.log('Edit') }} href="/edit/:id" className={styles.editButton}>Edit</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={styles.eachCardDesign}>
-                        <div className={styles.eachCardImage}>
-                            <img
-                                src={image1}
-                                alt="img"
-                            />
-                        </div>
-                        <div className={styles.eachCardBody}>
-                            <h5>
-                                Images for demo
-                            </h5>
-                            <h5>Todor Georgiev Balabashev</h5>
-                            <div className={styles.userReviews}>
-                                <div className={styles.actionButtonsLikes}>
-                                    <small>Likes: 23</small>
-                                </div>
-                                <div className={styles.actionButtonsCard}>
-                                    <a href="/my-services/:id" className={styles.viewButton}>View</a>
-                                    <button onClick={() => { console.log('Delete') }} href="/delete/:id" className={styles.deleteButton}>Delete</button>
-                                    <button onClick={() => { console.log('Edit') }} href="/edit/:id" className={styles.editButton}>Edit</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={styles.eachCardDesign}>
-                        <div className={styles.eachCardImage}>
-                            <img
-                                src={image1}
-                                alt="img"
-                            />
-                        </div>
-                        <div className={styles.eachCardBody}>
-                            <h5>
-                                Images for demo
-                            </h5>
-                            <h5>Todor Georgiev Balabashev</h5>
-                            <div className={styles.userReviews}>
-                                <div className={styles.actionButtonsLikes}>
-                                    <small>Likes: 23</small>
-                                </div>
-                                <div className={styles.actionButtonsCard}>
-                                    <a href="/my-services/:id" className={styles.viewButton}>View</a>
-                                    <button onClick={() => { console.log('Delete') }} href="/delete/:id" className={styles.deleteButton}>Delete</button>
-                                    <button onClick={() => { console.log('Edit') }} href="/edit/:id" className={styles.editButton}>Edit</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={styles.eachCardDesign}>
-                        <div className={styles.eachCardImage}>
-                            <img
-                                src={image1}
-                                alt="img"
-                            />
-                        </div>
-                        <div className={styles.eachCardBody}>
-                            <h5>
-                                Images for demo
-                            </h5>
-                            <h5>Todor Georgiev Balabashev</h5>
-                            <div className={styles.userReviews}>
-                                <div className={styles.actionButtonsLikes}>
-                                    <small>Likes: 23</small>
-                                </div>
-                                <div className={styles.actionButtonsCard}>
-                                    <a href="/my-services/:id" className={styles.viewButton}>View</a>
-                                    <button onClick={() => { console.log('Delete') }} href="/delete/:id" className={styles.deleteButton}>Delete</button>
-                                    <button onClick={() => { console.log('Edit') }} href="/edit/:id" className={styles.editButton}>Edit</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={styles.eachCardDesign}>
-                        <div className={styles.eachCardImage}>
-                            <img
-                                src={image1}
-                                alt="img"
-                            />
-                        </div>
-                        <div className={styles.eachCardBody}>
-                            <h5>
-                                Images for demo
-                            </h5>
-                            <h5>Todor Georgiev Balabashev</h5>
-                            <div className={styles.userReviews}>
-                                <div className={styles.actionButtonsLikes}>
-                                    <small>Likes: 23</small>
-                                </div>
-                                <div className={styles.actionButtonsCard}>
-                                    <a href="/my-services/:id" className={styles.viewButton}>View</a>
-                                    <button onClick={() => { console.log('Delete') }} href="/delete/:id" className={styles.deleteButton}>Delete</button>
-                                    <button onClick={() => { console.log('Edit') }} href="/edit/:id" className={styles.editButton}>Edit</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <AllServices />
                 </div>
             </div>
         </div>

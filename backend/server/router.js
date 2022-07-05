@@ -1,7 +1,7 @@
 const { adminUpdate, adminDelete } = require('./services/userPost');
 const { userRegister, userLogin } = require('./services/userAuth');
 const { userAuthorization, getUserByEmail, getUserById, getAllUsers } = require('./services/userGet');
-const { cardCreate } = require('./services/servicePost');
+const { cardCreate, serviceUpdate } = require('./services/servicePost');
 const { getAllCards } = require('./services/serviceGet');
 const { getListFiles, upload } = require('./controller/file');
 
@@ -19,6 +19,7 @@ function expressRouter(router) {
     router.post('/admin/update', adminUpdate);
     router.post('/admin/delete', adminDelete);
 
+    router.post('/edit/service', serviceUpdate);
     router.post('/card/create', cardCreate);
     // router.post('/card/delete', cardDelete);
 

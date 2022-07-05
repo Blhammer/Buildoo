@@ -10,6 +10,10 @@ async function userRegister(req, res) {
             return res.status(401).send('Invalid data!').end();
         }
 
+        if (user.email.trim() == '' || user.password.trim() == '') {
+            throw new Error('Email and password are required');
+        }
+
         const foundUser = await findUser({ email: user.email });
         if (foundUser) {
             return res.status(401).send('The user already exists.').end();
@@ -17,7 +21,7 @@ async function userRegister(req, res) {
 
         const createdUser = await createUser(user);
         const token = setToken(createdUser);
-        return res.status(200).header('Authorization', token).send(createdUser);
+        return res.status(201).header('Authorization', token).send(createdUser);
     } catch (error) {
         return res.status(500).send({ error: 'Something failed!' });
     }

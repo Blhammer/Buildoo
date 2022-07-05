@@ -19,7 +19,7 @@ const CatalogAllCards = () => {
     return (
         <>
             <CatalogList
-            cards={cards}
+                cards={cards}
             // button={{ button: button }}
             />
         </>

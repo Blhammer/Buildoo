@@ -62,9 +62,9 @@
 
 .rowElements {
     display: flex;
+    justify-content: center !important;
     margin-right: 0px;
     margin-left: 0px;
-    justify-content: center !important;
 }
 
 .rowElementsDesign {
@@ -72,7 +72,6 @@
     width: 100%;
     padding-right: 10px;
     padding-left: 10px;
-    order: 2;
 }
 @media (min-width: 768px) {
     .rowElementsDesign {
@@ -124,7 +123,8 @@
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
-    margin-bottom: 0.5rem !important;
+    justify-content: center;
+    margin: 0.5rem !important;
 }
 
 .formControl {
@@ -157,18 +157,10 @@
 }
 
 .inputsStyle {
-    font-size: 1.2em;
-    line-height: 0.5em;
-    vertical-align: 0.75em;
-    margin-right: 1rem !important;
-    margin-bottom: 1rem !important;
+    font-size: 1.2rem;
+    margin: 1rem 1rem 0rem 1rem !important;
     text-align: center;
     width: 1rem;
-}
-
-.inputsDesign {
-    flex: 1 1 auto !important;
-    margin-bottom: 0 !important;
 }
 
 .registerButton {
@@ -247,4 +239,8 @@
 .imageStyle {
     max-width: 100%;
     height: auto;
+}
+
+.loginStyle {
+    padding-left: 5px;
 }

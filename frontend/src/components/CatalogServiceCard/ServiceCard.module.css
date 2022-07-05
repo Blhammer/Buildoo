@@ -71,9 +71,13 @@
 }
 
 .serviceLeft img {
+    border-color: coral;
+    border-style: solid;
+    border-radius: 1rem;
+    border-width: 4px;
     width: 450px;
     height: 100%;
-    padding: 0 0 0 15px;
+    padding: 0;
 }
 @media (max-width: 991px) {
     .img {
@@ -87,18 +91,26 @@
 }
 
 .serviceRight {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding-left: 10px;
-    font-size: 20px;
+    font-size: 10px;
     flex-direction: column;
 }
 
 .infoDesign {
-    word-wrap: inherit;
-    width: 20em;
-    font-size: 22px;
+    word-wrap: break-word;
+    width: 30rem;
+    max-width: 30rem;
+    font-size: 20px;
+    margin: 1rem 5rem;
+    padding: 15px;
     border: 3px solid rgb(0, 132, 0);
-    padding: 22px;
-    margin: 5px 5px;
+}
+
+.info {
+    padding-left: 5px;
 }
 
 .buttonsDesign {
@@ -109,6 +121,11 @@
     padding: 0;
 }
 
+.likeDesign {
+    font-size: 1.8rem;
+    padding: 10px;
+}
+
 .like {
     list-style-type: none;
     display: inline-block;
@@ -116,7 +133,8 @@
     border: none;
     font-size: 1.5rem;
     padding: 10px;
-    width: 150px;
+    margin: 10px;
+    width: 100px;
     color: rgb(255, 255, 255);
     background-color: cornflowerblue;
 }
@@ -129,19 +147,57 @@
     font-size: 1.5rem;
     padding: 10px;
     margin: 10px;
-    width: 150px;
+    width: 100px;
     color: rgb(255, 176, 176);
     background-color: cornflowerblue;
 }
 
 .commentsDesign {
     text-align: center;
-    margin-bottom: 5rem;
+    margin: 2rem;
 }
 
 .comments {
     text-align: center;
-    padding-top: 5rem;
+    margin-top: 10px;
+}
+
+.createComment {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 500px;
+    border-radius: 20px;
+    padding: 15px;
+    background: #ff9717;
+    box-shadow: 0px 0px 30px 0px #32485e, -15px -15px 20px #191c21;
+}
+
+.createComment > .formStyle > textarea {
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 100px;
+    resize: none;
+    font-size: 1rem;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+.buttonSubmit {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.createComment > .buttonSubmit:hover {
+    justify-content: center;
+    background-color: #41425c;
+    color: white;
+    cursor: pointer;
 }
 
 .delete {

@@ -1,6 +1,8 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Footer.module.css';
-import image_1 from "./logo.png";
+
+import MapFooter from '../Map';
 
 const Footer = () => {
     return (
@@ -53,11 +55,8 @@ const Footer = () => {
                             </div>
                         </div>
                         <div className={styles.eachContainer}>
-                            <h3 className={styles.titleContainer}>Map</h3>
                             <div className={styles.mapContainer}>
-                                <div id="map">
-                                    <img src={image_1} alt="img"></img>
-                                </div>
+                                <MapFooter />
                             </div>
                         </div>
                     </div>

@@ -1,9 +1,11 @@
 import { useNavigate } from 'react-router';
 import React, { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 
 import styles from './Register.module.css';
 import image1 from './default.png';
 
+import Input from '../Input';
 import UserContext from '../../contexts/Context';
 import { userRegister } from '../../services/requester';
 
@@ -14,11 +16,49 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const [repass, setRepass] = useState('');
 
+    const [errorFirstName, setErrorFirstName] = useState(null);
+    const [errorLastName, setErrorLastName] = useState(null);
+    const [errorEmail, setErrorEmail] = useState(null);
+    const [errorPassword, setErrorPassword] = useState(null);
+    const [errorRepass, setErrorRepass] = useState(null);
+
+    const [loading, setLoading] = useState(false);
+
+    const disableButton = !email || !firstName || !lastName || password.length < 8 || repass.length < 8 || loading;
+
     const navigate = useNavigate();
     const context = useContext(UserContext);
 
-    const onRegisterHandler = async () => {
-        //TODO: Add password validation!!!
+    const registerFormValidation = () => {
+        setLoading(false);
+        let checker = true;
+
+        if (firstName === '' || firstName.length < 3 || firstName.length > 20) {
+            setErrorFirstName('Your first name must be between 3 and 20 characters!');
+            checker = false;
+        }
+        if (lastName === '' || lastName.length < 3 || lastName.length > 20) {
+            setErrorLastName('Your last name must be between 3 and 20 characters!');
+            checker = false;
+        }
+        if (email === '' || !email.match(/^([a-z0-9.]{3,25})@([a-z]{3,6}).([a-z]{2,5}$)/g)) {
+            setErrorEmail('Your email address is not valid');
+            checker = false;
+        }
+        if (password === '' || password.length < 8 || password.length > 60) {
+            setErrorPassword('Your password must be between 8 and 16 characters!');
+            checker = false;
+        }
+        if (password !== repass) {
+            setErrorRepass('Your password and repeated password must be the same!');
+            checker = false;
+        }
+
+        return checker;
+    }
+
+    const onRegisterHandler = async (e) => {
+        setLoading(true);
 
         const body = {
             firstName,
@@ -37,9 +77,15 @@ const Register = () => {
         }
     }
 
-    const registerSubmitHandler = (e) => {
+    const registerFormSubmitHandler = (e) => {
         e.preventDefault();
-        onRegisterHandler();
+
+        const isCheckerValid = registerFormValidation();
+        setLoading(false);
+
+        if (isCheckerValid) {
+            onRegisterHandler();
+        }
     }
 
     return (
@@ -52,53 +98,87 @@ const Register = () => {
                                 <p className={styles.title}>Sign up</p>
                                 <div className={styles.signUpContainer}>
 
-                                    <form method='POST' onSubmit={registerSubmitHandler}>
+                                    <form method='POST' onSubmit={registerFormSubmitHandler}>
                                         <div className={styles.eachFormInput}>
                                             <span className={styles.inputsStyle}><i className="fas fa-user"></i></span>
-                                            <div className={styles.inputsDesign}>
-                                                <input type="text" id="firstName" className={styles.formControl} placeholder="First name" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-                                                <label htmlFor='firstName'></label>
-                                            </div>
+                                            <Input
+                                                errorInput={errorFirstName}
+                                                type="text"
+                                                id="firstName"
+                                                placeholder="First name"
+                                                value={firstName}
+                                                onChange={(e) => setFirstName(e.target.value)}
+                                            />
                                         </div>
 
                                         <div className={styles.eachFormInput}>
                                             <span className={styles.inputsStyle}><i className="fas fa-user"></i></span>
-                                            <div className={styles.inputsDesign}>
-                                                <input type="text" id="lastName" className={styles.formControl} placeholder="Last name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
-                                                <label htmlFor='lastName'></label>
-                                            </div>
+                                            <Input
+                                                errorInput={errorLastName}
+                                                type="text"
+                                                id="lastName"
+                                                className={styles.formControl}
+                                                placeholder="Last name"
+                                                value={lastName}
+                                                onChange={(e) => setLastName(e.target.value)}
+                                            />
                                         </div>
 
                                         <div className={styles.eachFormInput}>
                                             <span className={styles.inputsStyle}><i className="fas fa-envelope"></i></span>
-                                            <div className={styles.inputsDesign}>
-                                                <input type="email" id="Email" className={styles.formControl} placeholder="Your Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                                                <label htmlFor="Email"></label>
-                                            </div>
+                                            <Input
+                                                errorInput={errorEmail}
+                                                type="email"
+                                                id="Email"
+                                                className={styles.formControl}
+                                                placeholder="Your Email"
+                                                value={email}
+                                                onChange={(e) => setEmail(e.target.value)}
+                                            />
                                         </div>
 
                                         <div className={styles.eachFormInput}>
                                             <span className={styles.inputsStyle}><i className="fas fa-lock"></i></span>
-                                            <div className={styles.inputsDesign}>
-                                                <input type="password" id="password" className={styles.formControl} placeholder="Your Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                                                <label htmlFor="password"></label>
-                                            </div>
+                                            <Input
+                                                errorInput={errorPassword}
+                                                type="password"
+                                                id="password"
+                                                className={styles.formControl}
+                                                placeholder="Your Password"
+                                                value={password}
+                                                onChange={(e) => setPassword(e.target.value)}
+                                            />
                                         </div>
 
                                         <div className={styles.eachFormInput}>
                                             <span className={styles.inputsStyle}><i className="fas fa-key"></i></span>
-                                            <div className={styles.inputsDesign}>
-                                                <input type="password" id="repass" className={styles.formControl} placeholder="Repeat Password" value={repass} onChange={(e) => setRepass(e.target.value)} />
-                                                <label htmlFor="repass"></label>
-                                            </div>
+                                            <Input
+                                                errorInput={errorRepass}
+                                                type="password"
+                                                id="repass"
+                                                className={styles.formControl}
+                                                placeholder="Repeat Password"
+                                                value={repass}
+                                                onChange={(e) => setRepass(e.target.value)}
+                                            />
                                         </div>
 
                                         <div className={styles.registerButton}>
-                                            <button type="submit" className={styles.registerButtonStyle}>Register</button>
+                                            <button
+                                                type="submit"
+                                                className={styles.registerButtonStyle}
+                                                disabled={disableButton}
+                                            >
+                                                Register
+                                            </button>
                                         </div>
 
                                         <div className={styles.account}>
-                                            <p>You have an account? <a href="/login">Login</a></p>
+                                            <p>You have an account?
+                                                <Link to="/login" className={styles.loginStyle}>
+                                                    Login
+                                                </Link>
+                                            </p>
                                         </div>
                                     </form>
 
@@ -107,8 +187,8 @@ const Register = () => {
 
                             <div className={styles.image}>
                                 <img src={image1}
-                                    className={styles.imageStyle} 
-                                    alt="Sample image"
+                                    className={styles.imageStyle}
+                                    alt="img"
                                 />
                             </div>
                         </div>

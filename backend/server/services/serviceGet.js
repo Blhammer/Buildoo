@@ -1,6 +1,5 @@
 const { findAllCards } = require("../../database/services/service");
 
-
 async function getAllCards(req, res) {
     try {
         const cards = await findAllCards();

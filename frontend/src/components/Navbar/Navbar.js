@@ -37,7 +37,7 @@ const Navbar = () => {
                         {isLoggedIn ?
                             <div className={styles.navbarUser}>
                                 {isContextAdmin
-                                    ? <Link className={styles.adminButton} to='/admin-panel'>Admin</Link>
+                                    ? <Link to='/admin-panel' className={styles.adminButton}>Admin</Link>
                                     : null
                                 }
 
