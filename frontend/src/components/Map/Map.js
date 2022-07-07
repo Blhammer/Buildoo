@@ -20,7 +20,9 @@ const MapContainer = () => {
     ];
 
     return (
-        <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
+        //TODO: Uncomment this:
+        // <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
+        <LoadScript googleMapsApiKey={process.env.REACT_APP}>
             <GoogleMap
                 mapContainerClassName={styles.map}
                 zoom={11}

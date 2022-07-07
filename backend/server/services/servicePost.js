@@ -1,4 +1,3 @@
-const Service = require('../../database/models/Service');
 const { createService, updateService } = require('../../database/services/service');
 
 async function cardCreate(req, res) {

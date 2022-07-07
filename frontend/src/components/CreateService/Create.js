@@ -33,6 +33,11 @@ const Create = () => {
 
     const createFormValidation = () => {
         let checker = true;
+        setErrorSetTitle(null);
+        setErrorTown(null);
+        setErrorStreet(null);
+        setErrorPhone(null);
+        setErrorPrice(null);
 
         if (title === '' || title.length < 5 || title.length > 30) {
             setErrorSetTitle('Your title must be between 5 and 20 characters!');
@@ -233,10 +238,10 @@ const Create = () => {
                                     <textarea
                                         type="description"
                                         name="description"
+                                        placeholder="Tell something about yourself/company"
                                         className={styles.descriptionDesign}
                                         value={description}
                                         onChange={(e) => setDescription(e.target.value)}
-                                        placeholder="Tell something about yourself/company"
                                     />
                                 </div>
 

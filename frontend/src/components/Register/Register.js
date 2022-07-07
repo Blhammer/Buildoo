@@ -22,16 +22,16 @@ const Register = () => {
     const [errorPassword, setErrorPassword] = useState(null);
     const [errorRepass, setErrorRepass] = useState(null);
 
-    const [loading, setLoading] = useState(false);
-
-    const disableButton = !email || !firstName || !lastName || password.length < 8 || repass.length < 8 || loading;
-
     const navigate = useNavigate();
     const context = useContext(UserContext);
 
     const registerFormValidation = () => {
-        setLoading(false);
         let checker = true;
+        setErrorFirstName(null);
+        setErrorLastName(null);
+        setErrorEmail(null);
+        setErrorPassword(null);
+        setErrorRepass(null);
 
         if (firstName === '' || firstName.length < 3 || firstName.length > 20) {
             setErrorFirstName('Your first name must be between 3 and 20 characters!');
@@ -58,8 +58,6 @@ const Register = () => {
     }
 
     const onRegisterHandler = async (e) => {
-        setLoading(true);
-
         const body = {
             firstName,
             lastName,
@@ -81,7 +79,6 @@ const Register = () => {
         e.preventDefault();
 
         const isCheckerValid = registerFormValidation();
-        setLoading(false);
 
         if (isCheckerValid) {
             onRegisterHandler();
@@ -167,7 +164,6 @@ const Register = () => {
                                             <button
                                                 type="submit"
                                                 className={styles.registerButtonStyle}
-                                                disabled={disableButton}
                                             >
                                                 Register
                                             </button>

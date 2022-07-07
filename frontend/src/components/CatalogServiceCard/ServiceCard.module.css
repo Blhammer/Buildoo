@@ -59,14 +59,14 @@
 }
 
 .serviceTicket {
-    text-align: left;
-    font-size: 15px;
-    width: 100%;
-    margin: auto;
     display: flex;
     justify-content: center;
+    text-align: left;
+    margin: auto;
     overflow: hidden;
-    padding-bottom: 5rem;
+    font-size: 15px;
+    width: 100%;
+    padding: 1rem;
     border-bottom: 3px solid #ffffff !important;
 }
 
@@ -99,6 +99,10 @@
     flex-direction: column;
 }
 
+.info {
+    padding-left: 5px;
+}
+
 .infoDesign {
     word-wrap: break-word;
     width: 30rem;
@@ -107,10 +111,6 @@
     margin: 1rem 5rem;
     padding: 15px;
     border: 3px solid rgb(0, 132, 0);
-}
-
-.info {
-    padding-left: 5px;
 }
 
 .buttonsDesign {
@@ -155,62 +155,6 @@
 .commentsDesign {
     text-align: center;
     margin: 2rem;
-}
-
-.comments {
-    text-align: center;
-    margin-top: 10px;
-}
-
-.createComment {
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    width: 500px;
-    border-radius: 20px;
-    padding: 15px;
-    background: #ff9717;
-    box-shadow: 0px 0px 30px 0px #32485e, -15px -15px 20px #191c21;
-}
-
-.createComment > .formStyle > textarea {
-    justify-content: center;
-    align-items: center;
-    width: 400px;
-    height: 100px;
-    resize: none;
-    font-size: 1rem;
-    margin-top: 10px;
-    margin-bottom: 15px;
-    padding: 10px;
-}
-
-.buttonSubmit {
-    padding: 5px;
-    cursor: pointer;
-}
-
-.createComment > .buttonSubmit:hover {
-    justify-content: center;
-    background-color: #41425c;
-    color: white;
-    cursor: pointer;
-}
-
-.delete {
-    list-style-type: none;
-    display: inline-block;
-    text-align: center;
-    border: none;
-    font-size: 1.5rem;
-    padding: 10px;
-    margin: 10px;
-    width: 120px;
-    color: rgb(255, 176, 176);
-    background-color: cornflowerblue;
 }
 
 .like:hover,

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import AllServices from '../MyAllServices';
+import MyAllServices from '../MyAllServices';
 
 import styles from './MyPosts.module.css';
 
@@ -33,7 +33,7 @@ const MyServices = () => {
                 </div>
 
                 <div className={styles.cardsContainer}>
-                    <AllServices />
+                    <MyAllServices />
                 </div>
             </div>
         </div>

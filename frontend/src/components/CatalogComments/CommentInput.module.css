@@ -1,0 +1,51 @@
+.createComment {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 500px;
+    border-radius: 20px;
+    padding: 15px;
+    background: #cef9ff;
+    box-shadow: 0px 0px 30px 0px #adc0d4, -15px -15px 20px #191c21;
+}
+
+.createComment > .formStyle > textarea {
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 100px;
+    resize: none;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.errorStyle {
+    color:red
+}
+
+.createComment > .buttonSubmit:hover {
+    justify-content: center;
+    background-color: #41425c;
+    color: white;
+    cursor: pointer;
+}
+
+.comments {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.buttonSubmit {
+    width: 200px;
+    height: 40px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+/* .formStyle{
+
+} */

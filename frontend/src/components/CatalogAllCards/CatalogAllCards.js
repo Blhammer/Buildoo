@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { findAllCards } from '../../services/requester';
 
-import CatalogList from '../CatalogList/CatalogList';
+import CatalogList from '../CatalogList';
 
 const CatalogAllCards = () => {
     const [cards, setCards] = useState([]);
@@ -9,6 +9,7 @@ const CatalogAllCards = () => {
     useEffect(() => {
         findAllCards()
             .then(cardsData => {
+                // console.log(cardsData);
                 setCards(cardsData);
             })
             .catch(err => {
@@ -20,7 +21,6 @@ const CatalogAllCards = () => {
         <>
             <CatalogList
                 cards={cards}
-            // button={{ button: button }}
             />
         </>
     )

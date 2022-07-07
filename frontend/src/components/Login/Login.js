@@ -19,13 +19,6 @@ const Login = () => {
     const context = useContext(UserContext);
     const navigate = useNavigate();
 
-    //TODO: set to 8:
-    const disableButton = !email || password.length < 6;
-
-    const loginValidator = () => {
-
-    };
-
     const loginSubmitHandler = async (e) => {
         e.preventDefault();
 
@@ -73,7 +66,7 @@ const Login = () => {
                                     />
 
                                     <Input
-                                        errorInput={errorEmail}
+                                        errorInput={errorEmail ? true : false}
                                         name="password"
                                         type="password"
                                         placeholder="Enter password"
@@ -89,7 +82,6 @@ const Login = () => {
                                         <button
                                             type="submit"
                                             className={styles.loginButtonDesign}
-                                            disabled={disableButton}
                                         >
                                             Login
                                         </button>

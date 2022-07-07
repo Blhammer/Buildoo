@@ -11,5 +11,5 @@ async function getAllCards(req, res) {
 }
 
 module.exports = {
-    getAllCards
+    getAllCards,
 };

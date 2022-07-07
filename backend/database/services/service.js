@@ -5,7 +5,7 @@ const invalidData = (data) => {
 }
 
 async function createService(data) {
-    if (!data) {
+    if (invalidData(data)) {
         return undefined;
     }
 
@@ -20,10 +20,15 @@ async function createService(data) {
 }
 
 async function updateService(body) {
+    if (invalidData(body)) {
+        return undefined;
+    }
+
     try {
         return await Service
             .findOneAndUpdate({ _id: body.userId }, body, { new: true })
             .populate('currentDate')
+            .populate('comments')
             .populate('owner')
     } catch (err) {
         console.error(err);
@@ -35,6 +40,9 @@ async function findAllCards() {
     try {
         return await Service
             .find()
+            .populate('currentDate')
+            .populate('comments')
+            .populate('owner')
     } catch (err) {
         console.error(err);
         return undefined;

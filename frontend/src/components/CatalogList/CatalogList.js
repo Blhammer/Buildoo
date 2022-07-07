@@ -1,20 +1,20 @@
-import CatalogCard from "../CatalogCard/CatalogCard";
+import CatalogCard from "../CatalogCard";
 
 import styles from './CatalogList.module.css';
 
-const CatalogList = ({ cards, button }) => {
+const CatalogList = ({ cards }) => {
     return (
         <>
             {cards.length > 0
                 ? (
                     cards.map((card) => {
-                        return <CatalogCard key={card._id} data={card} button={button} />
+                        return <CatalogCard key={card._id} data={card} />
                     })
                 )
                 : <p className={styles.emptyList}>No Services in database</p>
             }
         </>
-    );
-}
+    )
+};
 
 export default CatalogList;

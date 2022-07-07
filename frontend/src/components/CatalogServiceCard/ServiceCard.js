@@ -1,9 +1,16 @@
-import styles from './ServiceCard.module.css';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+
+import styles from './ServiceCard.module.css';
+
+import CommentInput from '../CatalogComments';
+import AllComments from '../CatalogAllComments';
+import UserContext from '../../contexts/Context';
 
 const ServiceCard = (props) => {
     const location = useLocation();
     const data = location.state?.data;
+    const context = useContext(UserContext);
 
     return (
         <div className={styles.mainContainer}>
@@ -42,45 +49,30 @@ const ServiceCard = (props) => {
                                 <div className={styles.likeDesign}>
                                     Likes: 15 {data.likes}<i className="fas fa-thumbs-up"></i>
                                 </div>
-                                <button href="/like" className={styles.like}>Like</button>
-                                <button href="/dislike" className={styles.dislike}>Dislike</button>
+                                {context.isLoggedIn
+                                    ?
+                                    <>
+                                        <button href="/like" className={styles.like} onClick={() => console.log('Liked')}>Like</button>
+                                        <button href="/dislike" className={styles.dislike} onClick={() => console.log('Dislike')}>Dislike</button>
+                                    </>
+                                    :
+                                    null
+                                }
                             </div>
                         </div>
                     </div>
 
                     <div className={styles.commentsDesign}>
                         <h2 className={styles.comments}>Comments:</h2>
-
-                        <article className={styles.createComment}>
-                            <h4 className={styles.comments}>Add new comment:</h4>
-                            <form className={styles.formStyle}>
-                                <textarea name="comment" placeholder="Comment..."></textarea>
-                                <input className={styles.buttonSubmit} type="submit" value="Add Comment" />
-                            </form>
-                        </article>
+                        <CommentInput data={data}/>
 
                         <div className={styles.serviceTicket}>
                             <div className={styles.serviceRight}>
-                                <div className={styles.infoDesign}>
-                                    <span>
-                                        <h5>Gogo Petkov:</h5>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                    </span>
-                                    <button href="" className={styles.delete}>Delete</button>
-                                </div>
-                                <div className={styles.infoDesign}>
-                                    <span>
-                                        <h5>Gogo Petkov:</h5>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                    </span>
-                                    <button href="" className={styles.delete}>Delete</button>
-                                </div>
+                                <AllComments data={data}/>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
         </div>

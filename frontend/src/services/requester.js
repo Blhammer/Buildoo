@@ -69,6 +69,10 @@ export async function findAllImages() {
     return await fetchRequest('GET', undefined, '/files');
 }
 
+export async function findAllComments() {
+    return await fetchRequest('GET', undefined, '/comments');
+}
+
 export async function userRegister(body) {
     if (!body) return;
     return await fetchRequest('POST', body, '/user/register');
@@ -82,6 +86,11 @@ export async function userLogin(body) {
 export async function createCard(body) {
     if (!body) return;
     return await fetchRequest('POST', body, '/card/create');
+}
+
+export async function createComment(body) {
+    if (!body) return;
+    return await fetchRequest('POST', body, '/card/comment');
 }
 
 export async function uploadImage(body) {
@@ -107,4 +116,9 @@ export async function deleteUser(body) {
 export async function deleteCard(body) {
     if (!body) return;
     return await fetchRequest('POST', body, '/card/delete');
+}
+
+export async function deleteComment(body) {
+    if (!body) return;
+    return await fetchRequest('POST', body, '/comment/delete');
 }

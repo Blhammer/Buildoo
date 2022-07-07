@@ -13,7 +13,7 @@ const MyAllServices = () => {
             .then(myCardsData => {
                 setMyServices(
                     myCardsData.filter((service) =>
-                        service.owner === context.user._id));
+                        service.owner._id === context.user._id));
             })
             .catch(err => {
                 console.error(err);
@@ -21,7 +21,7 @@ const MyAllServices = () => {
     }, []);
 
     const deleteButtonHandler = () => {
-
+        console.log('Delete');
     }
 
     return (
