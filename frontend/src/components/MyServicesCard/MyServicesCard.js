@@ -16,7 +16,7 @@ const ServiceCard = ({ data, button }) => {
             <div className={styles.eachCardBody}>
                 <h4>{data.title}</h4>
                 <div className={styles.userReviews}>
-                    <small>Likes: 23{data.likes}</small>
+                    <small>Likes: {data.likes.length}</small>
                     <div className={styles.actionButtonsCard}>
                         <Link
                             to={`/my-services/${data._id}`}
@@ -30,7 +30,14 @@ const ServiceCard = ({ data, button }) => {
                             state={{ data: data }}>
                             Edit
                         </Link>
-                        <button onClick={() => { console.log('Delete') }} className={styles.deleteButton}>Delete</button>
+                        <button
+                            type='button'
+                            onClick={button.deleteCardButton}
+                            className={styles.deleteButton}
+                            value={data._id}
+                        >
+                            Delete
+                        </button>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-const { createService, updateService } = require('../../database/services/service');
+const { createService, updateService, deleteCurrentCard } = require('../../database/services/service');
 
 async function cardCreate(req, res) {
     try {
@@ -17,7 +17,7 @@ async function cardCreate(req, res) {
 async function serviceUpdate(req, res) {
     try {
         const data = req.body;
-        
+
         if (!data) return res.status(401).send('Invalid data').end();
 
         const updatedService = await updateService(data);
@@ -28,7 +28,23 @@ async function serviceUpdate(req, res) {
     }
 }
 
+async function cardDelete(req, res) {
+    try {
+        const { id } = req.body;
+
+        if (!id) return res.status(401).send('Invalid data').end();
+        
+        await deleteCurrentCard(id);
+
+        return res.status(200);
+    } catch (err) {
+        console.error(err);
+        return undefined;
+    }
+}
+
 module.exports = {
     cardCreate,
-    serviceUpdate
+    serviceUpdate,
+    cardDelete
 };

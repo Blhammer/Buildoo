@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import styles from './CatalogCard.module.css';
@@ -12,15 +12,12 @@ const CatalogCard = ({ data }) => {
                     alt="img"
                     className={styles.eachImageStyle}
                 />
-                <figcaption
-                    className={styles.figcaptionDesign}
-                >
-                    <h2>Details</h2>
+                <figcaption className={styles.figcaptionDesign}>
+                    <h2>{data.title}</h2>
                     <Link
                         to={`/all-services/${data._id}`}
                         state={{ data: data }}
                     >
-                        View more
                     </Link>
                 </figcaption>
             </figure>

@@ -19,6 +19,20 @@ async function createService(data) {
     }
 }
 
+async function deleteCurrentCard(id) {
+    if (!id) {
+        return undefined;
+    }
+
+    try {
+        return await Service
+            .findByIdAndDelete(id)
+    } catch (err) {
+        console.error(err);
+        return undefined;
+    }
+}
+
 async function updateService(body) {
     if (invalidData(body)) {
         return undefined;
@@ -53,6 +67,7 @@ async function findAllCards() {
 
 module.exports = {
     createService,
+    deleteCurrentCard,
     updateService,
     findAllCards
 };
