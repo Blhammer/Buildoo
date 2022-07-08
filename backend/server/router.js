@@ -6,6 +6,7 @@ const { getAllComments } = require('./services/commentGet');
 const { commentCreate, commentDelete } = require('./services/commentPost');
 const { adminUpdate, adminDelete } = require('./services/userPost');
 const { cardCreate, serviceUpdate } = require('./services/servicePost');
+const { createLike, createDislike } = require('./services/like');
 
 function expressRouter(router) {
     router.get('/verify', userAuthorization);
@@ -26,6 +27,8 @@ function expressRouter(router) {
     router.post('/edit/service', serviceUpdate);
     router.post('/card/create', cardCreate);
     router.post('/card/comment', commentCreate);
+    router.post('/card/like', createLike);
+    router.post('/card/dislike', createDislike);
     // router.post('/card/delete', cardDelete);
 
     router.post('/user/upload', upload);

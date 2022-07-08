@@ -31,6 +31,7 @@ const ServiceSchema = new Schema({
     },
     currentDate: { type: String },
     comments: { type: [ObjectId], ref: 'Comment' },
+    likes: { type: [ObjectId], ref: 'User' },
     owner: { type: ObjectId, ref: 'User' }
 });
 

@@ -126,6 +126,11 @@
     padding: 10px;
 }
 
+.likeCounter{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 .like {
     list-style-type: none;
     display: inline-block;

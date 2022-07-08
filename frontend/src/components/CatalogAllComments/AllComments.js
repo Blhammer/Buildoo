@@ -1,13 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { deleteComment, findAllComments } from '../../services/requester';
 
 import CommentList from '../CommentsList';
-import UserContext from '../../contexts/Context';
 
 const AllComments = ({ data }) => {
-    const context = useContext(UserContext);
-
     const [comments, setComments] = useState([]);
     const [deletedComment, setDeletedComment] = useState(false);
 

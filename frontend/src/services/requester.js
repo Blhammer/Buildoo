@@ -108,6 +108,16 @@ export async function updateService(body) {
     return await fetchRequest('POST', body, '/edit/service');
 }
 
+export async function like(body) {
+    if (!body) return;
+    return await fetchRequest('POST', body, '/card/like');
+}
+
+export async function dislike(body) {
+    if (!body) return;
+    return await fetchRequest('POST', body, '/card/dislike');
+}
+
 export async function deleteUser(body) {
     if (!body) return;
     return await fetchRequest('POST', body, '/admin/delete');

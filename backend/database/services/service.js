@@ -29,6 +29,7 @@ async function updateService(body) {
             .findOneAndUpdate({ _id: body.userId }, body, { new: true })
             .populate('currentDate')
             .populate('comments')
+            .populate('likes')
             .populate('owner')
     } catch (err) {
         console.error(err);
@@ -42,6 +43,7 @@ async function findAllCards() {
             .find()
             .populate('currentDate')
             .populate('comments')
+            .populate('likes')
             .populate('owner')
     } catch (err) {
         console.error(err);

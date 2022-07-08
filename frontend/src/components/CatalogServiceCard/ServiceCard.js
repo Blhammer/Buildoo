@@ -1,5 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 import styles from './ServiceCard.module.css';
 
@@ -7,10 +8,52 @@ import CommentInput from '../CatalogComments';
 import AllComments from '../CatalogAllComments';
 import UserContext from '../../contexts/Context';
 
-const ServiceCard = (props) => {
+import { like, dislike } from '../../services/requester';
+
+const ServiceCard = () => {
     const location = useLocation();
-    const data = location.state?.data;
+    const navigate = useNavigate();
+    const data = location?.state?.data;
     const context = useContext(UserContext);
+    
+    const isOwner = data.owner._id !== context?.user?._id;
+
+    let clicked = false;
+    if (context.isLoggedIn) {
+        data.likes.forEach(element =>
+            clicked = element._id === context.user._id
+        );
+    }
+
+    const [likes, setLikes] = useState(data.likes);
+    const [isClickedLike, setCLickedLike] = useState(clicked);
+
+    const likeHandler = async () => {
+        const userId = context.user._id;
+        const dataId = data._id;
+        let array = data.likes;
+
+        if (!isClickedLike) {
+            navigate('/all-services');
+            setCLickedLike(true);
+
+            if (!array.includes(userId)) {
+                array.push(userId);
+                setLikes(array);
+                await like({ userId, dataId });
+            }
+        } else {
+            navigate('/all-services');
+            setCLickedLike(false);
+            
+            if (array.find(obj => obj._id === userId)) {
+                let currentLikeIndex = array.findIndex(id => id !== userId);
+                let result = array.splice(currentLikeIndex, 1);
+                setLikes(result);
+                await dislike({ userId, dataId });
+            }
+        }
+    };
 
     return (
         <div className={styles.mainContainer}>
@@ -47,28 +90,38 @@ const ServiceCard = (props) => {
 
                             <div className={styles.buttonsDesign}>
                                 <div className={styles.likeDesign}>
-                                    Likes: 15 {data.likes}<i className="fas fa-thumbs-up"></i>
+                                    Likes:<span className={styles.likeCounter}>{likes.length}</span><i className="fas fa-thumbs-up"></i>
                                 </div>
+
                                 {context.isLoggedIn
                                     ?
                                     <>
-                                        <button href="/like" className={styles.like} onClick={() => console.log('Liked')}>Like</button>
-                                        <button href="/dislike" className={styles.dislike} onClick={() => console.log('Dislike')}>Dislike</button>
+                                        {isOwner
+                                            ?
+                                            (isClickedLike
+                                                ?
+                                                <button className={styles.dislike} onClick={likeHandler}>Dislike</button>
+                                                :
+                                                <button className={styles.like} onClick={likeHandler}>Like</button>
+                                            )
+                                            : null
+                                        }
                                     </>
                                     :
                                     null
                                 }
+
                             </div>
                         </div>
                     </div>
 
                     <div className={styles.commentsDesign}>
                         <h2 className={styles.comments}>Comments:</h2>
-                        <CommentInput data={data}/>
+                        <CommentInput data={data} />
 
                         <div className={styles.serviceTicket}>
                             <div className={styles.serviceRight}>
-                                <AllComments data={data}/>
+                                <AllComments data={data} />
                             </div>
                         </div>
 

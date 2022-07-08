@@ -26,7 +26,7 @@ const CatalogCard = ({ data }) => {
             </figure>
             <div className={styles.reviewsContainer}>
                 <span className={styles.imageReview}>{data.currentDate}</span>
-                <span className={styles.imageReview}>Likes: 15</span>
+                <span className={styles.imageReview}>Likes:<span className={styles.likeCounter}>{data.likes.length}</span></span>
             </div>
         </div>
     );

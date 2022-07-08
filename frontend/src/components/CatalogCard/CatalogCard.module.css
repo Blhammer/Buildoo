@@ -125,3 +125,8 @@ figure.eachImageDesign:hover img {
     color: rgb(0, 0, 0);
     font-weight: bold;
 }
+
+.likeCounter{
+    padding-left: 5px;
+    padding-right: 5px;
+}

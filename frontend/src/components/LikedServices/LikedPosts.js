@@ -45,6 +45,7 @@ const MyPosts = ({ data, button }) => {
                             </h5>
                             <Link
                                 to={`/liked/:id`}
+                                //TODO: Uncomment show the likes in all services:
                                 // to={`/liked/"${data._id}"`}
                                 className={styles.detailsCard}
                                 state={{ data: data }}>
@@ -53,7 +54,7 @@ const MyPosts = ({ data, button }) => {
                             <div className={styles.userDesign}>
                                 <div className={styles.userInfo}>
                                     <h5>Name: Gogo Gogev</h5>
-                                    <span>Likes: 23</span>
+                                    <span>Likes:{data.likes.length}</span>
                                 </div>
                             </div>
                         </div>

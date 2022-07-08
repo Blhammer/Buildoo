@@ -46,6 +46,8 @@ async function deleteComment(id) {
         return undefined;
     }
 
+    await Comment.findByIdAndDelete(id)
+
     try {
         return (
             await Service
@@ -54,8 +56,8 @@ async function deleteComment(id) {
                         $pull: {
                             "comments": id
                         }
-                    }),
-            await Comment.findByIdAndDelete(id)
+                    }
+                )
         )
     } catch (err) {
         console.error(err);

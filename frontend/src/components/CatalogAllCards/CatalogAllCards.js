@@ -9,7 +9,6 @@ const CatalogAllCards = () => {
     useEffect(() => {
         findAllCards()
             .then(cardsData => {
-                // console.log(cardsData);
                 setCards(cardsData);
             })
             .catch(err => {

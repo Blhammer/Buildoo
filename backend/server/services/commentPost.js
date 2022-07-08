@@ -16,7 +16,6 @@ async function commentCreate(req, res) {
 async function commentDelete(req, res) {
     try {
         const { id } = req.body;
-
         if (!id) return res.status(401).send('Invalid data').end();
 
         await deleteComment(id);

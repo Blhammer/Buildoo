@@ -8,7 +8,7 @@ import image1 from './default.png';
 import Input from '../Input/Input';
 
 import UserContext from '../../contexts/Context';
-import { userLogin } from '../../services/requester';
+import { userLogin, findUserByEmail } from '../../services/requester';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -21,8 +21,14 @@ const Login = () => {
 
     const loginSubmitHandler = async (e) => {
         e.preventDefault();
-
+        
         if (email === '' || password === '') {
+            setErrorEmail('Invalid email or password!');
+            return;
+        }
+
+        const preGetUser = await findUserByEmail(email);
+        if (!preGetUser || preGetUser.length === 0) {
             setErrorEmail('Invalid email or password!');
             return;
         }
