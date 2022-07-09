@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 
 import styles from './Login.module.css';
-import image1 from './default.png';
 
 import Input from '../Input/Input';
 
@@ -21,7 +20,7 @@ const Login = () => {
 
     const loginSubmitHandler = async (e) => {
         e.preventDefault();
-        
+
         if (email === '' || password === '') {
             setErrorEmail('Invalid email or password!');
             return;
@@ -52,7 +51,7 @@ const Login = () => {
                         <div className={styles.rowElements}>
 
                             <div className={styles.imageDesign}>
-                                <img src={image1}
+                                <img src='/images/default.png'
                                     className={styles.imageStyle}
                                     alt="img"
                                 />

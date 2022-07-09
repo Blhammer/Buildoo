@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 
 import styles from './Admin.module.css';
 
@@ -10,7 +11,7 @@ const AdminPanel = () => {
 
     return (
         <div className={styles.mainContainer}>
-            <a href='/' className={styles.homeStyle}><i className="fas fa-arrow-left"></i> Home </a>
+            <Link to='/' className={styles.homeStyle}><i className="fas fa-arrow-left"></i> Home </Link>
             <p className={styles.adminNameStyle}>Admin: {context.userEmail}</p>
             <div className={styles.mainContainerDesign}>
                 <div className={styles.adminContainer}>

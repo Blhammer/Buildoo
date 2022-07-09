@@ -1,14 +1,12 @@
 import styles from './Features.module.css';
 
-import image1 from './feature.jpg';
-
 const Features = () => {
     return (
         <div className={styles.mainContainer}>
             <div className={styles.mainContainerStyle}>
                 <div className={styles.rowStyle}>
                     <div className={styles.imageDesign}>
-                        <img className={styles.imageStyle} src={image1} alt="img" />
+                        <img className={styles.imageStyle} src='/images/feature.jpg' alt="img" />
                     </div>
                     <div className={styles.textContainer}>
                         <h1 className={styles.firstTitle}>Why Choose Us</h1>

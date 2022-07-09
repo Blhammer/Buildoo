@@ -3,7 +3,7 @@
     margin-bottom: 0rem;
     background-color: #e9ecef;
     background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-        url("./header.jpg");
+        url("../../../public/images/header.jpg");
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;

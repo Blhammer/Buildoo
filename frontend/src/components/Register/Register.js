@@ -3,7 +3,6 @@ import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import styles from './Register.module.css';
-import image1 from './default.png';
 
 import Input from '../Input';
 import UserContext from '../../contexts/Context';
@@ -91,6 +90,12 @@ const Register = () => {
                 <div className={styles.mainContainerStyle}>
                     <div className={styles.cardBody}>
                         <div className={styles.rowElements}>
+                            <div className={styles.image}>
+                                <img src='/images/default.png'
+                                    className={styles.imageStyle}
+                                    alt="img"
+                                />
+                            </div>
                             <div className={styles.rowElementsDesign}>
                                 <p className={styles.title}>Sign up</p>
                                 <div className={styles.signUpContainer}>
@@ -177,15 +182,7 @@ const Register = () => {
                                             </p>
                                         </div>
                                     </form>
-
                                 </div>
-                            </div>
-
-                            <div className={styles.image}>
-                                <img src={image1}
-                                    className={styles.imageStyle}
-                                    alt="img"
-                                />
                             </div>
                         </div>
                     </div>

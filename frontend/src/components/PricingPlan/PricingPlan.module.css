@@ -65,12 +65,9 @@
 
 .eachContainer {
     margin-bottom: 0rem !important;
-}
-.eachContainer {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding: 20px;
 }
 @media (min-width: 768px) {
     .eachContainer {

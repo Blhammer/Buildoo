@@ -72,16 +72,16 @@ const Footer = () => {
                     <div className={styles.bottomRightContainer}>
                         <ul className={styles.ulContainer}>
                             <li className={styles.item}>
-                                <a className={styles.eachItemDesign} href="/privacy">Privacy</a>
+                                <Link className={styles.eachItemDesign} to="/privacy">Privacy</Link>
                             </li>
                             <li className={styles.item}>
-                                <a className={styles.eachItemDesign} href="/terms">Terms</a>
+                                <Link className={styles.eachItemDesign} to="/terms">Terms</Link>
                             </li>
                             <li className={styles.item}>
-                                <a className={styles.eachItemDesign} href="/faqs">FAQs</a>
+                                <Link className={styles.eachItemDesign} to="/faqs">FAQs</Link>
                             </li>
                             <li className={styles.item}>
-                                <a className={styles.eachItemDesign} href="/help">Help</a>
+                                <Link className={styles.eachItemDesign} to="/help">Help</Link>
                             </li>
                         </ul>
                     </div>
