@@ -1,22 +1,60 @@
+import React, { useEffect, useState } from 'react';
 import styles from './Catalog.module.css';
 
-import CatalogAllCards from '../CatalogAllCards';
+import CatalogList from '../CatalogList';
+import { findAllCards } from '../../services/requester';
 
 const Catalog = () => {
+    const { search } = window.location;
+    const querySearch = new URLSearchParams(search).get('search');
+    const [cards, setCards] = useState([]);
+
+    useEffect(() => {
+        findAllCards()
+            .then(cardsData => {
+                setCards(cardsData);
+            })
+            .catch(err => {
+                console.error(err);
+            })
+    }, []);
+
+
+    const filterServices = (cards, querySearch) => {
+        let cardsStorage = [];
+
+        if (!querySearch) {
+            return cards;
+        }
+
+        cards.filter(el => {
+            if (el.title.toLowerCase().includes(querySearch.toLowerCase())) {
+                cardsStorage.push(el);
+            }
+        });
+
+        return cardsStorage;
+    };
+
+    const updatedServices = filterServices(cards, querySearch);
+
     return (
         <>
             <div className={styles.searchContainer} >
                 <form className={styles.formSearch}>
                     <input
-                        className={styles.formSearchDesign}
                         type="search"
-                        placeholder="Search"
+                        id="search-bar"
+                        className={styles.formSearchDesign}
+                        placeholder="Search..."
                         aria-label="Search"
+                        name='search'
                     />
                     <button
-                        className={styles.buttonSearch}
                         type="submit"
-                    >Search<i className="fas fa-search"></i>
+                        className={styles.buttonSearch}
+                    >
+                        Search<i className="fas fa-search"></i>
                     </button>
                 </form>
             </div>
@@ -27,7 +65,7 @@ const Catalog = () => {
                         <h2 className={styles.titleCatalog}>Catalog</h2>
 
                         <div className={styles.catalogMainContainer}>
-                            <CatalogAllCards />
+                            <CatalogList cards={updatedServices} />
                         </div>
 
                     </div>

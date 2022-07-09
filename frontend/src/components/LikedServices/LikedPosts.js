@@ -14,6 +14,7 @@ const MyPosts = () => {
             .then(cardsData => {
                 let likedStorage = [];
                 let updatedStorage = [];
+                
                 cardsData.filter((liked) => (
                     liked.likes.filter(element => {
                         if (element._id === context.user._id) {
