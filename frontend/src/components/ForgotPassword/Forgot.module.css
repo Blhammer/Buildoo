@@ -1,0 +1,199 @@
+.mainContainer {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 2rem !important;
+    padding-top: 2rem !important;
+    background-color: #fff;
+}
+@media (max-width: 450px) {
+    .mainContainer {
+        height: 100%;
+    }
+}
+
+.mainContainerDesign {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    height: 100% !important;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.mainContainerStyle {
+    position: relative;
+    width: 100%;
+    height: 100% !important;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+@media (min-width: 768px) {
+    .mainContainerStyle {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+@media (min-width: 992px) {
+    .mainContainerStyle {
+        flex: 0 0 60%;
+        max-width: 60%;
+    }
+}
+@media (min-width: 1200px) {
+    .mainContainerStyle {
+        flex: 0 0 70%;
+        max-width: 70%;
+    }
+}
+
+.imageDesign {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media (min-width: 768px) {
+    .imageDesign {
+        flex: 0 0 66%;
+        max-width: 66%;
+    }
+}
+@media (min-width: 992px) {
+    .imageDesign {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+@media (min-width: 1200px) {
+    .imageDesign {
+        flex: 0 0 41%;
+        max-width: 41%;
+    }
+}
+
+.cardBody {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+}
+@media (min-width: 768px) {
+    .cardBody {
+        padding: 3rem !important;
+    }
+}
+
+.rowElements {
+    display: flex;
+    margin-right: 0px;
+    margin-left: 0px;
+    justify-content: center !important;
+}
+
+.rowElementsDesign {
+    position: relative;
+    width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+    order: 2;
+}
+@media (min-width: 768px) {
+    .rowElementsDesign {
+        flex: 0 0 83%;
+        max-width: 83%;
+    }
+}
+@media (min-width: 992px) {
+    .rowElementsDesign {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+@media (min-width: 1200px) {
+    .rowElementsDesign {
+        flex: 0 0 60%;
+        max-width: 60%;
+    }
+}
+
+.imageStyle {
+    max-width: 100%;
+    height: auto;
+}
+
+.formContainer {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media (min-width: 768px) {
+    .formContainer {
+        flex: 0 0 66.66667%;
+        max-width: 66.66667%;
+    }
+}
+@media (min-width: 992px) {
+    .formContainer {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+@media (min-width: 1200px) {
+    .formContainer {
+        flex: 0 0 33.33333%;
+        max-width: 33.33333%;
+    }
+}
+@media (min-width: 1200px) {
+    .formContainer {
+        margin-left: 8.33333%;
+    }
+}
+
+.loginText {
+    text-align: center !important;
+}
+.loginText {
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    color: #1f1f2e;
+    font-weight: 700 !important;
+    font-size: 2.5rem !important;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+.loginText {
+    font-size: 1.75rem;
+}
+@media (max-width: 1200px) {
+    .loginText {
+        font-size: calc(1.3rem + 0.6vw);
+    }
+}
+
+.loginButton {
+    text-align: center !important;
+    margin-top: 1.5rem !important;
+    padding-top: 0.5rem !important;
+}
+
+.loginButtonDesign {
+    color: rgb(255, 255, 255);
+    background-color: #ff4800;
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    border: none;
+}
+.loginButtonDesign:hover {
+    color: #9bff94;
+    text-decoration: none;
+}

@@ -98,6 +98,22 @@ async function updateAdmin(user) {
     }
 }
 
+async function updatePassword(user) {
+    if (!user) {
+        return undefined;
+    }
+
+    try {
+        return await User
+            .findOneAndUpdate({ _id: user._id }, user, { new: true })
+            .populate('isAdmin')
+            .populate('likes')
+    } catch (err) {
+        console.error(err);
+        return undefined;
+    }
+}
+
 async function deleteUser(id) {
     if (!id) {
         return undefined;
@@ -121,5 +137,6 @@ module.exports = {
     findUserById,
     findAllUsers,
     updateAdmin,
+    updatePassword,
     deleteUser
 };

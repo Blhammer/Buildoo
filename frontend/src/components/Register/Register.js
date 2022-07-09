@@ -77,8 +77,7 @@ const Register = () => {
     const registerFormSubmitHandler = (e) => {
         e.preventDefault();
 
-        const isCheckerValid = registerFormValidation();
-
+        let isCheckerValid = registerFormValidation();
         if (isCheckerValid) {
             onRegisterHandler();
         }

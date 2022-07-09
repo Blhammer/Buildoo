@@ -39,7 +39,7 @@ const Login = () => {
         }
         else {
             setErrorEmail('Invalid email or password!');
-            return;
+            return; 
         }
     }
 
@@ -80,7 +80,7 @@ const Login = () => {
                                     />
 
                                     <div className={styles.rememberMeDesign}>
-                                        <Link className={styles.forgotPass} to="/">Forgot password?</Link>
+                                        <Link className={styles.forgotPass} to="/forgot-password">Forgot password?</Link>
                                     </div>
 
                                     <div className={styles.loginButton}>

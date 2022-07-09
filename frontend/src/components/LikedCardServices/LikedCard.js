@@ -1,4 +1,3 @@
-import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import styles from './LikedList.module.css';
@@ -25,8 +24,8 @@ const LikedCard = ({ data }) => {
                 </Link>
                 <div className={styles.userDesign}>
                     <div className={styles.userInfo}>
-                        <h5>Name: {data.owner.firstName} {data.owner.lastName}</h5>
-                        <span>Likes:{data.likes.length}</span>
+                        <h5>Name: {data.owner.firstName} {data.owner.lastName} </h5>
+                        <span>Likes: {data.likes.length} </span>
                     </div>
                 </div>
             </div>

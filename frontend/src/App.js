@@ -20,6 +20,7 @@ import MyLikedServicesPage from './pages/liked/Liked';
 import ServiceCardPage from './pages/cardDetails/CardDetails';
 import CreatePage from './pages/create/Create';
 import EditPage from './pages/edit/Edit';
+import ForgotPage from './pages/forgot/Forgot';
 import ErrorPage from './pages/error/Error';
 
 import GuardedRouteAdmin from './components/Common/GuardedRouteAdmin';
@@ -59,6 +60,7 @@ function App() {
                     <Route element={<GuardRoutesAuth />}>
                         <Route exact path='/login' element={<LoginPage />}></Route>
                         <Route exact path='/register' element={<RegisterPage />}></Route>
+                        <Route exact path='/forgot-password' element={<ForgotPage />}></Route>
                     </Route>
 
                     <Route element={<GuardedCreate />}>

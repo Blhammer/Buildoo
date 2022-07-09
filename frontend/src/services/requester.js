@@ -83,6 +83,11 @@ export async function userLogin(body) {
     return await fetchRequest('POST', body, '/user/login');
 }
 
+export async function passwordUpdate(body) {
+    if (!body) return;
+    return await fetchRequest('POST', body, '/user/password');
+}
+
 export async function createCard(body) {
     if (!body) return;
     return await fetchRequest('POST', body, '/card/create');

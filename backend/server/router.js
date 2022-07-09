@@ -1,4 +1,4 @@
-const { userRegister, userLogin } = require('./services/userAuth');
+const { userRegister, userLogin, passwordUpdate } = require('./services/userAuth');
 const { getListFiles, upload } = require('./controller/file');
 const { userAuthorization, getUserByEmail, getUserById, getAllUsers } = require('./services/userGet');
 const { getAllCards } = require('./services/serviceGet');
@@ -20,6 +20,7 @@ function expressRouter(router) {
 
     router.post('/user/login', userLogin);
     router.post('/user/register', userRegister);
+    router.post('/user/password', passwordUpdate);
     router.post('/admin/update', adminUpdate);
     router.post('/admin/delete', adminDelete);
     router.post('/comment/delete', commentDelete);
