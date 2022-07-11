@@ -13,7 +13,7 @@ function start() {
 
     const port = configFile.port;
 
-    if (process.env.NODE_ENV === 'production') {
+    if (port === 'production') {
         app.use(express.static(__dirname, '../frontend/build'));
         app.get('*', (req, res) => {
             res.sendFile(__dirname + '/../frontend/build/index.html');
