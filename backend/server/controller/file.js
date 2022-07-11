@@ -78,7 +78,25 @@ const getListFiles = async (req, res) => {
     }
 };
 
+const deleteFile = async (req, res) => {
+    var file = bucket.file(req.body.imageName);
+
+    if (file) {
+        file.delete(function (err, response) {
+            if (err) {
+                console.error(err);
+            }
+            else {
+                console.log("Deleted successfully");
+            }
+        });
+    } else {
+        console.error('Invalid data!');
+    }
+};
+
 module.exports = {
     upload,
-    getListFiles
+    getListFiles,
+    deleteFile
 };

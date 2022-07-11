@@ -33,8 +33,7 @@ const UserSchema = new Schema({
         minlength: 8,
         maxlength: 60
     },
-    isAdmin: { type: Boolean, default: false },
-    likes: { type: [ObjectId], ref: 'Service' }
+    isAdmin: { type: Boolean, default: false }
 });
 
 const User = model('User', UserSchema);

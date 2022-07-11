@@ -1,4 +1,3 @@
-import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import styles from './MyServicesCard.module.css';
@@ -14,7 +13,7 @@ const ServiceCard = ({ data, button }) => {
                 />
             </div>
             <div className={styles.eachCardBody}>
-                <h4>{data.title}</h4>
+                <span className={styles.titleWrap}><h5>{data.title}</h5></span>
                 <div className={styles.userReviews}>
                     <small>Likes: {data.likes.length}</small>
                     <div className={styles.actionButtonsCard}>

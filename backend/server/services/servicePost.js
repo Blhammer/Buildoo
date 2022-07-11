@@ -4,7 +4,9 @@ async function cardCreate(req, res) {
     try {
         const data = req.body;
 
-        if (!data) return res.status(401).send('Invalid data').end();
+        if (!data) {
+            return res.status(401).send('Invalid data').end();
+        }
 
         const createdService = await createService(data);
         return res.status(200).send(createdService);
@@ -18,7 +20,9 @@ async function serviceUpdate(req, res) {
     try {
         const data = req.body;
 
-        if (!data) return res.status(401).send('Invalid data').end();
+        if (!data) {
+            return res.status(401).send('Invalid data').end();
+        }
 
         const updatedService = await updateService(data);
         return res.status(200).send(updatedService);
@@ -32,7 +36,9 @@ async function cardDelete(req, res) {
     try {
         const { id } = req.body;
 
-        if (!id) return res.status(401).send('Invalid data').end();
+        if (!id) {
+            return res.status(401).send('Invalid data').end();
+        }
         
         await deleteCurrentCard(id);
 

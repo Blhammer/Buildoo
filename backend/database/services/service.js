@@ -65,9 +65,20 @@ async function findAllCards() {
     }
 }
 
+async function findOneCard(id) {
+    try {
+        return await Service
+            .findById(id)
+    } catch (err) {
+        console.error(err);
+        return undefined;
+    }
+}
+
 module.exports = {
     createService,
     deleteCurrentCard,
     updateService,
-    findAllCards
+    findAllCards,
+    findOneCard
 };

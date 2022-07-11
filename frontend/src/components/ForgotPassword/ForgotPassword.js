@@ -50,7 +50,8 @@ const ChangePassword = () => {
         
         let isCheckerValid = passwordChangeValidator();
         if (!isCheckerValid) {
-            return new Error('Invalid data!');
+            console.error('Invalid data!');
+            return;
         }
 
         const preGetUser = await findUserByEmail(email);

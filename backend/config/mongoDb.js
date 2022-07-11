@@ -1,12 +1,10 @@
 const mongoose = require('mongoose');
 const configFile = require('./index');
 
-// const urlConnectionString = `mongodb+srv://${configFile.dbUser}:${configFile.dbPassword}@${configFile.dbAddress}/${configFile.dbName}?retryWrites=true&w=majority`;
-const urlConnectionString = 'mongodb://localhost:27017/Buildoo';
+const urlConnectionString = `mongodb+srv://${configFile.dbUser}:${configFile.dbPassword}@cluster0.kduqy.mongodb.net/?retryWrites=true&w=majority`;
 
 async function databaseConfiguration() {
     try {
-
         await mongoose.connect(urlConnectionString, {
             useNewUrlParser: true,
             useUnifiedTopology: true

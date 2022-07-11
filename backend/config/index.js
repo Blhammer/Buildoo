@@ -1,13 +1,12 @@
 require('dotenv').config();
-// console.log(process.env);
 
 const startConfig = {
-    port: process.env.PORT || 3003,
-    dbUser: process.env.DB_USER || 'user1',
-    dbPassword: process.env.DB_PASS || 123456,
-    dbName: process.env.DB_NAME || 'Buildoo',
-    dbAddress: "mongodb://localhost:27017/Buildoo",
-    tokenKey: process.env.SECRET || 'MegaSecretKey'
+    port: process.env.PORT || process.env.START_CONFIG_PORT,
+    dbUser: process.env.DB_USER || process.env.START_CONFIG_USERNAME,
+    dbPassword: process.env.DB_PASS || process.env.START_CONFIG_PASSWORD,
+    dbName: process.env.DB_NAME || process.env.DATABASE_NAME,
+    dbAddress: process.env.DATABASE_ADDRESS,
+    tokenKey: process.env.SECRET || process.env.DATABASE_SECRET_KEY
 }
 
 module.exports = startConfig;

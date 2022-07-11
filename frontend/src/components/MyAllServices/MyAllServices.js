@@ -4,7 +4,7 @@ import { findAllCards } from '../../services/requester';
 import ServicesList from '../MyServicesList';
 import UserContext from '../../contexts/Context';
 
-import { deleteCard } from '../../services/requester';
+import { deleteCard, deleteImageGCS, findOneServiceById } from '../../services/requester';
 
 const MyAllServices = () => {
     const [myServices, setMyServices] = useState([]);
@@ -28,9 +28,13 @@ const MyAllServices = () => {
 
     const deleteButtonHandler = async (e) => {
         e.preventDefault();
-
-        setDeletedCard(true);
         const id = e.target.value;
+
+        const currentService = await findOneServiceById(id);
+        deleteImageGCS(currentService);
+        
+        setDeletedCard(true);
+
         return await deleteCard({ id });
     }
 

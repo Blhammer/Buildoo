@@ -1,5 +1,4 @@
 const { Schema, model, Types: { ObjectId } } = require('mongoose');
-const Comment = require('./Comment');
 
 const PHONE_VALIDATOR = /^\+?[1-9][0-9]{7,14}$/;
 const IMAGE_PATTERN = /^https?:\/\//;
@@ -10,7 +9,7 @@ const ServiceSchema = new Schema({
     street: { type: String, required: [true, 'Address is required!'], minlength: 5, maxlength: 20 },
     phone: {
         type: String,
-        requires: [true, 'Phone is required!'],
+        required: [true, 'Phone is required!'],
         validate: {
             validator: (value) => {
                 return PHONE_VALIDATOR.test(value)
@@ -20,19 +19,33 @@ const ServiceSchema = new Schema({
             }
         }
     },
-    imageUrl: { type: String, required: [true, 'Image is required!'], default: 'noImage.jpg', match: IMAGE_PATTERN },
-    payments: { type: String, required: [true, 'Payment is required!'] },
-    price: { type: Number, requires: [true, 'Price is required!'], min: 1, max: 100000 },
-    service: { type: String, required: [true, 'Service is required!'] },
+    imageUrl: {
+        type: String,
+        required: [true, 'Image url is required!'],
+        default: 'noImage.jpg',
+        validate: {
+            validator(value) {
+                return IMAGE_PATTERN.test(value);
+            },
+            message: (props) => {
+                `${props.value} must be a valid URL!`
+            }
+        }
+    },
+    paymentMethod: { type: String, required: [true, 'Payment is required!'] },
+    price: { type: Number, required: [true, 'Price is required!'], min: 1, max: 100000 },
+    chooseService: { type: String, required: [true, 'Service is required!'] },
     description: {
         type: String,
         required: [true, 'Description is required!'],
-        minlength: [30, 'Description must be at least 30 characters long!']
+        minlength: [30, 'Description must be at least 30 characters long!'],
+        maxlength: [300, 'Description must not be more than 300 characters long!']
     },
     currentDate: { type: String },
     comments: { type: [ObjectId], ref: 'Comment' },
     likes: { type: [ObjectId], ref: 'User' },
-    owner: { type: ObjectId, ref: 'User' }
+    owner: { type: ObjectId, ref: 'User' },
+    imageName: { type: String }
 });
 
 const Service = model('Service', ServiceSchema);

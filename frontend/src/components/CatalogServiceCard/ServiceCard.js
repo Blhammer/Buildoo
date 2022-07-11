@@ -15,7 +15,7 @@ const ServiceCard = () => {
     const navigate = useNavigate();
     const data = location?.state?.data;
     const context = useContext(UserContext);
-    
+
     const isOwner = data.owner._id !== context?.user?._id;
 
     let clicked = false;
@@ -45,7 +45,7 @@ const ServiceCard = () => {
         } else {
             navigate('/all-services');
             setCLickedLike(false);
-            
+
             if (array.find(obj => obj._id === userId)) {
                 let currentLikeIndex = array.findIndex(id => id !== userId);
                 let result = array.splice(currentLikeIndex, 1);
@@ -54,6 +54,9 @@ const ServiceCard = () => {
             }
         }
     };
+
+    const likeBtn = <button className={styles.like} onClick={likeHandler}>Like</button>;
+    const dislikeBtn = <button className={styles.dislike} onClick={likeHandler}>Dislike</button>;
 
     return (
         <div className={styles.mainContainer}>
@@ -97,20 +100,13 @@ const ServiceCard = () => {
                                     ?
                                     <>
                                         {isOwner
-                                            ?
-                                            (isClickedLike
-                                                ?
-                                                <button className={styles.dislike} onClick={likeHandler}>Dislike</button>
-                                                :
-                                                <button className={styles.like} onClick={likeHandler}>Like</button>
-                                            )
+                                            ? (isClickedLike ? dislikeBtn : likeBtn)
                                             : null
                                         }
                                     </>
                                     :
                                     null
                                 }
-
                             </div>
                         </div>
                     </div>

@@ -57,6 +57,11 @@ export async function findUserById(id) {
     return await fetchRequest('GET', undefined, `/usersId?id=${id}`);
 }
 
+export async function findOneServiceById(id) {
+    if (!id) return;
+    return await fetchRequest('GET', undefined, `/serviceId?id=${id}`);
+}
+
 export async function findAllUsers() {
     return await fetchRequest('GET', undefined, '/users');
 }
@@ -100,7 +105,12 @@ export async function createComment(body) {
 
 export async function uploadImage(body) {
     if (!body) return;
-    return await fetchFileRequest('POST', body, '/user/upload');
+    return await fetchFileRequest('POST', body, '/image/upload');
+}
+
+export async function deleteImageGCS(body) {
+    if (!body) return;
+    return await fetchRequest('POST', body, '/image/delete');
 }
 
 export async function updateAdmin(body) {

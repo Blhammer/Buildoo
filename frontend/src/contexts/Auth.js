@@ -23,7 +23,11 @@ export const AuthProcess = ({ children }) => {
 
     const sendRequest = async (token) => {
         const user = await userAuth(token);
-        user ? login(user) : logout();
+        if (user) {
+            login(user);
+        } else {
+            logout();
+        }
     }
 
     const updateUser = (user) => {
@@ -32,7 +36,7 @@ export const AuthProcess = ({ children }) => {
         }
         setUser(user);
     }
-    
+
     const login = (user) => {
         if (user.isAdmin) {
             setContextIsAdmin(true);

@@ -30,7 +30,6 @@ async function findUser(data) {
         return await User
             .findOne(data)
             .populate('isAdmin')
-            .populate('likes');
     }
     catch (err) {
         console.error(err);
@@ -47,7 +46,6 @@ async function findUserById(id) {
         return await User
             .findById(id)
             .populate('isAdmin')
-            .populate('likes');
     } catch (err) {
         console.error(err);
         return undefined;
@@ -63,7 +61,6 @@ async function findUserByEmail(data) {
         return await User
             .find(data)
             .populate('isAdmin')
-            .populate('likes');
     } catch (err) {
         console.error(err);
         return undefined;
@@ -75,7 +72,6 @@ async function findAllUsers() {
         return await User
             .find()
             .populate('isAdmin')
-            .populate('likes');
     } catch (err) {
         console.error(err);
         return undefined;
@@ -91,7 +87,6 @@ async function updateAdmin(user) {
         return await User
             .findOneAndUpdate({ _id: user._id }, user, { new: true })
             .populate('isAdmin')
-            .populate('likes')
     } catch (err) {
         console.error(err);
         return undefined;
@@ -107,7 +102,6 @@ async function updatePassword(user) {
         return await User
             .findOneAndUpdate({ _id: user._id }, user, { new: true })
             .populate('isAdmin')
-            .populate('likes')
     } catch (err) {
         console.error(err);
         return undefined;
@@ -123,7 +117,6 @@ async function deleteUser(id) {
         return await User
             .findByIdAndDelete(id)
             .populate('isAdmin')
-            .populate('likes')
     } catch (err) {
         console.error(err);
         return undefined;

@@ -1,5 +1,5 @@
 .eachImageContainer {
-    margin: 0rem 1rem 2rem 1rem; 
+    margin: 0rem 1rem 2rem 1rem;
     flex: 0 0 auto;
     justify-content: center;
     align-items: center;
@@ -39,7 +39,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: left;
-    padding: 15px 15px 15px 15px;
+    padding: 15px;
     height: 100px;
     max-height: 100px;
     background-color: #fff;
@@ -49,11 +49,16 @@
     margin: 0 0 30px;
 }
 
+.titleWrap {
+    word-wrap: break-word;
+    line-height: 20px;
+}
+
 .userReviews {
-    padding: 0px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-bottom: 5px;
 }
 .userReviews h5 {
     margin: 0;

@@ -91,7 +91,7 @@
 }
 
 .fillContainerDesign {
-    background-color: #f9c8a7 !important;
+    background-color: #a6e0d4 !important;
     padding-top: 0rem !important;
     padding-bottom: 0rem !important;
     padding-right: 0 !important;
@@ -144,6 +144,17 @@
 }
 textarea.formStyle {
     height: auto;
+}
+
+.errorMessage {
+    color: #ff0000;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 25rem;
+    max-width: 25rem;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 .selectOptionsDesign {

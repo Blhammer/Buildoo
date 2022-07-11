@@ -13,6 +13,10 @@ function start() {
 
     const port = configFile.port;
 
+    if (process.env.NODE_ENV === 'production') {
+        app.use(express.static('../frontend/build'));
+    }
+
     server.listen(port, () => {
         console.log(`Server is listening to port ${port}`);
     });
