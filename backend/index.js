@@ -16,7 +16,7 @@ function start() {
     if (port === 'production') {
         app.use(express.static(__dirname, '../frontend/build'));
         app.get('*', (req, res) => {
-            res.sendFile(__dirname + '/../frontend/build/index.html');
+            req.sendFile(__dirname + '/../frontend/build/index.html');
         });
     }
 
