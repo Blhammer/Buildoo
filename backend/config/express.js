@@ -13,13 +13,6 @@ const expressConfiguration = () => {
     app.use('/static', express.static("static"));
     app.use(express.urlencoded({ extended: true }));
 
-    if (process.env.NODE_ENV === 'production') {
-        app.use(express.static('../frontend/build'));
-        app.get('*', (req, res) => {
-            req.sendFile(__dirname, '../frontend/build', 'index.html');
-        });
-    }
-
     app.use(router);
     expressRouter(router);
     
