@@ -14,10 +14,13 @@ async function userRegister(req, res) {
             throw new Error('Email and password are required');
         }
 
-        const foundUser = await findUser({ email: user.email });
+        const foundUser = await findUser({ email: user.email.trim().toLowerCase() });
         if (foundUser) {
             return res.status(401).send('The user already exists.').end();
         }
+
+        user.email.trim().toLowerCase();
+        user.password.trim();
 
         const createdUser = await createUser(user);
         const token = setToken(createdUser);
