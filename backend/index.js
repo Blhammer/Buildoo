@@ -13,12 +13,9 @@ function start() {
 
     const port = configFile.port;
 
-    if (port === 'production') {
-        app.use(express.static(__dirname, '../frontend/build'));
-        app.get('*', (req, res) => {
-            req.sendFile(__dirname + '/../frontend/build/index.html');
-        });
-    }
+    app.get('*', function (req, res) {
+        res.sendFile(path.join(__dirname + '/public/index.html'));
+    });
 
     server.listen(port, () => {
         console.log(`Server is listening to port ${port}`);
