@@ -56,7 +56,7 @@ const Footer = () => {
                         </div>
                         <div className={styles.eachContainer}>
                             <div className={styles.mapContainer}>
-                                {/* <MapFooter /> */}
+                                <MapFooter />
                             </div>
                         </div>
                     </div>
