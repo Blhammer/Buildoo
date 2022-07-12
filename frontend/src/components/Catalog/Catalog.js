@@ -17,7 +17,7 @@ const Catalog = () => {
             .catch(err => {
                 console.error(err);
             })
-    }, [cards]);
+    }, []);
 
 
     const filterServices = (cards, querySearch) => {

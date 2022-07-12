@@ -1,7 +1,9 @@
-const URL = 'http://localhost:3003';
+// Only for local usage:
+// Don't forget to remove URLs or add them
+// const URL = 'http://localhost:3003';
 
 async function fetchRequest(method, body, url) {
-    const res = await fetch(URL + url, {
+    const res = await fetch(url, {
         method: method,
         headers: { 'Content-Type': 'application/json' },
         mode: 'cors',
@@ -21,7 +23,7 @@ async function fetchRequest(method, body, url) {
 }
 
 async function fetchFileRequest(method, body, url) {
-    const res = await fetch(URL + url, {
+    const res = await fetch(url, {
         method: method,
         body: body
     });

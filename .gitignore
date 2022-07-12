@@ -12,6 +12,7 @@ temporal-ground-354909-181a10c747f5.json
 
 # production
 /build
+/backend/build
 
 # misc
 .DS_Store
