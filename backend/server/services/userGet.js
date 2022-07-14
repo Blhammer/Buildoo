@@ -1,5 +1,5 @@
 const { findUserById, findUserByEmail, findAllUsers } = require('../../database/services/user');
-const { verifyToken } = require('../util');
+const { verifyToken, mapErrors } = require('../util');
 
 async function userAuthorization(req, res) {
     try {
@@ -17,8 +17,7 @@ async function userAuthorization(req, res) {
         return res.status(200).header('Authorization', token).send(user);
     }
     catch (err) {
-        console.error(err);
-        return undefined;
+        errorsHandler(req, res, err);
     }
 }
 
@@ -28,8 +27,7 @@ async function getAllUsers(req, res) {
         return res.status(200).send(users);
     }
     catch (err) {
-        console.error(err);
-        return undefined;
+        errorsHandler(req, res, err);
     }
 }
 
@@ -44,8 +42,7 @@ async function getUserByEmail(req, res) {
         return res.status(200).send(user);
     }
     catch (err) {
-        console.error(err);
-        return undefined;
+        errorsHandler(req, res, err);
     }
 }
 
@@ -60,9 +57,14 @@ async function getUserById(req, res) {
         return res.status(200).send(user);
     }
     catch (err) {
-        console.error(err);
-        return undefined;
+        errorsHandler(req, res, err);
     }
+}
+
+function errorsHandler(req, res, err) {
+    console.error(err.message);
+    const error = mapErrors(err);
+    return res.status(500).send({ message: error });
 }
 
 module.exports = {

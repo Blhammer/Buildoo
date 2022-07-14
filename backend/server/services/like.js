@@ -1,4 +1,5 @@
 const { like, dislike } = require("../../database/services/like");
+const { mapErrors } = require("../util");
 
 async function createLike(req, res) {
     try {
@@ -11,8 +12,7 @@ async function createLike(req, res) {
 
         return res.status(200);
     } catch (err) {
-        console.error(err);
-        return undefined;
+        errorsHandler(req, res, err);
     }
 };
 
@@ -27,10 +27,15 @@ async function createDislike(req, res) {
 
         return res.status(200);
     } catch (err) {
-        console.error(err);
-        return undefined;
+        errorsHandler(req, res, err);
     }
 };
+
+function errorsHandler(req, res, err) {
+    console.error(err.message);
+    const error = mapErrors(err);
+    return res.status(500).send({ message: error });
+}
 
 module.exports = {
     createLike,

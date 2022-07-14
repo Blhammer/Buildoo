@@ -1,3 +1,4 @@
+const { mapErrors } = require('../../server/util');
 const Service = require('../models/Service');
 
 const invalidData = (data) => {
@@ -6,7 +7,7 @@ const invalidData = (data) => {
 
 async function createService(data) {
     if (invalidData(data)) {
-        return undefined;
+        return res.status(401).send('Invalid data').end();
     }
 
     try {
@@ -14,28 +15,26 @@ async function createService(data) {
         const savedService = await serviceModel.save();
         return savedService;
     } catch (err) {
-        console.error(err);
-        return undefined;
+        errorsHandler(req, res, err);
     }
 }
 
 async function deleteCurrentCard(id) {
     if (!id) {
-        return undefined;
+        return res.status(401).send('Invalid data').end();
     }
 
     try {
         return await Service
             .findByIdAndDelete(id)
     } catch (err) {
-        console.error(err);
-        return undefined;
+        errorsHandler(req, res, err);
     }
 }
 
 async function updateService(body) {
     if (invalidData(body)) {
-        return undefined;
+        return res.status(401).send('Invalid data').end();
     }
 
     try {
@@ -46,8 +45,7 @@ async function updateService(body) {
             .populate('likes')
             .populate('owner')
     } catch (err) {
-        console.error(err);
-        return undefined;
+        errorsHandler(req, res, err);
     }
 }
 
@@ -60,8 +58,7 @@ async function findAllCards() {
             .populate('likes')
             .populate('owner')
     } catch (err) {
-        console.error(err);
-        return undefined;
+        errorsHandler(req, res, err);
     }
 }
 
@@ -70,9 +67,14 @@ async function findOneCard(id) {
         return await Service
             .findById(id)
     } catch (err) {
-        console.error(err);
-        return undefined;
+        errorsHandler(req, res, err);
     }
+}
+
+function errorsHandler(req, res, err) {
+    console.error(err.message);
+    const error = mapErrors(err);
+    return res.status(500).send({ message: error });
 }
 
 module.exports = {

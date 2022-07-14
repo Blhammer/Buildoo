@@ -2,6 +2,7 @@ const http = require('http');
 const path = require('path');
 
 const configFile = require('./config');
+
 const expressConfig = require('./config/express');
 const databaseConfig = require('./config/mongoDb');
 
@@ -19,11 +20,7 @@ function start() {
 
     const PORT = configFile.port;
 
-    app.get("*", function (req, res) {
-        res.sendFile(path.resolve(__dirname, '../frontend/build', 'index.html'));
-    });
-
-    app.listen(PORT, () => {
+    server.listen(PORT, () => {
         console.log(`Server is listening to port ${PORT}`);
     });
 };

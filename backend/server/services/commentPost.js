@@ -1,4 +1,5 @@
 const { createComment, deleteComment } = require("../../database/services/comment");
+const { mapErrors } = require("../util");
 
 async function commentCreate(req, res) {
     try {
@@ -8,8 +9,7 @@ async function commentCreate(req, res) {
         const createdComment = await createComment(data);
         return res.status(200).send(createdComment);
     } catch (err) {
-        console.error(err);
-        return undefined;
+        errorsHandler(req, res, err);
     }
 }
 
@@ -22,9 +22,14 @@ async function commentDelete(req, res) {
 
         return res.status(200);
     } catch (err) {
-        console.error(err);
-        return undefined;
+        errorsHandler(req, res, err);
     }
+}
+
+function errorsHandler(req, res, err) {
+    console.error(err.message);
+    const error = mapErrors(err);
+    return res.status(500).send({ message: error });
 }
 
 module.exports = {

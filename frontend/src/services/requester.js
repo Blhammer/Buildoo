@@ -1,44 +1,65 @@
 // Only for local usage:
-// Don't forget to remove URLs or add them
+// Don't forget to remove URLs or add them inside fetchRequest and fetchFileRequest
 // const URL = 'http://localhost:3003';
 
 async function fetchRequest(method, body, url) {
-    const res = await fetch(url, {
-        method: method,
-        headers: { 'Content-Type': 'application/json' },
-        mode: 'cors',
-        credentials: 'same-origin',
-        body: JSON.stringify(body)
-    });
+    try {
+        const res = await fetch(url, {
+            method: method,
+            headers: { 'Content-Type': 'application/json' },
+            mode: 'cors',
+            credentials: 'same-origin',
+            body: JSON.stringify(body)
+        });
 
-    const jsonResult = await res.json();
+        if (res.ok === false) {
+            const error = await res.json();
+            return console.error(error.message);
+        }
 
-    if (res.ok) {
-        tokenHandler(res);
-        return jsonResult;
-    } else {
-        console.error(jsonResult.message);
-        return undefined;
+        try {
+            const jsonResult = await res.json();
+            tokenHandler(res);
+            return jsonResult;
+        } catch (err) {
+            console.log(err);
+            console.error(err);
+            return res;
+        }
+    } catch (err) {
+        console.log(err);
+        console.error(err);
     }
 }
 
 async function fetchFileRequest(method, body, url) {
-    const res = await fetch(url, {
-        method: method,
-        body: body
-    });
+    try {
+        const res = await fetch(url, {
+            method: method,
+            body: body
+        });
 
-    const jsonResult = await res.json();
+        if (res.ok === false) {
+            const error = await res.json();
+            return console.error(error.message);
+        }
 
-    if (res.ok) {
-        return jsonResult;
-    } else {
-        console.error(res.message);
+        try {
+            const jsonResult = await res.json();
+            return jsonResult;
+        } catch (err) {
+            console.log(err);
+            console.error(err);
+            return res;
+        }
+    } catch (err) {
+        console.log(err);
+        console.error(err);
     }
 }
 
 function tokenHandler(res) {
-    const token = res.headers.get('Authorization');
+    const token = res?.headers?.get('Authorization');
     if (token) {
         localStorage.setItem('token', token);
     }

@@ -1,16 +1,15 @@
 const Service = require('../models/Service');
 
 async function like(userId, dataId) {
-    const currentService = await Service.findById(dataId);
-
     try {
+        const currentService = await Service.findById(dataId);
+
         currentService.likes.push(userId);
         await currentService.save();
 
         return currentService;
     } catch (err) {
-        console.error(err);
-        return undefined;
+        errorsHandler(req, res, err);
     }
 };
 
@@ -29,10 +28,15 @@ async function dislike(userId, dataId) {
             );
         update.save()
     } catch (err) {
-        console.error(err);
-        return undefined;
+        errorsHandler(req, res, err);
     }
 };
+
+function errorsHandler(req, res, err) {
+    console.error(err.message);
+    const error = mapErrors(err);
+    return res.status(500).send({ message: error });
+}
 
 module.exports = {
     like,

@@ -11,16 +11,16 @@ const AllComments = ({ data }) => {
     useEffect(() => {
         findAllComments()
             .then(commentsData => {
-                setComments(
-                    commentsData.filter((currComment) =>
-                        currComment.service === data._id
-                    ));
+                const updatedComments = commentsData.filter(currComment =>
+                    currComment.service === data._id
+                );
+                setComments(updatedComments);
                 setDeletedComment(false);
             })
             .catch(err => {
                 console.error(err);
             })
-    }, [deletedComment]);
+    }, [deletedComment, data._id]);
 
     const deleteCommentButton = async (e) => {
         e.preventDefault();

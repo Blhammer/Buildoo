@@ -1,3 +1,4 @@
+const { mapErrors } = require('../../server/util');
 const User = require('../models/User');
 const { hashPassword } = require('../util');
 
@@ -7,7 +8,7 @@ const invalidData = (data) => {
 
 async function createUser(user) {
     if (!user || !user.firstName || !user.lastName || !user.email || !user.password) {
-        return undefined;
+        return res.status(401).send('Invalid data').end();
     }
 
     try {
@@ -16,14 +17,13 @@ async function createUser(user) {
         const savedUser = await userModel.save();
         return savedUser;
     } catch (err) {
-        console.error(err);
-        return undefined;
+        errorsHandler(req, res, err);
     }
 }
 
 async function findUser(data) {
     if (invalidData(data)) {
-        return undefined;
+        return res.status(401).send('Invalid data').end();
     }
 
     try {
@@ -32,14 +32,13 @@ async function findUser(data) {
             .populate('isAdmin')
     }
     catch (err) {
-        console.error(err);
-        return undefined;
+        errorsHandler(req, res, err);
     }
 }
 
 async function findUserById(id) {
     if (!id) {
-        return undefined;
+        return res.status(401).send('Invalid data').end();
     }
 
     try {
@@ -47,14 +46,13 @@ async function findUserById(id) {
             .findById(id)
             .populate('isAdmin')
     } catch (err) {
-        console.error(err);
-        return undefined;
+        errorsHandler(req, res, err);
     }
 }
 
 async function findUserByEmail(data) {
     if (!data) {
-        return undefined;
+        return res.status(401).send('Invalid data').end();
     }
 
     try {
@@ -62,8 +60,7 @@ async function findUserByEmail(data) {
             .find(data)
             .populate('isAdmin')
     } catch (err) {
-        console.error(err);
-        return undefined;
+        errorsHandler(req, res, err);
     }
 }
 
@@ -73,14 +70,13 @@ async function findAllUsers() {
             .find()
             .populate('isAdmin')
     } catch (err) {
-        console.error(err);
-        return undefined;
+        errorsHandler(req, res, err);
     }
 }
 
 async function updateAdmin(user) {
     if (invalidData(user)) {
-        return undefined;
+        return res.status(401).send('Invalid data').end();
     }
 
     try {
@@ -88,14 +84,13 @@ async function updateAdmin(user) {
             .findOneAndUpdate({ _id: user._id }, user, { new: true })
             .populate('isAdmin')
     } catch (err) {
-        console.error(err);
-        return undefined;
+        errorsHandler(req, res, err);
     }
 }
 
 async function updatePassword(user) {
     if (!user) {
-        return undefined;
+        return res.status(401).send('Invalid data').end();
     }
 
     try {
@@ -103,24 +98,28 @@ async function updatePassword(user) {
             .findOneAndUpdate({ _id: user._id }, user, { new: true })
             .populate('isAdmin')
     } catch (err) {
-        console.error(err);
-        return undefined;
+        errorsHandler(req, res, err);
     }
 }
 
 async function deleteUser(id) {
     if (!id) {
-        return undefined;
+        return res.status(401).send('Invalid data').end();
     }
-    
+
     try {
         return await User
             .findByIdAndDelete(id)
             .populate('isAdmin')
     } catch (err) {
-        console.error(err);
-        return undefined;
+        errorsHandler(req, res, err);
     }
+}
+
+function errorsHandler(req, res, err) {
+    console.error(err.message);
+    const error = mapErrors(err);
+    return res.status(500).send({ message: error });
 }
 
 module.exports = {

@@ -63,20 +63,27 @@
     justify-content: center;
     text-align: left;
     margin: auto;
-    overflow: hidden;
     font-size: 15px;
     width: 100%;
-    padding: 1rem;
-    border-bottom: 3px solid #ffffff !important;
+    padding: 10px;
+    border-bottom: 5px solid #ffffff !important;
+}
+
+.serviceLeft {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .serviceLeft img {
     border-color: coral;
     border-style: solid;
     border-radius: 1rem;
-    border-width: 4px;
+    border-width: 5px;
     width: 450px;
-    height: 100%;
+    max-width: 450px;
+    height: 450px;
+    max-height: 450px;
     padding: 0;
 }
 @media (max-width: 991px) {
@@ -101,6 +108,7 @@
 
 .info {
     padding-left: 5px;
+    line-height: 25px;
 }
 
 .infoDesign {
@@ -126,7 +134,7 @@
     padding: 10px;
 }
 
-.likeCounter{
+.likeCounter {
     padding-left: 10px;
     padding-right: 10px;
 }

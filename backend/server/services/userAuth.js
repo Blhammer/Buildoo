@@ -1,5 +1,5 @@
 const { createUser, findUser, updatePassword } = require('../../database/services/user');
-const { setToken } = require('../util');
+const { setToken, mapErrors } = require('../util');
 const { checkPassword, hashPassword } = require('../../database/util');
 
 async function userRegister(req, res) {
@@ -25,8 +25,8 @@ async function userRegister(req, res) {
         const createdUser = await createUser(user);
         const token = setToken(createdUser);
         return res.status(201).header('Authorization', token).send(createdUser);
-    } catch (error) {
-        return res.status(500).send({ error: 'Something failed!' });
+    } catch (err) {
+        errorsHandler(req, res, err);
     }
 }
 
@@ -35,23 +35,23 @@ async function userLogin(req, res) {
         const user = req.body;
 
         if (!user || !user.email || !user.password) {
-            return res.status(401).send('Invalid data').end();
+            throw new Error('Invalid data');
         }
 
         const foundUser = await findUser({ email: user.email });
         if (!foundUser) {
-            return res.status(401).end();
+            throw new Error('Invalid data');
         }
 
         const matchPassword = await checkPassword(user.password, foundUser.password);
         if (!matchPassword) {
-            return res.status(401).end();
+            throw new Error('Invalid data');
         }
 
         const token = setToken(foundUser);
-        return res.status(200).header('Authorization', token).send(foundUser);
+        return res.status(200).header('Authorization', token).json(foundUser);
     } catch (err) {
-        return res.status(500).send({ error: 'Something failed!' });
+        errorsHandler(req, res, err);
     }
 }
 
@@ -84,9 +84,14 @@ async function passwordUpdate(req, res) {
 
         return res.status(200).send(updatedUser);
     } catch (err) {
-        console.error(err);
-        return undefined;
+        errorsHandler(req, res, err);
     }
+};
+
+function errorsHandler(req, res, err) {
+    console.error(err.message);
+    const error = mapErrors(err);
+    res.status(400).json({ message: error });
 }
 
 module.exports = {

@@ -55,6 +55,7 @@ const CommentInput = ({ data }) => {
         let validateChecker = validateCommentForm();
 
         if (validateChecker) {
+            window.location.reload(true);
             create();
         }
     };

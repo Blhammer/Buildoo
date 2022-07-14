@@ -1,3 +1,4 @@
+const { mapErrors } = require('../../server/util');
 const Comment = require('../models/Comment');
 const Service = require('../models/Service');
 
@@ -7,7 +8,7 @@ const invalidData = (data) => {
 
 async function createComment(data) {
     if (invalidData(data)) {
-        return undefined;
+        return res.status(401).send('Invalid data').end();;
     }
 
     const serviceId = data.service;
@@ -26,8 +27,7 @@ async function createComment(data) {
 
         return savedComment;
     } catch (err) {
-        console.error(err);
-        return undefined;
+        errorsHandler(req, res, err);
     }
 }
 
@@ -36,14 +36,13 @@ async function findAllComments() {
         return await Comment
             .find()
     } catch (err) {
-        console.error(err);
-        return undefined;
+        errorsHandler(req, res, err);
     }
 }
 
 async function deleteComment(id) {
     if (!id) {
-        return undefined;
+        return res.status(401).send('Invalid data').end();;
     }
 
     await Comment.findByIdAndDelete(id)
@@ -60,9 +59,14 @@ async function deleteComment(id) {
                 )
         )
     } catch (err) {
-        console.error(err);
-        return undefined;
+        errorsHandler(req, res, err);
     }
+}
+
+function errorsHandler(req, res, err) {
+    console.error(err.message);
+    const error = mapErrors(err);
+    return res.status(500).send({ message: error });
 }
 
 module.exports = {

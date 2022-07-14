@@ -87,8 +87,8 @@ const ServiceCard = () => {
 
                             <div className={styles.infoDesign}>
                                 <h5>Price:<span className={styles.info}>{data.price}$</span></h5>
-                                <h5>Payment method:<span className={styles.info}>{data.payments}</span></h5>
-                                <h5>Service:<span className={styles.info}>{data.service}</span></h5>
+                                <h5>Payment method:<span className={styles.info}>{data.paymentMethod}</span></h5>
+                                <h5>Service:<span className={styles.info}>{data.chooseService}</span></h5>
                             </div>
 
                             <div className={styles.buttonsDesign}>

@@ -12,9 +12,13 @@ const LikedCard = ({ data }) => {
                 />
             </div>
             <div className={styles.cardBody}>
-                <h5>
-                    Title: {data.title}
-                </h5>
+                <div className={styles.userDesign}>
+                    <div className={styles.userInfo}>
+                        <h5>Title: {data.title}</h5>
+                        <h5>Name: {data.owner.firstName} {data.owner.lastName} </h5>
+                        <span>Likes: {data.likes.length} </span>
+                    </div>
+                </div>
                 <Link
                     to={`/liked/${data._id}`}
                     className={styles.detailsCard}
@@ -22,12 +26,6 @@ const LikedCard = ({ data }) => {
                 >
                     Details
                 </Link>
-                <div className={styles.userDesign}>
-                    <div className={styles.userInfo}>
-                        <h5>Name: {data.owner.firstName} {data.owner.lastName} </h5>
-                        <span>Likes: {data.likes.length} </span>
-                    </div>
-                </div>
             </div>
         </div>
     );

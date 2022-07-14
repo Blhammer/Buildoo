@@ -1,4 +1,5 @@
 const { updateAdmin, deleteUser } = require('../../database/services/user');
+const { mapErrors } = require('../util');
 
 async function adminUpdate(req, res) {
     try {
@@ -10,8 +11,7 @@ async function adminUpdate(req, res) {
 
         return res.status(200).send(updatedUser);
     } catch (err) {
-        console.error(err);
-        return undefined;
+        errorsHandler(req, res, err);
     }
 }
 
@@ -24,9 +24,14 @@ async function adminDelete(req, res) {
 
         return res.status(200);
     } catch (err) {
-        console.error(err);
-        return undefined;
+        errorsHandler(req, res, err);
     }
+}
+
+function errorsHandler(req, res, err) {
+    console.error(err.message);
+    const error = mapErrors(err);
+    return res.status(500).send({ message: error });
 }
 
 module.exports = {

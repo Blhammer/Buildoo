@@ -14,6 +14,7 @@ const Login = () => {
     const [password, setPassword] = useState('');
 
     const [errorEmail, setErrorEmail] = useState(null);
+    const [errorPassword, setErrorPassword] = useState(null);
 
     const context = useContext(UserContext);
     const navigate = useNavigate();
@@ -25,6 +26,13 @@ const Login = () => {
             setErrorEmail('Invalid email or password!');
             return;
         }
+
+        if (password.length < 8) {
+            setErrorPassword('Your password must be greater than 8 characters!');
+            return;
+        }
+
+        setErrorPassword(null);
 
         const preGetUser = await findUserByEmail(email);
         if (!preGetUser || preGetUser.length === 0) {
@@ -39,7 +47,7 @@ const Login = () => {
         }
         else {
             setErrorEmail('Invalid email or password!');
-            return; 
+            return;
         }
     }
 
@@ -71,7 +79,7 @@ const Login = () => {
                                     />
 
                                     <Input
-                                        errorInput={errorEmail ? true : false}
+                                        errorInput={errorPassword}
                                         name="password"
                                         type="password"
                                         placeholder="Enter password"
