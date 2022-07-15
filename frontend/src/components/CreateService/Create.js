@@ -98,11 +98,12 @@ const Create = () => {
     const imageGet = async (item) => {
         let ourImageUrl = '';
         const allImages = await findAllImages();
-        allImages.map((image) => {
+        allImages.forEach(image => {
             if (image.name === item[0].name) {
                 ourImageUrl = image.url;
             }
-        });
+        }
+        );
         return ourImageUrl;
     };
 

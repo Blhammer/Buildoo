@@ -24,7 +24,7 @@ const MyAllServices = () => {
             .catch(err => {
                 console.error(err);
             })
-    }, [deletedCard]);
+    }, [deletedCard, context.user._id]);
 
     const deleteButtonHandler = async (e) => {
         e.preventDefault();
@@ -32,7 +32,7 @@ const MyAllServices = () => {
 
         const currentService = await findOneServiceById(id);
         deleteImageGCS(currentService);
-        
+
         setDeletedCard(true);
 
         return await deleteCard({ id });
