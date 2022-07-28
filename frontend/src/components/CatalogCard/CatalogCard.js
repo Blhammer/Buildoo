@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './CatalogCard.module.css';
 
 const CatalogCard = ({ data }) => {
+    console.log(data);
     return (
         <div className={styles.eachImageContainer}>
             <figure className={styles.eachImageDesign}>

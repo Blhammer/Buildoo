@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 import './App.css';
 
@@ -32,6 +33,7 @@ function App() {
     return (
         <AuthProcess>
             <div className="app">
+                <ToastContainer />
                 <Routes>
                     <Route exact path='/' element={<HomePage />}></Route>
 

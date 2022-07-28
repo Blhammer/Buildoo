@@ -20,17 +20,19 @@ const ServiceCard = ({ data, button }) => {
                         <Link
                             to={`/my-services/${data._id}`}
                             className={styles.viewButton}
-                            state={{ data: data }}>
+                            state={{ data: data }}
+                        >
                             Details
                         </Link>
                         <Link
                             to={`/my-services/edit/${data._id}`}
                             className={styles.editButton}
-                            state={{ data: data }}>
+                            state={{ data: data }}
+                        >
                             Edit
                         </Link>
                         <button
-                            type='button'
+                            type='submit'
                             onClick={button.deleteCardButton}
                             className={styles.deleteButton}
                             value={data._id}

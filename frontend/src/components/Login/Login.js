@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
+import { toast } from "react-toastify";
 
 import styles from './Login.module.css';
 
@@ -44,6 +45,7 @@ const Login = () => {
         if (user) {
             context.login(user);
             navigate('/');
+            toast.success(`Hello ${email}`);
         }
         else {
             setErrorEmail('Invalid email or password!');

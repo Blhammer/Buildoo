@@ -19,15 +19,13 @@ const LikedCard = ({ data }) => {
                         <span>Likes: {data.likes.length} </span>
                     </div>
                 </div>
-                <div className={styles.detailsButtonDesign}>
-                    <Link
-                        to={`/liked/${data._id}`}
-                        className={styles.detailsCard}
-                        state={{ data: data }}
-                    >
-                        Details
-                    </Link>
-                </div>
+                <Link
+                    to={`/liked/${data._id}`}
+                    className={styles.detailsCard}
+                    state={{ data: data }}
+                >
+                    Details
+                </Link>
             </div>
         </div>
     );

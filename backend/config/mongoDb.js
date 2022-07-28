@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const configFile = require('./index');
 
-const urlConnectionString = `mongodb+srv://${configFile.dbUser}:${configFile.dbPassword}@cluster0.kduqy.mongodb.net/?retryWrites=true&w=majority`;
+const urlConnectionString = `mongodb+srv://${configFile.dbUser}:${configFile.dbPassword}@${configFile.dbName}.kduqy.mongodb.net/?retryWrites=true&w=majority`;
 
 async function databaseConfiguration() {
     try {

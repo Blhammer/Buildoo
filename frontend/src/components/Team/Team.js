@@ -17,7 +17,7 @@ const Team = () => {
                             <div className={styles.eachImageStyle}>
                                 <div className={styles.textStyle}>
                                     <h5 className={styles.nameBolder}>Leo Bright</h5>
-                                    <span>SEO</span>
+                                    <span>CEO</span>
                                 </div>
                                 <div className={styles.iconsContainers}>
                                     <Link className={styles.buttonsLinks} to="/"><i className="fab fa-facebook-f"></i></Link>

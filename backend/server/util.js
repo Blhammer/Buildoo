@@ -1,11 +1,12 @@
 const jwt = require('jsonwebtoken');
-const configFile = require('../config/index');
+const configFile = require('../config/config');
 
 function setToken(user) {
     if (!user) return;
 
     const id = user._id;
     const email = user.email;
+
     const token = jwt.sign({ id, email }, configFile.tokenKey);
 
     return token;
@@ -16,8 +17,9 @@ function verifyToken(token) {
         return jwt.verify(token, configFile.tokenKey);
     }
     catch (err) {
-        console.error(err);
-        return undefined;
+        console.error(err.message);
+        const error = mapErrors(err);
+        return res.status(500).send({ message: error });
     }
 }
 

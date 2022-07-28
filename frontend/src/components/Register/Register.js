@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router';
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from "react-toastify";
 
 import styles from './Register.module.css';
 
@@ -68,8 +69,8 @@ const Register = () => {
         if (user) {
             context.login(user);
             navigate('/');
-        }
-        else {
+            toast.success(`Successful registration ${firstName} ${lastName}`);
+        } else {
             console.error("Invalid email or password!");
         }
     }

@@ -9,6 +9,8 @@ temporal-ground-354909-181a10c747f5.json
 
 # testing
 /coverage
+/backend/coverage
+/frontend/coverage
 
 # production
 /build

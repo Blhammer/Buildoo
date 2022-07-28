@@ -56,9 +56,9 @@
 
 .imagesRow {
     display: flex;
+    justify-content: center;
     margin-right: 0px;
     margin-left: 0px;
-    justify-content: center;
     margin-top: 40px;
 }
 

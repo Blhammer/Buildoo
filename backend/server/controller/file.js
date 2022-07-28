@@ -2,7 +2,7 @@ const processFile = require('../middleware/upload');
 const { format } = require('util');
 const { Storage } = require('@google-cloud/storage');
 
-const storage = new Storage({ keyFilename: 'temporal-ground-354909-181a10c747f5.json' });
+const storage = new Storage({ keyFilename: 'google-credentials.json' });
 const bucket = storage.bucket('buildoo');
 
 const upload = async (req, res) => {
@@ -56,30 +56,8 @@ const upload = async (req, res) => {
     }
 };
 
-const getListFiles = async (req, res) => {
-    try {
-        const [files] = await bucket.getFiles();
-        let fileInfos = [];
-        files.forEach((file) => {
-            const publicUrl = format(
-                `https://storage.googleapis.com/${bucket.name}/${file.name}`
-            );
-            fileInfos.push({
-                name: file.name,
-                url: publicUrl,
-            });
-        });
-        res.status(200).send(fileInfos);
-    } catch (err) {
-        console.log(err);
-        res.status(500).send({
-            message: "Unable to read list of files!",
-        });
-    }
-};
-
 const deleteFile = async (req, res) => {
-    var file = bucket.file(req.body.imageName);
+    const file = bucket.file(req.body.imageName);
 
     if (file) {
         file.delete(function (err, response) {
@@ -87,7 +65,7 @@ const deleteFile = async (req, res) => {
                 console.error(err);
             }
             else {
-                console.log("Deleted successfully");
+                console.log("Image deleted successfully");
             }
         });
     } else {
@@ -97,6 +75,5 @@ const deleteFile = async (req, res) => {
 
 module.exports = {
     upload,
-    getListFiles,
     deleteFile
 };

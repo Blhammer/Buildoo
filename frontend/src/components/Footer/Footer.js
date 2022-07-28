@@ -56,7 +56,8 @@ const Footer = () => {
                         </div>
                         <div className={styles.eachContainer}>
                             <div className={styles.mapContainer}>
-                                <MapFooter />
+                                // TODO: Uncomment this:
+                                {/* <MapFooter /> */}
                             </div>
                         </div>
                     </div>
@@ -72,16 +73,16 @@ const Footer = () => {
                     <div className={styles.bottomRightContainer}>
                         <ul className={styles.ulContainer}>
                             <li className={styles.item}>
-                                <Link className={styles.eachItemDesign} to="/privacy">Privacy</Link>
+                                <Link className={styles.eachItemDesign} to="/">Privacy</Link>
                             </li>
                             <li className={styles.item}>
-                                <Link className={styles.eachItemDesign} to="/terms">Terms</Link>
+                                <Link className={styles.eachItemDesign} to="/">Terms</Link>
                             </li>
                             <li className={styles.item}>
-                                <Link className={styles.eachItemDesign} to="/faqs">FAQs</Link>
+                                <Link className={styles.eachItemDesign} to="/">FAQs</Link>
                             </li>
                             <li className={styles.item}>
-                                <Link className={styles.eachItemDesign} to="/help">Help</Link>
+                                <Link className={styles.eachItemDesign} to="/">Help</Link>
                             </li>
                         </ul>
                     </div>

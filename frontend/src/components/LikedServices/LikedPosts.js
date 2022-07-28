@@ -15,8 +15,8 @@ const MyPosts = () => {
                 let likedStorage = [];
                 let updatedStorage = [];
                 
-                cardsData.filter((liked) => (
-                    liked.likes.filter(element => {
+                cardsData.filter(liked => (
+                    liked.likes.forEach(element => {
                         if (element._id === context.user._id) {
                             likedStorage.push(liked._id)
                         }
@@ -34,7 +34,7 @@ const MyPosts = () => {
             .catch(err => {
                 console.error(err);
             })
-    }, []);
+    }, [context.user._id]);
 
     return (
         <>

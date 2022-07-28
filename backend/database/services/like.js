@@ -15,7 +15,7 @@ async function like(userId, dataId) {
 
 async function dislike(userId, dataId) {
     try {
-        const update = await Service
+        const currentService = await Service
             .findOneAndUpdate(
                 {
                     '_id': dataId
@@ -26,7 +26,7 @@ async function dislike(userId, dataId) {
                     }
                 }
             );
-        update.save()
+        currentService.save();
     } catch (err) {
         errorsHandler(req, res, err);
     }

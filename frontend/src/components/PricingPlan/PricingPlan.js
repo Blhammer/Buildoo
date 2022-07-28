@@ -18,7 +18,7 @@ const PricingPlan = () => {
                                 </h1>
                             </div>
                             <div className={styles.titlePricingPlan}>
-                                <h3 className={styles.titlePricingPlanMargin}>Building</h3>
+                                <h3 className={styles.titlePricingPlanMargin}>Construction</h3>
                             </div>
                             <div className={styles.package}>
                                 <p>Houses</p>

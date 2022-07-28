@@ -7,7 +7,7 @@ import styles from './Edit.module.css';
 
 import Input from '../Input';
 import UserContext from '../../contexts/Context';
-import { updateService, uploadImage, findAllImages } from '../../services/requester';
+import { updateService, uploadImage } from '../../services/requester';
 
 const Edit = () => {
     const location = useLocation();
@@ -83,8 +83,8 @@ const Edit = () => {
             setErrorChooseService('You have not choose your service!');
             checker = false;
         }
-        if (description === '' || description.length < 30 || description.length > 300) {
-            setErrorDescription('Your description must be between 30 and 300 characters!');
+        if (description === '' || description.length < 30 || description.length > 500) {
+            setErrorDescription('Your description must be between 30 and 500 characters!');
             checker = false;
         }
 
@@ -97,27 +97,16 @@ const Edit = () => {
         setImageFile(item);
     }
 
-    const imageGet = async (item) => {
-        let ourImageUrl = '';
-        const allImages = await findAllImages();
-        allImages.map((image) => {
-            if (image.name === item[0].name) {
-                ourImageUrl = image.url;
-            }
-        });
-        return ourImageUrl;
-    };
-
-    const onCreateHandler = async () => {
+    const onEditHandler = async () => {
         const date = new Date();
         const currentDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
 
         const formData = new FormData();
         formData.append('file', uploadedImage[0]);
 
-        await uploadImage(formData);
-        const imageUrl = await imageGet(uploadedImage);
-        
+        const uploadImageResponse = await uploadImage(formData);
+        const imageUrl = uploadImageResponse.url;
+
         let imageName = uploadedImage[0].name;
 
         const body = {
@@ -151,7 +140,7 @@ const Edit = () => {
         const isCheckerValid = validatorInput();
 
         if (isCheckerValid) {
-            onCreateHandler();
+            onEditHandler();
         }
     }
 
@@ -252,12 +241,15 @@ const Edit = () => {
                                         onChange={(e) => setChooseService(e.target.value)}
                                     >
                                         <option value="false">Choose Your Service</option>
-                                        <option value="Building">Building</option>
+                                        <option value="Construction">Construction</option>
                                         <option value="Repair">Repair</option>
                                         <option value="Plumbing">Plumbing</option>
                                         <option value="Garden">Garden</option>
                                         <option value="Demolition">Demolition</option>
                                         <option value="Cleaning">Cleaning</option>
+                                        <option value="Ground Transport">Ground Transport</option>
+                                        <option value="Water Transport">Water Transport</option>
+                                        <option value="Self-Storage Facilities">Self-Storage Facilities</option>
                                     </select>
                                 </div>
                                 <div className={styles.eachGapDesign}>

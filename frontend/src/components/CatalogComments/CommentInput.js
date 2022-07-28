@@ -1,14 +1,20 @@
 import { useContext, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { toast } from "react-toastify";
+import { makeComment } from '../../Redux/actions/post';
+
 import styles from './CommentInput.module.css';
 
 import UserContext from '../../contexts/Context';
-
 import { createComment } from '../../services/requester';
 
 const CommentInput = ({ data }) => {
     const context = useContext(UserContext);
+    const dispatch = useDispatch();
 
+    const [content, setContent] = useState('');
     const [showElement, setShowElement] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         setTimeout(
@@ -16,9 +22,6 @@ const CommentInput = ({ data }) => {
                 setShowElement(false);
             }, 5000);
     });
-
-    const [content, setContent] = useState('');
-    const [error, setError] = useState(null);
 
     const validateCommentForm = () => {
         const checker = true;
@@ -42,10 +45,16 @@ const CommentInput = ({ data }) => {
             owner: context.user._id,
             service: data._id
         }
+
         const createdComment = await createComment(body);
-        if (!createdComment) {
+        if (createdComment.content === '') {
             console.error('Add Comment Error!');
             return;
+        } else {
+            await dispatch(
+                makeComment(context.user._id)
+            );
+            return toast.success("Comment added Successfully!");
         }
     };
 
@@ -55,7 +64,6 @@ const CommentInput = ({ data }) => {
         let validateChecker = validateCommentForm();
 
         if (validateChecker) {
-            window.location.reload(true);
             create();
         }
     };

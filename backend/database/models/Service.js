@@ -39,12 +39,12 @@ const ServiceSchema = new Schema({
         type: String,
         required: [true, 'Description is required!'],
         minlength: [30, 'Description must be at least 30 characters long!'],
-        maxlength: [300, 'Description must not be more than 300 characters long!']
+        maxlength: [500, 'Description must not be more than 500 characters long!']
     },
     currentDate: { type: String },
     comments: { type: [ObjectId], ref: 'Comment' },
     likes: { type: [ObjectId], ref: 'User' },
-    owner: { type: ObjectId, ref: 'User' },
+    owner: { type: Object, ref: 'User' },
     imageName: { type: String }
 });
 

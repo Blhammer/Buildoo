@@ -21,7 +21,7 @@ const CommentCard = ({ data, button }) => {
                         type='button'
                         className={styles.delete}
                         value={data._id}
-                        onClick={button.remove}>
+                        onClick={button}>
                         Delete
                     </button>
                     :

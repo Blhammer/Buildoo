@@ -106,7 +106,7 @@ async function deleteUser(id) {
     if (!id) {
         return res.status(401).send('Invalid data').end();
     }
-
+    
     try {
         return await User
             .findByIdAndDelete(id)

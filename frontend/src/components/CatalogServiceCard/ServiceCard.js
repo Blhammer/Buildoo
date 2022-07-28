@@ -1,27 +1,57 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { useNavigate } from 'react-router';
+import { shallowEqual, useSelector } from "react-redux";
 
 import styles from './ServiceCard.module.css';
 
 import CommentInput from '../CatalogComments';
-import AllComments from '../CatalogAllComments';
+import CommentCard from '../CommentsCard';
 import UserContext from '../../contexts/Context';
 
-import { like, dislike } from '../../services/requester';
+import { like, dislike, deleteComment, findAllComments } from '../../services/requester';
 
 const ServiceCard = () => {
     const location = useLocation();
-    const navigate = useNavigate();
     const data = location?.state?.data;
     const context = useContext(UserContext);
 
-    const isOwner = data.owner._id !== context?.user?._id;
+    const { comments } = useSelector(
+        (state) => ({
+            comments: state.comments.comments
+        }),
+        shallowEqual
+    );
 
-    let clicked = false;
+    const [commentsService, setCommentsService] = useState(comments);
+    const [deletedComment, setDeletedComment] = useState(false);
+
+    useEffect(() => {
+        findAllComments()
+            .then(commentsData => {
+                const updatedComments = commentsData.filter(currComment =>
+                    currComment.service === data._id
+                );
+                setCommentsService(updatedComments);
+                setDeletedComment(false);
+            })
+            .catch(err => {
+                console.error(err);
+            })
+    }, [deletedComment, data._id, comments]);
+
+    const deleteCommentButton = async (e) => {
+        e.preventDefault();
+        setDeletedComment(true);
+
+        const id = e.target.value;
+
+        await deleteComment({ id });
+    }
+
+    let clicked;
     if (context.isLoggedIn) {
         data.likes.forEach(element =>
-            clicked = element._id === context.user._id
+            clicked = element === context.user._id
         );
     }
 
@@ -31,29 +61,29 @@ const ServiceCard = () => {
     const likeHandler = async () => {
         const userId = context.user._id;
         const dataId = data._id;
-        let array = data.likes;
+        let likesData = data.likes;
 
         if (!isClickedLike) {
-            navigate('/all-services');
             setCLickedLike(true);
 
-            if (!array.includes(userId)) {
-                array.push(userId);
-                setLikes(array);
+            if (!likesData.includes(userId)) {
+                likesData.push(userId);
+                setLikes(likesData);
                 await like({ userId, dataId });
             }
         } else {
-            navigate('/all-services');
             setCLickedLike(false);
 
-            if (array.find(obj => obj._id === userId)) {
-                let currentLikeIndex = array.findIndex(id => id !== userId);
-                let result = array.splice(currentLikeIndex, 1);
-                setLikes(result);
+            if (likesData.find(obj => obj === userId)) {
+                let currentLikeIndex = likesData.findIndex(id => id !== userId);
+                likesData.splice(currentLikeIndex, 1);
+                setLikes(likesData);
                 await dislike({ userId, dataId });
             }
         }
     };
+
+    const isOwner = data?.owner?._id !== context?.user?._id;
 
     const likeBtn = <button className={styles.like} onClick={likeHandler}>Like</button>;
     const dislikeBtn = <button className={styles.dislike} onClick={likeHandler}>Dislike</button>;
@@ -100,7 +130,13 @@ const ServiceCard = () => {
                                     ?
                                     <>
                                         {isOwner
-                                            ? (isClickedLike ? dislikeBtn : likeBtn)
+                                            ?
+                                            <>
+                                                {isClickedLike
+                                                    ? dislikeBtn
+                                                    : likeBtn
+                                                }
+                                            </>
                                             : null
                                         }
                                     </>
@@ -117,7 +153,23 @@ const ServiceCard = () => {
 
                         <div className={styles.serviceTicket}>
                             <div className={styles.serviceRight}>
-                                <AllComments data={data} />
+                                <>
+                                    {commentsService.length > 0
+                                        ? (
+                                            commentsService.map((comment) => {
+                                                return <CommentCard key={comment._id} data={comment} button={deleteCommentButton} />
+                                            })
+                                        )
+                                        :
+                                        <>
+                                            {
+                                                context.isLoggedIn
+                                                    ? <p className={styles.emptyList}>No Comments for the service! Be the first one!</p>
+                                                    : null
+                                            }
+                                        </>
+                                    }
+                                </>
                             </div>
                         </div>
 

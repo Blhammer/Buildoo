@@ -7,7 +7,7 @@ import styles from './Create.module.css';
 
 import Input from '../Input';
 import UserContext from '../../contexts/Context';
-import { createCard, uploadImage, findAllImages } from '../../services/requester';
+import { createCard, uploadImage, findUserById } from '../../services/requester';
 
 const Create = () => {
     const [title, setTitle] = useState('');
@@ -29,7 +29,6 @@ const Create = () => {
     const [errorPrice, setErrorPrice] = useState(null);
     const [errorChooseService, setErrorChooseService] = useState(null);
     const [errorDescription, setErrorDescription] = useState(null);
-
 
     const [uploadedImage, setUploadedImage] = useState([]);
 
@@ -81,8 +80,8 @@ const Create = () => {
             setErrorChooseService('You have not choose your service!');
             checker = false;
         }
-        if (description === '' || description.length < 30 || description.length > 300) {
-            setErrorDescription('Your description must be between 30 and 300 characters!');
+        if (description === '' || description.length < 30 || description.length > 500) {
+            setErrorDescription('Your description must be between 30 and 500 characters!');
             checker = false;
         }
 
@@ -93,29 +92,19 @@ const Create = () => {
         const item = files.map((fileItem) => fileItem.file);
         setUploadedImage(item);
         setImageFile(item);
-    }
-
-    const imageGet = async (item) => {
-        let ourImageUrl = '';
-        const allImages = await findAllImages();
-        allImages.forEach(image => {
-            if (image.name === item[0].name) {
-                ourImageUrl = image.url;
-            }
-        }
-        );
-        return ourImageUrl;
     };
 
     const onCreateHandler = async () => {
         const date = new Date();
         const currentDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
 
+        const owner = await findUserById(context.user._id);
+
         const formData = new FormData();
         formData.append('file', uploadedImage[0]);
 
-        await uploadImage(formData);
-        const imageUrl = await imageGet(uploadedImage);
+        const uploadImageResponse = await uploadImage(formData);
+        const imageUrl = uploadImageResponse.url;
 
         let imageName = uploadedImage[0].name;
 
@@ -130,15 +119,16 @@ const Create = () => {
             chooseService,
             description,
             currentDate,
-            owner: context.user._id,
+            owner,
             imageName
         };
-        const currentService = await createCard(body);
 
+        const currentService = await createCard(body);
+        console.log(currentService);
         if (currentService) {
             navigate('/my-services');
         } else {
-            console.error('Invalid data!');
+            return console.error('Invalid data!');
         }
     }
 
@@ -194,7 +184,7 @@ const Create = () => {
                                         type="phone"
                                         name="town"
                                         className={styles.formStyle}
-                                        placeholder="Town/City"
+                                        placeholder="City"
                                         value={town}
                                         onChange={(e) => setTown(e.target.value)}
                                     />
@@ -229,8 +219,10 @@ const Create = () => {
                                         name='image'
                                         instantUpload={false}
                                         allowMultiple={false}
+                                        allowPaste={true}
                                         files={uploadedImage}
                                         maxFiles={1}
+                                        credits={false}
                                         onupdatefiles={(fileItems) => imageUpload(fileItems)}
                                     />
                                 </div>
@@ -270,12 +262,15 @@ const Create = () => {
                                         onChange={(e) => setChooseService(e.target.value)}
                                     >
                                         <option value="false">Choose Your Service</option>
-                                        <option value="Building">Building</option>
+                                        <option value="Construction">Construction</option>
                                         <option value="Repair">Repair</option>
                                         <option value="Plumbing">Plumbing</option>
                                         <option value="Garden">Garden</option>
                                         <option value="Demolition">Demolition</option>
                                         <option value="Cleaning">Cleaning</option>
+                                        <option value="Ground Transport">Ground Transport</option>
+                                        <option value="Water Transport">Water Transport</option>
+                                        <option value="Self-Storage Facilities">Self-Storage Facilities</option>
                                     </select>
                                 </div>
 

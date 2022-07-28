@@ -38,7 +38,7 @@ async function cardDelete(req, res) {
         if (!id) {
             return res.status(401).send('Invalid data').end();
         }
-
+        
         await deleteCurrentCard(id);
 
         return res.status(200);

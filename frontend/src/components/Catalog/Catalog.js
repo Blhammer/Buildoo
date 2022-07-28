@@ -1,75 +1,134 @@
 import React, { useEffect, useState } from 'react';
-import styles from './Catalog.module.css';
 
-import CatalogList from '../CatalogList';
-import { findAllCards } from '../../services/requester';
+import styles from './Catalog.module.css';
+import stylesList from './CatalogList.module.css';
+
+import CatalogCard from "../CatalogCard";
+import Pagination from '../Pagination';
+
+import { filterServices, findCardsCount } from '../../services/requester';
+import { useData } from '../../hooks/services';
 
 const Catalog = () => {
+    const [activePage, setActivePage] = useState(1);
+    const [pageCount, setPageCount] = useState(1);
+    const [updatedServices, setUpdatedServices] = useState([]);
+    const data = useData(activePage);
+
     const { search } = window.location;
     const querySearch = new URLSearchParams(search).get('search');
-    const [cards, setCards] = useState([]);
+    const queryPriceFrom = new URLSearchParams(search).get('sortFrom');
+    const queryPriceTo = new URLSearchParams(search).get('sortTo');
+
+    const body = {
+        querySearch,
+        queryPriceFrom,
+        queryPriceTo
+    };
 
     useEffect(() => {
-        findAllCards()
-            .then(cardsData => {
-                setCards(cardsData);
+        findCardsCount()
+            .then(servicesCount => {
+                const pagesCount = Math.ceil(servicesCount.servicesCount / 9);
+                setPageCount(pagesCount);
             })
             .catch(err => {
                 console.error(err);
-            })
+                return;
+            });
     }, []);
 
-
-    const filterServices = (cards, querySearch) => {
-        let cardsStorage = [];
-
-        if (!querySearch) {
-            return cards;
-        }
-
-        cards.filter(el => {
-            if (el.title.toLowerCase().includes(querySearch.toLowerCase())) {
-                cardsStorage.push(el);
-            }
-        });
-
-        return cardsStorage;
-    };
-
-    const updatedServices = filterServices(cards, querySearch);
+    useEffect(() => {
+        filterServices()
+            .then(filteredData => {
+                if (body.querySearch !== null || body.queryPriceFrom !== null || body.queryPriceTo !== null) {
+                    setUpdatedServices(filteredData);
+                } else {
+                    setUpdatedServices(data.data);
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                return;
+            });
+    }, [data, body.querySearch, body.queryPriceFrom, body.queryPriceTo]);
 
     return (
         <>
             <div className={styles.searchContainer} >
                 <form className={styles.formSearch}>
-                    <input
-                        type="search"
-                        id="search-bar"
-                        className={styles.formSearchDesign}
-                        placeholder="Search..."
-                        aria-label="Search"
-                        name='search'
-                    />
-                    <button
-                        type="submit"
-                        className={styles.buttonSearch}
-                    >
-                        Search<i className="fas fa-search"></i>
-                    </button>
+                    <div className={styles.searchBarButton}>
+                        <h2 className={styles.titleCatalog}>Catalog</h2>
+                        <div className={styles.searchDivDesign}>
+                            <input
+                                type="search"
+                                id="search-bar"
+                                className={styles.formSearchDesign}
+                                placeholder="Search..."
+                                aria-label="Search"
+                                name='search'
+                            />
+                            <input
+                                type="number"
+                                id="sort-bar-from"
+                                className={styles.formSearchDesign}
+                                placeholder="Price from..."
+                                aria-label="Price"
+                                name='sortFrom'
+                            />
+                            <input
+                                type="number"
+                                id="sort-bar-to"
+                                className={styles.formSearchDesign}
+                                placeholder="Price to..."
+                                aria-label="Price"
+                                name='sortTo'
+                            />
+                        </div>
+                        <div className={styles.searchButtonPlace}>
+                            <button
+                                type="submit"
+                                className={styles.buttonSearch}
+                            >
+                                Search
+                            </button>
+                        </div>
+                    </div>
                 </form>
+            </div>
+
+            <div className={styles.paginationStyle}>
+                <Pagination
+                    activePage={activePage}
+                    setActivePage={setActivePage}
+                    pages={pageCount}
+                />
             </div>
 
             <div className={styles.mainContainer}>
                 <div className={styles.paddingContainer}>
                     <div className={styles.rowCatalog}>
-                        <h2 className={styles.titleCatalog}>Catalog</h2>
 
                         <div className={styles.catalogMainContainer}>
-                            <CatalogList cards={updatedServices} />
+                            {updatedServices
+                                ? (updatedServices.map((card) => {
+                                    return <CatalogCard key={card._id} data={card} />
+                                })
+                                )
+                                : <p className={stylesList.emptyList}>No Services in database</p>
+                            }
                         </div>
 
                     </div>
                 </div>
+            </div>
+
+            <div className={styles.paginationStyle}>
+                <Pagination
+                    activePage={activePage}
+                    setActivePage={setActivePage}
+                    pages={pageCount}
+                />
             </div>
         </>
     );

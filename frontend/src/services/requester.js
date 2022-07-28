@@ -1,12 +1,19 @@
-// Only for local usage:
-// Don't forget to remove URLs or add them inside fetchRequest and fetchFileRequest
-const URL = 'http://localhost:3003';
+let URL = '';
+const pageSize = 9;
+
+if (process.env.NODE_ENV === "production") {
+    URL = 'https://buildoo.herokuapp.com'
+} else {
+    URL = 'http://localhost:3003'
+}
 
 async function fetchRequest(method, body, url) {
     try {
         const res = await fetch(URL + url, {
             method: method,
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json'
+            },
             mode: 'cors',
             credentials: 'same-origin',
             body: JSON.stringify(body)
@@ -22,12 +29,10 @@ async function fetchRequest(method, body, url) {
             tokenHandler(res);
             return jsonResult;
         } catch (err) {
-            console.log(err);
             console.error(err);
             return res;
         }
     } catch (err) {
-        console.log(err);
         console.error(err);
     }
 }
@@ -48,12 +53,10 @@ async function fetchFileRequest(method, body, url) {
             const jsonResult = await res.json();
             return jsonResult;
         } catch (err) {
-            console.log(err);
             console.error(err);
             return res;
         }
     } catch (err) {
-        console.log(err);
         console.error(err);
     }
 }
@@ -67,106 +70,116 @@ function tokenHandler(res) {
 
 export async function userAuth(token) {
     if (!token) return;
-    return await fetchRequest('GET', undefined, `/verify?token=${token}`);
+    return await fetchRequest('GET', undefined, `/api/verify?token=${token}`);
 }
 
 export async function findUserByEmail(email) {
     if (!email) return;
-    return await fetchRequest('GET', undefined, `/usersEmail?email=${email}`);
+    return await fetchRequest('GET', undefined, `/api/usersEmail?email=${email}`);
 }
 
 export async function findUserById(id) {
     if (!id) return;
-    return await fetchRequest('GET', undefined, `/usersId?id=${id}`);
+    return await fetchRequest('GET', undefined, `/api/usersId?id=${id}`);
+}
+
+export async function findPage(page) {
+    if (!page) return;
+    return await fetchRequest('GET', undefined, `/api/cardsPaginate?page=${page}&limit=${pageSize}`);
+}
+
+export async function findAllCards() {
+    return await fetchRequest('GET', undefined, '/api/cards');
+}
+
+export async function findCardsCount() {
+    return await fetchRequest('GET', undefined, '/api/cards/count');
 }
 
 export async function findOneServiceById(id) {
     if (!id) return;
-    return await fetchRequest('GET', undefined, `/serviceId?id=${id}`);
+    return await fetchRequest('GET', undefined, `/api/serviceId?id=${id}`);
 }
 
 export async function findAllUsers() {
-    return await fetchRequest('GET', undefined, '/users');
-}
-
-export async function findAllCards() {
-    return await fetchRequest('GET', undefined, '/cards');
-}
-
-export async function findAllImages() {
-    return await fetchRequest('GET', undefined, '/files');
+    return await fetchRequest('GET', undefined, '/api/users');
 }
 
 export async function findAllComments() {
-    return await fetchRequest('GET', undefined, '/comments');
+    return await fetchRequest('GET', undefined, '/api/comments');
+}
+
+export async function filterServices(body) {
+    if (!body) return;
+    return await fetchRequest('POST', body, '/api/filter/services');
 }
 
 export async function userRegister(body) {
     if (!body) return;
-    return await fetchRequest('POST', body, '/user/register');
+    return await fetchRequest('POST', body, '/api/user/register');
 }
 
 export async function userLogin(body) {
     if (!body) return;
-    return await fetchRequest('POST', body, '/user/login');
+    return await fetchRequest('POST', body, '/api/user/login');
 }
 
 export async function passwordUpdate(body) {
     if (!body) return;
-    return await fetchRequest('POST', body, '/user/password');
+    return await fetchRequest('POST', body, '/api/user/password');
 }
 
 export async function createCard(body) {
     if (!body) return;
-    return await fetchRequest('POST', body, '/card/create');
+    return await fetchRequest('POST', body, '/api/card/create');
 }
 
 export async function createComment(body) {
     if (!body) return;
-    return await fetchRequest('POST', body, '/card/comment');
+    return await fetchRequest('POST', body, '/api/card/comment');
 }
 
 export async function uploadImage(body) {
     if (!body) return;
-    return await fetchFileRequest('POST', body, '/image/upload');
+    return await fetchFileRequest('POST', body, '/api/image/upload');
 }
 
 export async function deleteImageGCS(body) {
     if (!body) return;
-    return await fetchRequest('POST', body, '/image/delete');
+    return await fetchRequest('POST', body, '/api/image/delete');
 }
 
 export async function updateAdmin(body) {
     if (!body) return;
-    return await fetchRequest('POST', body, '/admin/update');
+    return await fetchRequest('POST', body, '/api/admin/update');
 }
 
 export async function updateService(body) {
     if (!body) return;
-    return await fetchRequest('POST', body, '/edit/service');
+    return await fetchRequest('POST', body, '/api/edit/service');
 }
 
 export async function like(body) {
     if (!body) return;
-    return await fetchRequest('POST', body, '/card/like');
+    return await fetchRequest('POST', body, '/api/card/like');
 }
 
 export async function dislike(body) {
     if (!body) return;
-    return await fetchRequest('POST', body, '/card/dislike');
+    return await fetchRequest('POST', body, '/api/card/dislike');
 }
 
 export async function deleteUser(body) {
     if (!body) return;
-    return await fetchRequest('POST', body, '/admin/delete');
+    return await fetchRequest('POST', body, '/api/admin/delete');
 }
 
 export async function deleteCard(body) {
     if (!body) return;
-    return await fetchRequest('POST', body, '/card/delete');
+    return await fetchRequest('POST', body, '/api/card/delete');
 }
 
 export async function deleteComment(body) {
     if (!body) return;
-    return await fetchRequest('POST', body, '/comment/delete');
+    return await fetchRequest('POST', body, '/api/comment/delete');
 }
