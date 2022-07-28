@@ -12,7 +12,7 @@ The web application has been built with MERN full-stack and it has been deployed
 
 -   [Project](#Project)
 -   [Features](#Features)
--   [Tech Stack](#Technologies)
+-   [Technologies](#Technologies)
 -   [Project Structure](#Structure)
 -   [How to start the project](#Start)
 -   [Frontend](#Frontend)
@@ -30,7 +30,7 @@ Demo link: https://buildoo.herokuapp.com
 3. Create, Read , Update, Delete operations
 4. Pagination, Likes and Dislikes and Comments
 
-## Tech Stack
+## Technologies
 
 Used technologies:
 
