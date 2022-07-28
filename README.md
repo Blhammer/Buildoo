@@ -13,8 +13,8 @@ The web application has been built with MERN full-stack and it has been deployed
 -   [Project](#Project)
 -   [Features](#Features)
 -   [Technologies](#Technologies)
--   [Project Structure](#Structure)
--   [How to start the project](#Start)
+-   [Project Structure](#Project-Structure)
+-   [How to start the project](#How-to-start-the-project)
 -   [Frontend](#Frontend)
 
 ## Project
