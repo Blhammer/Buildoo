@@ -1,5 +1,5 @@
 import { findAllComments } from '../../services/requester';
-import { GET_ERRORS } from '../actionTypes/post';
+import { GET_ERRORS } from './postTypes';
 
 const addComment = (data) => ({
     type: "ADD_COMMENT",
@@ -8,13 +8,13 @@ const addComment = (data) => ({
 
 export const makeComment = (id) => (dispatch) => {
     findAllComments()
-        .then(comment => {
+        .then((comment) => {
             dispatch(addComment({ id, comments: comment }));
         })
-        .catch(err => {
+        .catch((err) => {
             dispatch({
                 type: GET_ERRORS,
-                payload: err.response
+                payload: err.response.data
             })
         });
 };

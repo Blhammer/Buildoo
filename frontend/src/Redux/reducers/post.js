@@ -1,4 +1,4 @@
-import { ADD_COMMENT } from '../actionTypes/post';
+import { ADD_COMMENT } from '../actions/postTypes';
 
 const initialState = {
     comments: []

@@ -20,17 +20,11 @@ const Catalog = () => {
     const queryPriceFrom = new URLSearchParams(search).get('sortFrom');
     const queryPriceTo = new URLSearchParams(search).get('sortTo');
 
-    const body = {
-        querySearch,
-        queryPriceFrom,
-        queryPriceTo
-    };
-
     useEffect(() => {
         findCardsCount()
             .then(servicesCount => {
                 const pagesCount = Math.ceil(servicesCount.servicesCount / 9);
-                setPageCount(pagesCount);
+                setPageCount(pagesCount || 1);
             })
             .catch(err => {
                 console.error(err);
@@ -39,19 +33,21 @@ const Catalog = () => {
     }, []);
 
     useEffect(() => {
-        filterServices()
+        filterServices({ querySearch, queryPriceFrom, queryPriceTo })
             .then(filteredData => {
-                if (body.querySearch !== null || body.queryPriceFrom !== null || body.queryPriceTo !== null) {
-                    setUpdatedServices(filteredData);
+                if (querySearch !== null || queryPriceFrom !== null || queryPriceTo !== null
+                    || querySearch === '' || queryPriceFrom === '' || queryPriceTo === ''
+                ) {
+                    return setUpdatedServices(filteredData);
                 } else {
-                    setUpdatedServices(data.data);
+                    return setUpdatedServices(data.data);
                 }
             })
             .catch(err => {
                 console.error(err);
                 return;
             });
-    }, [data, body.querySearch, body.queryPriceFrom, body.queryPriceTo]);
+    }, [data.data, querySearch, queryPriceFrom, queryPriceTo]);
 
     return (
         <>
@@ -111,9 +107,10 @@ const Catalog = () => {
 
                         <div className={styles.catalogMainContainer}>
                             {updatedServices
-                                ? (updatedServices.map((card) => {
-                                    return <CatalogCard key={card._id} data={card} />
-                                })
+                                ? (
+                                    updatedServices.map((card) => {
+                                        return <CatalogCard key={card._id} data={card} />
+                                    })
                                 )
                                 : <p className={stylesList.emptyList}>No Services in database</p>
                             }

@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { toast } from "react-toastify";
+import PropTypes from 'prop-types';
 import { makeComment } from '../../Redux/actions/post';
 
 import styles from './CommentInput.module.css';
@@ -11,6 +12,7 @@ import { createComment } from '../../services/requester';
 const CommentInput = ({ data }) => {
     const context = useContext(UserContext);
     const dispatch = useDispatch();
+    const reduxErrors = useSelector((state) => state.errors);
 
     const [content, setContent] = useState('');
     const [showElement, setShowElement] = useState(true);
@@ -50,12 +52,12 @@ const CommentInput = ({ data }) => {
         if (createdComment.content === '') {
             console.error('Add Comment Error!');
             return;
-        } else {
-            await dispatch(
-                makeComment(context.user._id)
-            );
-            return toast.success("Comment added Successfully!");
         }
+
+        await dispatch(
+            makeComment(context.user._id)
+        );
+        return toast.success("Comment added Successfully!");
     };
 
     const createCommentFormHandler = (e) => {
@@ -76,7 +78,10 @@ const CommentInput = ({ data }) => {
                     <h4 className={styles.comments}>Add new comment:</h4>
                     <form className={styles.formStyle} onSubmit={createCommentFormHandler}>
                         {showElement
-                            ? <p className={styles.errorStyle}>{error}</p>
+                            ? <>
+                                <p className={styles.errorStyle}>{error}</p>
+                                {reduxErrors.content}
+                            </>
                             : null
                         }
                         <textarea
@@ -101,4 +106,13 @@ const CommentInput = ({ data }) => {
     )
 }
 
-export default CommentInput; 
+CommentInput.propTypes = {
+    makeComment: PropTypes.func.isRequired,
+    errors: PropTypes.object.isRequired
+}
+
+const mapStateToProps = (state) => ({
+    errors: state.errors
+})
+
+export default connect(mapStateToProps, { makeComment })(CommentInput); 
