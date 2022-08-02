@@ -58,7 +58,10 @@ This is the structure of my project:
         -   contexts
         -   hooks
         -   pages
+        -   Redux
         -   services
+        -   App.js
+        -   index.js
 
 -   backend
     -   config : configure express, mongodb and .env variables
