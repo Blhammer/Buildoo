@@ -68,9 +68,24 @@ This is the structure of my project:
 
 ## How to start the project
 
+**Note**
+Before run the project, you have to configure .env files in frontend and backend root folders:
+
+You have to add:
+- in frontend folder:
+    - REACT_APP_GOOGLE_MAPS_API_KEY = 'Your API Key'
+    
+- in backend folder:
+    - START_CONFIG_PORT = Your port(number)
+    - START_CONFIG_USERNAME = 'Your database username'
+    - START_CONFIG_PASSWORD = 'Your database password'
+    - DATABASE_NAME = 'Your database name'
+    - DATABASE_ADDRESS = 'Your database address'
+    - DATABASE_SECRET_KEY = 'Your database secret key'
+
 1. Configure your local mongodb cluster in /backend/config/mongoDb urlConnectionString
 
-2. Change the environment variables with yours
+2. Change the environment variables with yours (follow the steps above)
 
 3. Open:
 
