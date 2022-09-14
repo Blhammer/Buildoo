@@ -71,7 +71,7 @@ This is the structure of my project:
 
 ## How to start the project
 
-**Note**
+> **Note**
 Before run the project, you have to configure .env files in frontend and backend root folders:
 
 You have to add:
