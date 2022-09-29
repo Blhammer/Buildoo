@@ -16,6 +16,7 @@ The web application has been built with MERN full-stack and it has been deployed
 -   [Project Structure](#Project-Structure)
 -   [How to start the project](#How-to-start-the-project)
 -   [Frontend](#Frontend)
+-   [Backend](#Backend)
 
 ## Project
 
@@ -51,7 +52,6 @@ Used technologies:
 This is the structure of my project:
 
 -   frontend
-
     -   public
     -   src
         -   components
