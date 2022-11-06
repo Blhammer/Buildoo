@@ -67,7 +67,7 @@ This is the structure of my project:
     -   config : configure express, mongodb and .env variables
     -   database : includes models, services and a helper file
     -   server : images uploader, services and router
-    -   tests : test the backend
+    -   tests : test the backend -> **Note** Soon update
 
 ## How to start the project
 
