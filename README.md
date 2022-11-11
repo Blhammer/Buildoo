@@ -1,3 +1,5 @@
+**Warning** Buildoo website will be back soon because of the expected paid plan!
+
 # Buildoo: Place where you can find any services
 
 The main goal of this application is to help users to find, create or share the services with their friends or relatives if they need.
