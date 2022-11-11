@@ -1,4 +1,4 @@
-**Warning** Buildoo website will be back soon because of the expected paid plan!
+> **Warning** Buildoo website will be back soon because of the expected paid plan!
 
 # Buildoo: Place where you can find any services
 
